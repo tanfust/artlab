@@ -47,11 +47,11 @@
                 </a>
             </div>
         </nav>
+        <div class="w-full pt-28 px-[12vw] relative">
+            <h1 class="md:text-9xl lg:text-[284px] font-bold tracking-tighter flex items-start gap-5">Hello <img src="star.svg" /></h1>
+        </div>
 
         <main>
-            <div class="w-full pt-28 px-[12vw] relative">
-                <h1 class="md:text-9xl lg:text-[284px] font-bold tracking-tighter flex items-start gap-5">Hello <img src="star.svg" /></h1>
-            </div>
             <form class="w-full flex flex-col gap-10 px-[20vw] py-32">
                 <div class="flex flex-col gap-10 w-full">
                     <div class="flex flex-col gap-2 w-full">

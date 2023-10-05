@@ -50,12 +50,12 @@
         <div class="w-full border-b-[2px] border-border pt-28 pb-10 px-[12vw] relative">
             <h1 class="md:text-9xl lg:text-[284px] font-bold pb-10 tracking-tighter flex items-start gap-5">Terms <img src="star.svg" /></h1>
             <h1 class="md:text-6xl lg:text-[87px] font-medium max-w-4xl tracking-tighter">WE FOCUS ON SIMPLE ORGANIZATION CONDITIONS.</h1>
-            <a class="absolute right-16 bottom-12 rounded-full border-2 border-border w-40 h-40 hover:scale-[1.1] transition-all cursor-pointer flex items-center justify-center rotate-90 hover:rotate-0">
+            <a href="#main" class="absolute right-16 bottom-12 rounded-full border-2 border-border w-40 h-40 hover:scale-[1.1] transition-all cursor-pointer flex items-center justify-center rotate-90 hover:rotate-0">
                 <img src="arrow.svg" class=""/>
             </a>
         </div>
 
-        <main class="px-[12vw]">
+        <main class="px-[12vw]" id="main">
             <div class="w-full flex flex-col gap-16 py-32 justify-center">
                 <h1 class="text-4xl font-medium">Insert your privacy policy tailored to your website. This is only a sample text and should be completed according to the criteria that apply in your country.</h1>
                 <h1 class="text-4xl font-medium">For the purposes of proper functioning, statistics and advertising, websites may use cookies. You can manage cookies from your browser for any website. More information on the conditions for storing or accessing cookies can be found in the privacy policy.</h1>

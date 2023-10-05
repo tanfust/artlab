@@ -29,7 +29,7 @@
         </div>
 
         <nav class="bg-background flex border-b-2 border-border w-full">
-            <div class="border-r-2 border-border nav-link w-full flex flex-col justify-between transition-all hover:bg-backgroundHover hover:underline  cursor-pointer">
+            <div class="border-r-2 border-border nav-link w-full flex flex-col justify-between transition-all hover:bg-backgroundHover hover:underline cursor-pointer">
                 <a href="{{url('/')}}"><h1 class="text-xl p-5 font-bold">ArtLab</h1></a>
             </div>
             <div class="border-r-2 border-border nav-link w-full  flex flex-col justify-between hover:bg-text1 hover:text-background hover:underline transition-all cursor-pointer">
@@ -55,14 +55,15 @@
             </div>
         </nav>
 
-        <main>
-            <div class="w-full border-b-[2px] border-border pt-28 pb-10 px-[12vw] relative">
-                <h1 class="md:text-9xl lg:text-[284px] font-bold pb-10 tracking-tighter flex items-start gap-5">AUCTIONS <img src="star.svg" /></h1>
-                <h1 class="md:text-6xl lg:text-[87px] font-medium max-w-4xl tracking-tighter">WHERE VALUABLES BECOME ACCESSIBLE.</h1>
-                <a class="absolute right-16 bottom-12 rounded-full border-2 border-border w-40 h-40 hover:scale-[1.1] transition-all cursor-pointer flex items-center justify-center rotate-90 hover:rotate-0">
-                    <img src="arrow.svg" class=""/>
-                </a>
-            </div>
+        <div class="w-full border-b-[2px] border-border pt-28 pb-10 px-[12vw] relative">
+            <h1 class="md:text-9xl lg:text-[284px] font-bold pb-10 tracking-tighter flex items-start gap-5">AUCTIONS <img src="star.svg" /></h1>
+            <h1 class="md:text-6xl lg:text-[87px] font-medium max-w-4xl tracking-tighter">WHERE VALUABLES BECOME ACCESSIBLE.</h1>
+            <a href="#main" class="absolute right-16 bottom-12 rounded-full border-2 border-border w-40 h-40 hover:scale-[1.1] transition-all cursor-pointer flex items-center justify-center rotate-90 hover:rotate-0">
+                <img src="arrow.svg" class=""/>
+            </a>
+        </div>
+
+        <main id="main">
 
         </main>
         <div class="px-10">
