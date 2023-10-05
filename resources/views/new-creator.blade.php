@@ -20,8 +20,8 @@
         @vite('resources/css/app.css')
 
     </head>
-    <body class="antialiased bg-background4">
-        <nav class="bg-background4 flex border-b-2 border-border w-full">
+    <body class="antialiased bg-background3">
+        <nav class="bg-background3 flex border-b-2 border-border w-full">
             <div class="border-r-2 border-border nav-link w-full flex flex-col justify-between transition-all hover:bg-backgroundHover hover:underline  cursor-pointer">
                 <a href="{{url('/')}}"><h1 class="text-xl p-5 font-bold">ArtLab</h1></a>
             </div>
@@ -47,48 +47,35 @@
                 </a>
             </div>
         </nav>
-        <div class="w-full border-b-[2px] border-border pt-28 pb-10 px-[12vw] relative">
-            <h1 class="md:text-9xl lg:text-[284px] font-bold pb-10 tracking-tighter flex items-start gap-5">Terms <img src="star.svg" /></h1>
-            <h1 class="md:text-6xl lg:text-[87px] font-medium max-w-4xl tracking-tighter">WE FOCUS ON SIMPLE ORGANIZATION CONDITIONS.</h1>
-            <a class="absolute right-16 bottom-12 rounded-full border-2 border-border w-40 h-40 hover:scale-[1.1] transition-all cursor-pointer flex items-center justify-center rotate-90 hover:rotate-0">
-                <img src="arrow.svg" class=""/>
-            </a>
-        </div>
 
-        <main class="px-[12vw]">
-            <div class="w-full flex flex-col gap-16 py-32 justify-center">
-                <h1 class="text-4xl font-medium">Insert your privacy policy tailored to your website. This is only a sample text and should be completed according to the criteria that apply in your country.</h1>
-                <h1 class="text-4xl font-medium">For the purposes of proper functioning, statistics and advertising, websites may use cookies. You can manage cookies from your browser for any website. More information on the conditions for storing or accessing cookies can be found in the privacy policy.</h1>
-                <h1 class="text-lg font-semibold pt-16 tracking-tighter max-w-3xl">PRIVACY POLICY REGULATING THE PROCESSING OF PERSONAL DATA, THE USE OF COOKIES AND MEETING THE INFORMATION CRITERIA ACCORDING TO YOUR COUNTRY.</h1>
+        <main>
+            <div class="w-full pt-28 px-[12vw] relative">
+                <h1 class="md:text-9xl lg:text-[284px] font-bold tracking-tighter flex items-start gap-5">Creator <img src="star.svg" /></h1>
             </div>
-
-
-                <div class="w-full flex items-center pb-32">
-                    <div class="flex flex-col border-2 border-border w-[50%]">
-                        <div class="event-2 w-[100%] h-[400px]"></div>
-                        <div class="flex flex-col gap-10 p-16">
-                            <h1 class="text-3xl font-bold max-w-4xl tracking-tighter">BEAUTIFUL PHOTOGRAPHY</h1>
-                            <h1 class="text-2xl font-medium max-w-4xl tracking-tighter">A creative platform for all enthusiasts of visual photography. The best articles for beginners and advanced learners.</h1>
-                        </div>
+            <form class="w-full flex flex-col gap-10 px-[20vw] py-32">
+                <div class="flex flex-col gap-10 w-full">
+                    <div class="flex flex-col gap-2 w-full">
+                        <label class="font-bold" for="name">NAME <span class="pl-1 text-red">*</span></label>
+                        <input type="text" id="name" name="name" class="w-full py-3 placeholder:text-textPlaceholder px-6 text-lg border-2 border-border bg-backgroundInput hover:bg-backgroundHover" placeholder="Your name" />
                     </div>
-                    <div class="w-[50%] flex flex-col gap-20 p-16">
-                       <h1 class="text-3xl font-bold max-w-4xl tracking-tighter">ABOUT AGENCY</h1>
-                       <h1 class="text-2xl font-medium max-w-xl tracking-tighter leading-tight">CHECK AND DISCOVERY ABOUT GOING ON IN THE ARTISTIC AND MUSEUM WORLD. BROWSE THROUGH THE ART EVENTS AND STAY UP TO DATE WITH WHAT HAPPENING.</h1>
-                       <div class="flex flex-col">
-                            <h1 class="text-base font-bold max-w-4xl tracking-tighter">HAYTHEM LAZAAR</h1>
-                            <h1 class="text-base font-regular max-w-4xl tracking-tighter">CEO ARTLAB</h1>
-                        </div>
-                   </div>
-               </div>
-
-        </main>
-        <div class="px-10">
-            <a href="{{url('/tickets')}}">
-                <div class="bg-border flex items-center justify-center p-40 cursor-pointer">
-                    <h1 class="text-9xl tracking-[0.2em] text-background font-bold hover:border-b-4 hover:border-b-[gray-800]">BUY TICKET</h1>
+                    <div class="flex flex-col gap-2 w-full">
+                        <label class="font-bold" for="email">E-MAIL <span class="pl-1 text-red">*</span></label>
+                        <input type="email" id="email" name="email" class="w-full py-3 placeholder:text-textPlaceholder px-6 text-lg border-2 border-border bg-backgroundInput hover:bg-backgroundHover" placeholder="Your e-mail" />
+                    </div>
+                    <div class="flex flex-col gap-2 w-full">
+                        <label class="font-bold" for="pass">PASSWORD <span class="pl-1 text-red">*</span></label>
+                        <input type="password" id="pass" name="pass" class="w-full py-3 placeholder:text-textPlaceholder px-6 text-lg border-2 border-border bg-backgroundInput hover:bg-backgroundHover" placeholder="Your password" />
+                    </div>
                 </div>
-            </a>
-        </div>
+                <div class="flex gap-2">
+                    <input type="checkbox" id="privacy-policy" name="privacy-policy" />
+                    <label class="font-medium text-lg tracking-tight" for="privacy-policy">CLICK HERE TO INDICATE THAT YOU HAVE READ AND AGREE TO THE TERMS PRESENTED IN THE PRIVACY POLICY AGREEMENT.</label>
+                </div>
+                <button class="tracking-[0.2em] font-medium text-lg w-fit text-background3 bg-border py-4 px-20 hover:bg-buttonHover" type="submit">SIGN UP</button>
+                <a href="{{url('/creator')}}"><h1 class="font-medium text-lg tracking-tight hover:text-text2">ALREADY HAVE AN ACCOUNT? SIGN IN.</h1></a>
+            </form>
+        </main>
+
 
         <footer class="p-20">
             <div class="w-full flex gap-20 text-base font-bold items-center justify-center pb-10">

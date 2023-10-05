@@ -43,6 +43,18 @@ Route::get('/tickets', function () {
 Route::get('/mission', function () {
     return view('our-mission');
 });
+Route::get('/blog', function () {
+    return view('blog');
+});
+Route::get('/auctions', function () {
+    return view('auctions');
+});
+Route::get('/creator', function () {
+    return view('creator');
+});
+Route::get('/new-account', function () {
+    return view('new-creator');
+});
 
 Route::get('/dashboard',[DashboardController::class,'index']);
 

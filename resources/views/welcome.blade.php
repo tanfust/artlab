@@ -30,19 +30,28 @@
 
         <nav class="bg-background flex border-b-2 border-border w-full">
             <div class="border-r-2 border-border nav-link w-full flex flex-col justify-between transition-all hover:bg-backgroundHover hover:underline  cursor-pointer">
-                <a href="{{url('/')}}"><h1 class="text-2xl p-5 font-bold">ArtLab</h1></a>
+                <a href="{{url('/')}}"><h1 class="text-xl p-5 font-bold">ArtLab</h1></a>
             </div>
             <div class="border-r-2 border-border nav-link w-full  flex flex-col justify-between hover:bg-text1 hover:text-background hover:underline transition-all cursor-pointer">
                 <a href="{{url('/events')}}">
-                    <h1 class="text-2xl p-5 font-bold">Events</h1>
-                    <h1 class="text-2xl p-5 font-bold">3</h1>
+                    <h1 class="text-xl p-5 font-bold">Upcoming Events</h1>
+                    <h1 class="text-xl p-5 font-bold">3</h1>
+                </a>
+            </div>
+            <div class="border-r-2 border-border nav-link w-full  flex flex-col justify-between hover:bg-text1 hover:text-background hover:underline transition-all cursor-pointer">
+                <a href="{{url('/auctions')}}">
+                    <h1 class="text-xl p-5 font-bold">Live Auctions</h1>
+                    <h1 class="text-xl p-5 font-bold">5</h1>
                 </a>
             </div>
             <div class="border-r-2 border-border nav-link w-full  flex flex-col justify-between hover:bg-backgroundHover hover:underline transition-all cursor-pointer">
-                <a href="{{url('/tickets')}}"><h1 class="text-2xl p-5 font-bold">Buy Ticket</h1></a>
+                <a href="{{url('/blog')}}"><h1 class="text-xl p-5 font-bold">ArtBlog</h1></a>
             </div>
-            <div class="nav-link w-full  flex flex-col justify-between hover:bg-backgroundHover hover:underline transition-all cursor-pointer">
-                <a href="{{url('/mission')}}"><h1 class="text-2xl p-5 font-bold">Our Mission<h1></a>
+            <div class="border-r-2 border-border nav-link w-full  flex flex-col justify-between hover:bg-backgroundHover  transition-all cursor-pointer">
+                <a href="{{url('/creator')}}">
+                    <h1 class="text-xl p-5 font-bold">Creator</h1>
+                    <h1 class="text-lg p-5 font-regular">Sign-in</h1>
+                </a>
             </div>
         </nav>
 
@@ -107,17 +116,20 @@
             </div>
         </main>
         <div class="px-10">
-            <div class="bg-border flex items-center justify-center p-40 cursor-pointer">
-                <h1 class="text-9xl tracking-[0.2em] text-background font-bold hover:border-b-4 hover:border-b-[gray-800]">BUY TICKET</h1>
-            </div>
+            <a href="{{url('/tickets')}}">
+                <div class="bg-border flex items-center justify-center p-40 cursor-pointer">
+                    <h1 class="text-9xl tracking-[0.2em] text-background font-bold hover:border-b-4 hover:border-b-[gray-800]">BUY TICKET</h1>
+                </div>
+            </a>
         </div>
+
         <footer class="p-20">
             <div class="w-full flex gap-20 text-base font-bold items-center justify-center pb-10">
-                <a class="tracking-[0.2em] cursor-pointer hover:border-b-2 hover:border-b-border border-b-2 border-border">HOME PAGE</a>
-                <a class="tracking-[0.2em] cursor-pointer hover:border-b-2 hover:border-b-border">EVENTS</a>
-                <a class="tracking-[0.2em] text-4xl px-20">ARTLAB</a>
-                <a class="tracking-[0.2em] cursor-pointer hover:border-b-2 hover:border-b-border">BUY TICKET</a>
-                <a class="tracking-[0.2em] cursor-pointer hover:border-b-2 hover:border-b-border">OUR MISSION</a>
+                <a href="{{url('/events')}}" class="tracking-[0.2em] cursor-pointer hover:border-b-2 hover:border-b-border">EVENTS</a>
+                <a href="{{url('/auctions')}}" class="tracking-[0.2em] cursor-pointer hover:border-b-2 hover:border-b-border">AUCTIONS</a>
+                <a href="{{url('/')}}" class="tracking-[0.2em] text-4xl px-20">ARTLAB</a>
+                <a href="{{url('/blog')}}" class="tracking-[0.2em] cursor-pointer hover:border-b-2 hover:border-b-border">BLOG</a>
+                <a href="{{url('/mission')}}" class="tracking-[0.2em] cursor-pointer hover:border-b-2 hover:border-b-border">OUR MISSION</a>
             </div>
             <div class="border-t-2 border-b-2 border-border flex justify-center py-10">
                 <h1 class="tracking-[0.2em]">COPYRIGHT © 2023 ARTLAB PLATFORM. ALL RIGHT RESERVED.</h1>
