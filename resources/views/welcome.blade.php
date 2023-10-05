@@ -30,17 +30,19 @@
 
         <nav class="bg-background flex border-b-2 border-border w-full">
             <div class="border-r-2 border-border nav-link w-full flex flex-col justify-between transition-all hover:bg-backgroundHover hover:underline  cursor-pointer">
-                <h1 class="text-2xl p-5 font-bold">ArtLab</h1>
+                <a href="{{url('/')}}"><h1 class="text-2xl p-5 font-bold">ArtLab</h1></a>
             </div>
             <div class="border-r-2 border-border nav-link w-full  flex flex-col justify-between hover:bg-text1 hover:text-background hover:underline transition-all cursor-pointer">
-                <h1 class="text-2xl p-5 font-bold">Events</h1>
-                <h1 class="text-2xl p-5 font-bold">3</h1>
+                <a href="{{url('/events')}}">
+                    <h1 class="text-2xl p-5 font-bold">Events</h1>
+                    <h1 class="text-2xl p-5 font-bold">3</h1>
+                </a>
             </div>
             <div class="border-r-2 border-border nav-link w-full  flex flex-col justify-between hover:bg-backgroundHover hover:underline transition-all cursor-pointer">
-                <h1 class="text-2xl p-5 font-bold">Buy Ticket</h1>
+                <a href="{{url('/tickets')}}"><h1 class="text-2xl p-5 font-bold">Buy Ticket</h1></a>
             </div>
             <div class="nav-link w-full  flex flex-col justify-between hover:bg-backgroundHover hover:underline transition-all cursor-pointer">
-                <h1 class="text-2xl p-5 font-bold">Our Mission<h1>
+                <a href="{{url('/mission')}}"><h1 class="text-2xl p-5 font-bold">Our Mission<h1></a>
             </div>
         </nav>
 
