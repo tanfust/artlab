@@ -4,13 +4,13 @@
             src="star.svg" /></h1>
     <h1 class="md:text-6xl lg:text-[87px] font-medium max-w-4xl tracking-tighter">WE FOCUS ON SIMPLE ORGANIZATION
         CONDITIONS.</h1>
-    <a
+    <a  href="#main"
         class="absolute right-16 bottom-12 rounded-full border-2 border-border w-40 h-40 hover:scale-[1.1] transition-all cursor-pointer flex items-center justify-center rotate-90 hover:rotate-0">
         <img src="arrow.svg" class="" />
     </a>
 </div>
 
-<main class="px-[12vw]">
+<main class="px-[12vw]" id="main">
     <div class="w-full flex flex-col gap-16 py-32 justify-center">
         <h1 class="text-4xl font-medium">Insert your privacy policy tailored to your website. This is only a sample
             text and should be completed according to the criteria that apply in your country.</h1>
@@ -46,9 +46,12 @@
 
 </main>
 <div class="px-10">
-    <div class="bg-border flex items-center justify-center p-40 cursor-pointer">
-        <h1 class="text-9xl tracking-[0.2em] text-background font-bold hover:border-b-4 hover:border-b-[gray-800]">
-            BUY TICKET</h1>
-    </div>
+    <a href="{{url('/tickets')}}" >
+        <div class="bg-border flex items-center justify-center p-40 cursor-pointer">
+            <h1 class="text-9xl tracking-[0.2em] text-background font-bold hover:border-b-4 hover:border-b-[gray-800]">
+                BUY TICKET
+            </h1>
+        </div>
+    </a>
 </div>
 @include('front-office/Layout.Footer')

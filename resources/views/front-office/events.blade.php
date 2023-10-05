@@ -5,13 +5,13 @@
             src="star.svg" /></h1>
     <h1 class="md:text-6xl lg:text-[87px] font-medium max-w-4xl tracking-tighter">DESIGN BUILDS POSITIVE EMOTIONS.
     </h1>
-    <a
+    <a  href="#main"
         class="absolute right-16 bottom-12 rounded-full border-2 border-border w-40 h-40 hover:scale-[1.1] transition-all cursor-pointer flex items-center justify-center rotate-90 hover:rotate-0">
         <img src="arrow.svg" class="" />
     </a>
 </div>
 
-<main>
+<main id="main">
     <div class="gradient-hover w-full border-t-2 border-text3 flex flex-col py-20 px-6 hover:underline cursor-pointer">
         <div class="w-full flex items-end">
             <h1 class="w-[50%] text-text3 font-semibold">
@@ -45,9 +45,12 @@
 </main>
 
 <div class="px-10">
-    <div class="bg-border flex items-center justify-center p-40 cursor-pointer">
-        <h1 class="text-9xl tracking-[0.2em] text-background font-bold hover:border-b-4 hover:border-b-[gray-800]">
-            BUY TICKET</h1>
-    </div>
+    <a href="{{url('/tickets')}}" >
+        <div class="bg-border flex items-center justify-center p-40 cursor-pointer">
+            <h1 class="text-9xl tracking-[0.2em] text-background font-bold hover:border-b-4 hover:border-b-[gray-800]">
+                BUY TICKET
+            </h1>
+        </div>
+    </a>
 </div>
 @include('front-office/Layout.Footer')

@@ -43,6 +43,18 @@ Route::get('/tickets', function () {
 Route::get('/mission', function () {
     return view('front-office/our-mission');
 });
+Route::get('/blog', function () {
+    return view('front-office/blog');
+});
+Route::get('/auctions', function () {
+    return view('front-office/auctions');
+});
+Route::get('/creator', function () {
+    return view('front-office/creator');
+});
+Route::get('/new-account', function () {
+    return view('front-office/new-creator');
+});
 
 Route::get('/dashboard',[DashboardController::class,'index']);
 
