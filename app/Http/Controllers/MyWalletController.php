@@ -71,6 +71,6 @@ class MyWalletController extends Controller
             'LTC'=> 2.32,
             'LTC_percentage' => 81
         );
-        return view('MyWallet',['Investment15Days'=>$Investment15Days,'RecentTransactionRecent'=>$RecentTransactionRecent,'RecentTransactionSend'=>$RecentTransactionSend,'CurrencyStatistics'=>$CurrencyStatistics,'CurrencyStatistics_monthly'=>$CurrencyStatistics_monthly,'Investment'=>$Investment,'MyWellat'=>$MyWellat,'RecentTransaction'=>$RecentTransaction,'wellateStatistic'=>$wellateStatistic,'CurrencyStatistics_weekly'=>$CurrencyStatistics_weekly]);
+        return view('back-office/MyWallet',['Investment15Days'=>$Investment15Days,'RecentTransactionRecent'=>$RecentTransactionRecent,'RecentTransactionSend'=>$RecentTransactionSend,'CurrencyStatistics'=>$CurrencyStatistics,'CurrencyStatistics_monthly'=>$CurrencyStatistics_monthly,'Investment'=>$Investment,'MyWellat'=>$MyWellat,'RecentTransaction'=>$RecentTransaction,'wellateStatistic'=>$wellateStatistic,'CurrencyStatistics_weekly'=>$CurrencyStatistics_weekly]);
     }
 }

@@ -18,6 +18,6 @@ class MarketPlaceDetailsController extends Controller
             [50, 20, 45, 15, 55, 20,60, 20,70,45,64,20,72,22,66]
         );
 
-        return view('MarketPlaceDetails',['SellHistory'=>$SellHistory,'MarketVisitor'=>$MarketVisitor]);
+        return view('back-office/MarketPlaceDetails',['SellHistory'=>$SellHistory,'MarketVisitor'=>$MarketVisitor]);
     }
 }

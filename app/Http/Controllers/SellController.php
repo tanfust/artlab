@@ -53,7 +53,7 @@ class SellController extends Controller
             ['2 Hours 1 min 30s','assets/img/nft-table-img4.png','Mullican Computer Joy','Xoeyam',1,343,1.323,1.323],
             ['2 Hours 1 min 30s','assets/img/nft-table-img4.png','Mullican Computer Joy','Xoeyam',1,343,1.323,1.323],
             ['2 Hours 1 min 30s','assets/img/nft-table-img1.png','Mullican Computer Joy','Xoeyam',1,343,1.323,1.323]
-            
+
         );
         $productHistoryV2 = array(
             ['2 Hours 1 min 30s','assets/img/nft-table-img1.png','Mullican Computer Joy','Xoeyam',1,343,1.323,1.323],
@@ -119,6 +119,6 @@ class SellController extends Controller
 
         );
 
-        return view('Sell',['productHistoryV2'=>$productHistoryV2,'productHistoryV3'=>$productHistoryV3,'CurrencyStatistics_30days'=>$CurrencyStatistics_30days,'BitsthisMonthData'=>$BitsthisMonthData,'SellEaringthisMonth'=>$SellEaringthisMonth,'SellHistory_15days'=>$SellHistory_15days,'SellHistory_30days'=>$SellHistory_30days,'CurrencyStatistics_15days'=>$CurrencyStatistics_15days,'CurrencyStatistics'=>$CurrencyStatistics,'SellHistory'=>$SellHistory,'SellEaringThisMonth'=>$SellEaringThisMonth,'BitsThisMonth'=>$BitsThisMonth,'productHistory'=>$productHistory,'wellateStatistic'=>$wellateStatistic,'TopSellCountry'=>$TopSellCountry,'TopSellCountryMonthly'=>$TopSellCountryMonthly,'TopSellCountryWeekly'=>$TopSellCountryWeekly]);
+        return view('back-office/Sell',['productHistoryV2'=>$productHistoryV2,'productHistoryV3'=>$productHistoryV3,'CurrencyStatistics_30days'=>$CurrencyStatistics_30days,'BitsthisMonthData'=>$BitsthisMonthData,'SellEaringthisMonth'=>$SellEaringthisMonth,'SellHistory_15days'=>$SellHistory_15days,'SellHistory_30days'=>$SellHistory_30days,'CurrencyStatistics_15days'=>$CurrencyStatistics_15days,'CurrencyStatistics'=>$CurrencyStatistics,'SellHistory'=>$SellHistory,'SellEaringThisMonth'=>$SellEaringThisMonth,'BitsThisMonth'=>$BitsThisMonth,'productHistory'=>$productHistory,'wellateStatistic'=>$wellateStatistic,'TopSellCountry'=>$TopSellCountry,'TopSellCountryMonthly'=>$TopSellCountryMonthly,'TopSellCountryWeekly'=>$TopSellCountryWeekly]);
     }
 }

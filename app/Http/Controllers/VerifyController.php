@@ -8,7 +8,7 @@ class VerifyController extends Controller
 {
     public function index()
     {
-        return view('Verify');
+        return view('back-office/Verify');
     }
     public function verification(Request $request)
     {

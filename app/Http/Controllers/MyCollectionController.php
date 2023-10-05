@@ -22,6 +22,6 @@ class MyCollectionController extends Controller
             ['assets/img/col-1.png','assets/img/col-2.png','assets/img/col-3.png','assets/img/market-author-1.png','Photography',32],
         );
 
-        return view('MyCollection',['collection'=>$collection]);
+        return view('back-office/MyCollection',['collection'=>$collection]);
     }
 }

@@ -20,6 +20,6 @@ class MessageController extends Controller
             ['assets/img/chat-author9.png','Cameron Williamson','Hello there, here is the a...','12:34PM',3],
             ['assets/img/chat-author10.png','Cameron Williamson','Hello there, here is the a...','12:34PM',12],
         );
-        return view('Message',['AllMessage'=>$AllMessage]);
+        return view('back-office/Message',['AllMessage'=>$AllMessage]);
     }
 }

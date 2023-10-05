@@ -20,6 +20,6 @@ class AllSavedController extends Controller
         );
 
 
-        return view('AllSaved',['AllBids'=>$AllBids]);
+        return view('back-office/AllSaved',['AllBids'=>$AllBids]);
     }
 }

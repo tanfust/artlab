@@ -99,9 +99,9 @@ class profileController extends Controller
             ['assets/img/trending-img-3.png','assets/img/author-pic.png','Bilout jesmin','Lock and Lob x Fiesta ',2320382,'@broklinslam_75',75320,773.69],
             ['assets/img/trending-img-4.png','assets/img/author-pic.png','Brokln Simons','Interconnected Planes',2320382,'@broklinslam_75',75320,773.69]
 
-            
 
-           
+
+
         );
 
         $Activity = array(
@@ -118,6 +118,6 @@ class profileController extends Controller
 
         );
 
-        return view('Profile',['User'=>$User,'Activity'=>$Activity,'collection'=>$collection,'OnSale'=>$OnSale,'Created'=>$Created,'CreateforBits'=>$CreateforBits,'CreateforSell'=>$CreateforSell,'Owned'=>$Owned,'CreateforBitsHidden'=>$CreateforBitsHidden,'CreateforSellHidden'=>$CreateforSellHidden]);
+        return view('back-office/Profile',['User'=>$User,'Activity'=>$Activity,'collection'=>$collection,'OnSale'=>$OnSale,'Created'=>$Created,'CreateforBits'=>$CreateforBits,'CreateforSell'=>$CreateforSell,'Owned'=>$Owned,'CreateforBitsHidden'=>$CreateforBitsHidden,'CreateforSellHidden'=>$CreateforSellHidden]);
     }
 }

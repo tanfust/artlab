@@ -9,7 +9,7 @@ class AdminRegisterController extends Controller
 {
     public function index()
     {
-        return view('AdminRegister');
+        return view('back-office/AdminRegister');
     }
     public function register(Request $request)
     {
@@ -19,7 +19,7 @@ class AdminRegisterController extends Controller
             'email' => 'required|email|string',
             'password' => 'required|min:6|confirmed'
         ]);
-        
+
         if($validate->fails())
         {
             return $validate->errors();

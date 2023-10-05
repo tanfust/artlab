@@ -13,10 +13,10 @@ class FlorgotPasswordController extends Controller
     public function findPassword(Request $request)
     {
         $adminCredential = array('admin@gmail.com');
-        
+
         if($request->email == $adminCredential[0])
         {
-            return view('/verify');
+            return view('back-office/verify');
         }
     }
 }

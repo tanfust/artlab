@@ -56,6 +56,6 @@ class ActiveBidsController extends Controller
             'current_bids' => 30,
             'close_artwork' => 3
         );
-        return view('ActiveBids',['AllNFTSUpdateV2'=>$AllNFTSUpdateV2,'AllNFTSUpdateV3'=>$AllNFTSUpdateV3,'AllBids'=>$AllBids,'AllNFTSUpdate'=>$AllNFTSUpdate,'ActiveBids'=>$ActiveBids,'Artworks'=>$Artworks]);
+        return view('back-office/ActiveBids',['AllNFTSUpdateV2'=>$AllNFTSUpdateV2,'AllNFTSUpdateV3'=>$AllNFTSUpdateV3,'AllBids'=>$AllBids,'AllNFTSUpdate'=>$AllNFTSUpdate,'ActiveBids'=>$ActiveBids,'Artworks'=>$Artworks]);
     }
 }

@@ -32,16 +32,28 @@ use App\Http\Controllers\ProductUploadController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front-office/welcome');
 });
 Route::get('/events', function () {
-    return view('events');
+    return view('front-office/events');
 });
 Route::get('/tickets', function () {
-    return view('buy-ticket');
+    return view('front-office/buy-ticket');
 });
 Route::get('/mission', function () {
-    return view('our-mission');
+    return view('front-office/our-mission');
+});
+Route::get('/blog', function () {
+    return view('front-office/blog');
+});
+Route::get('/auctions', function () {
+    return view('front-office/auctions');
+});
+Route::get('/creator', function () {
+    return view('front-office/creator');
+});
+Route::get('/new-account', function () {
+    return view('front-office/new-creator');
 });
 
 Route::get('/dashboard',[DashboardController::class,'index']);
