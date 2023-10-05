@@ -41,7 +41,7 @@ class DashboardController extends Controller
             ['assets/img/verfify-sign.png','assets/img/seller-3.png','Brokln Simons','@broklinslam_75','assets/img/diamond-icon.png',3435],
             ['assets/img/verfify-sign.png','assets/img/seller-1.png','Brokln Simons','@broklinslam_75','assets/img/diamond-icon.png',7435],
             ['assets/img/verfify-sign.png','assets/img/seller-2.png','Brokln Simons','@broklinslam_75','assets/img/diamond-icon.png',3435]
-            
+
         );
 
         $TopBuyer = array(
@@ -55,7 +55,7 @@ class DashboardController extends Controller
             ['assets/img/verfify-sign.png','assets/img/seller-2.png','Brokln Simons','@broklinslam_75','assets/img/diamond-icon.png',39],
             ['assets/img/verfify-sign.png','assets/img/seller-1.png','Brokln Simons','@broklinslam_75','assets/img/diamond-icon.png',35],
             ['assets/img/verfify-sign.png','assets/img/seller-2.png','Brokln Simons','@broklinslam_75','assets/img/diamond-icon.png',35]
-            
+
         );
 
         $SellHistory = array(
@@ -106,6 +106,6 @@ class DashboardController extends Controller
 
        //dd($sliderBanner);
 
-        return view('Dashboard',['AllNFTSUpdate'=>$AllNFTSUpdate,'AllNFTSUpdateV2'=>$AllNFTSUpdateV2,'AllNFTSUpdateV3'=>$AllNFTSUpdateV3,'TopSeller'=>$TopSeller,'TopBuyer'=>$TopBuyer,'SellHistory'=>$SellHistory,'MarketVisitor'=>$MarketVisitor,'sliderBanner'=>$sliderBanner,'TrendingAction'=>$TrendingAction,'CurrentBid'=>$CurrentBid,'MarketVisitorMonthly'=>$MarketVisitorMonthly,'MarketVisitorWeekly'=>$MarketVisitorWeekly]);
+        return view('back-office/Dashboard',['AllNFTSUpdate'=>$AllNFTSUpdate,'AllNFTSUpdateV2'=>$AllNFTSUpdateV2,'AllNFTSUpdateV3'=>$AllNFTSUpdateV3,'TopSeller'=>$TopSeller,'TopBuyer'=>$TopBuyer,'SellHistory'=>$SellHistory,'MarketVisitor'=>$MarketVisitor,'sliderBanner'=>$sliderBanner,'TrendingAction'=>$TrendingAction,'CurrentBid'=>$CurrentBid,'MarketVisitorMonthly'=>$MarketVisitorMonthly,'MarketVisitorWeekly'=>$MarketVisitorWeekly]);
     }
 }

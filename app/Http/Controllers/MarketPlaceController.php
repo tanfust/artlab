@@ -60,6 +60,6 @@ class MarketPlaceController extends Controller
             ['assets/img/market-author-1.png','Rrayak John','Yuaisn Kha','assets/img/market-author-2.png',1,'assets/img/marketplace-5.png','Interconnected Planes','assets/img/eth-icon.png',75320],
             ['assets/img/market-author-1.png','Rrayak John','Yuaisn Kha','assets/img/market-author-2.png',1,'assets/img/marketplace-3.png','Interconnected Planes','assets/img/eth-icon.png',75320]
         );
-        return view('MarketPlace',['Explore'=>$Explore,'FeaturedArtist'=>$FeaturedArtist,'OpenMarket'=>$OpenMarket,'PartnerShops'=>$PartnerShops,'GameAssets'=>$GameAssets]);
+        return view('back-office/MarketPlace',['Explore'=>$Explore,'FeaturedArtist'=>$FeaturedArtist,'OpenMarket'=>$OpenMarket,'PartnerShops'=>$PartnerShops,'GameAssets'=>$GameAssets]);
     }
 }

@@ -105,8 +105,8 @@ class NotificationController extends Controller
             ['assets/img/notify-3.png','Broklan SimonsStart','Following you','43 h ago']
         );
 
-        return view('Notification',['TodayNotification'=>$TodayNotification,'LastSevenDaysNotification'=>$LastSevenDaysNotification,'AllNotification'=>$AllNotification]);
+        return view('back-office/Notification',['TodayNotification'=>$TodayNotification,'LastSevenDaysNotification'=>$LastSevenDaysNotification,'AllNotification'=>$AllNotification]);
 
     }
-    
+
 }

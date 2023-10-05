@@ -75,20 +75,20 @@ class HistoryController extends Controller
         $Total_sell = array(
             ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
             [25, 30, 35, 25, 25]
-        );  
+        );
         $ActiveCustomer = array(
             ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
             [25, 30, 35, 25, 25]
-        ); 
+        );
         $Total_Prodcuts = array(
             ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
             [25, 30, 35, 25, 25]
-        );  
+        );
         $Close_Offer = array(
             ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
             [25, 30, 35, 25, 25]
-        );  
+        );
        // dd($HistoryData['Total_sell']);
-        return view('History',['AllNFTSUpdateV2'=>$AllNFTSUpdateV2,'AllNFTSUpdateV3'=>$AllNFTSUpdateV3,'MarketHistory_30days'=>$MarketHistory_30days,'MarketHistory_7days'=>$MarketHistory_7days,'SellHistory'=>$SellHistory,'MarketVisitor_7days'=>$MarketVisitor_7days,'MarketVisitor_30days'=>$MarketVisitor_30days,'MarketVisitor'=>$MarketVisitor,'MarketHistory'=>$MarketHistory,'AllNFTSUpdate'=>$AllNFTSUpdate,'HistoryData'=>$HistoryData,'Total_sell'=>$Total_sell,'ActiveCustomer'=>$ActiveCustomer,'Total_Prodcuts'=>$Total_Prodcuts,'Close_Offer'=>$Close_Offer]);
+        return view('back-office/History',['AllNFTSUpdateV2'=>$AllNFTSUpdateV2,'AllNFTSUpdateV3'=>$AllNFTSUpdateV3,'MarketHistory_30days'=>$MarketHistory_30days,'MarketHistory_7days'=>$MarketHistory_7days,'SellHistory'=>$SellHistory,'MarketVisitor_7days'=>$MarketVisitor_7days,'MarketVisitor_30days'=>$MarketVisitor_30days,'MarketVisitor'=>$MarketVisitor,'MarketHistory'=>$MarketHistory,'AllNFTSUpdate'=>$AllNFTSUpdate,'HistoryData'=>$HistoryData,'Total_sell'=>$Total_sell,'ActiveCustomer'=>$ActiveCustomer,'Total_Prodcuts'=>$Total_Prodcuts,'Close_Offer'=>$Close_Offer]);
     }
 }
