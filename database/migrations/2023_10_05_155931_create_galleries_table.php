@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -15,7 +14,12 @@ return new class extends Migration
     {
         Schema::create('galleries', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('creator_id'); // Foreign key to link the gallery to a creator (artist or user)
+            $table->string('galleryName');
+            // Add other gallery-related fields here
             $table->timestamps();
+
+            $table->foreign('creator_id')->references('id')->on('creators'); // Assuming a "creators" table
         });
     }
 
