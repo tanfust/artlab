@@ -31,7 +31,20 @@ use App\Http\Controllers\ProductUploadController;
 |
 */
 
-Route::get('/',[DashboardController::class,'index']);
+Route::get('/', function () {
+    return view('welcome');
+});
+Route::get('/events', function () {
+    return view('events');
+});
+Route::get('/tickets', function () {
+    return view('buy-ticket');
+});
+Route::get('/mission', function () {
+    return view('our-mission');
+});
+
+Route::get('/dashboard',[DashboardController::class,'index']);
 
 Route::get('/load-login',[AdminLoginController::class,'index']);
 Route::post('/admin-login',[AdminLoginController::class,'login']);

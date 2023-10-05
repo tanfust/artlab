@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+    font-family: "Inter", sans-serif;
+}
+
+.event-1 {
+    background-image: url("/public/event-1.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+.event-2 {
+    background-image: url("/public/event-2.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+.event-3 {
+    background-image: url("/public/event-3.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+.event-4 {
+    background-image: url("/public/event-4.jpeg");
+    background-position: center;
+    background-size: cover;
+}
+
+.gradient-hover:hover {
+    background: linear-gradient(
+        10deg,
+        #f8da3d,
+        0%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
+    transition: 0.3s cubic-bezier(0.4, 0.4, 0, 1);
+}
