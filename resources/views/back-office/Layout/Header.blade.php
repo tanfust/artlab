@@ -79,7 +79,7 @@
                                                 <path
                                                     d="M1.48209 6.42236L0.49401 7.41044C0.221159 7.68329 0.221159 8.12567 0.49401 8.39852L4.44633 12.3508C4.71919 12.6237 5.16156 12.6237 5.43441 12.3508L6.4225 11.3628C6.69535 11.0899 6.69535 10.6475 6.4225 10.3747L2.47017 6.42236C2.19732 6.14951 1.75494 6.14951 1.48209 6.42236Z">
                                                 </path>
-                                            </svg></span><span class="menu-bar__name">Active Bids</span><span
+                                            </svg></span><span class="menu-bar__name">Auctions</span><span
                                             class="menu-bar__count nft-gr-primary">{{ $SidebarInf['active_bids'] }}</span></span></a>
                             </li>
                             <li><a href="{{ url('/market-place') }}"><span class="menu-bar__text"><span
@@ -91,7 +91,7 @@
                                                 <path
                                                     d="M9.20833 0V3.24641H8.125V0H4.875V3.24641H3.79167V0H1.19167L0.013 5.29327L0 5.95175C0 6.52575 0.228273 7.07624 0.634602 7.48212C1.04093 7.888 1.59203 8.11602 2.16667 8.11602H2.70833C3.01703 8.11503 3.32189 8.04774 3.60227 7.91872C3.88264 7.78971 4.13197 7.60198 4.33333 7.36827C4.5347 7.60198 4.78402 7.78971 5.0644 7.91872C5.34477 8.04774 5.64964 8.11503 5.95833 8.11602H7.04167C7.34923 8.11618 7.65329 8.05077 7.93352 7.92415C8.21375 7.79753 8.4637 7.61263 8.66667 7.38179C8.86963 7.61263 9.11958 7.79753 9.39981 7.92415C9.68004 8.05077 9.9841 8.11618 10.2917 8.11602H10.8333C11.408 8.11602 11.9591 7.888 12.3654 7.48212C12.7717 7.07624 13 6.52575 13 5.95175V5.41068L11.8083 0H9.20833Z">
                                                 </path>
-                                            </svg></span><span class="menu-bar__name">Marketplace</span><span
+                                            </svg></span><span class="menu-bar__name">Events</span><span
                                             class="menu-bar__count ntfmax__bgc--2">{{ $SidebarInf['market_place'] }}</span></span></a>
                             </li>
                             <li><a href="{{ url('/my-wallet') }}"><span class="menu-bar__text"><span
@@ -106,7 +106,7 @@
                                                 <path
                                                     d="M13.0971 9.03944C12.5933 9.03944 12.0895 9.03747 11.5857 9.04043C11.2142 9.0424 11.0234 8.87475 11.0274 8.50394C11.0314 8.11045 11.0304 7.71696 11.0284 7.32347C11.0264 6.9566 11.2061 6.78895 11.5867 6.79191C12.5944 6.7998 13.602 6.80177 14.6106 6.79289C14.9922 6.78994 15.1699 6.95364 15.1669 7.32248C15.1628 7.71597 15.1618 8.10946 15.1659 8.50295C15.1699 8.87179 14.9872 9.0424 14.6106 9.03747C14.1068 9.03155 13.603 9.0355 13.0992 9.0355C13.0971 9.03648 13.0971 9.03846 13.0971 9.03944ZM13.8645 7.42406C13.6848 7.64299 13.4788 7.79191 13.502 7.88856C13.5373 8.03451 13.7322 8.14398 13.8594 8.26824C13.9755 8.14891 14.1674 8.03944 14.1845 7.90828C14.1997 7.79092 14.023 7.6499 13.8645 7.42406Z">
                                                 </path>
-                                            </svg></span><span class="menu-bar__name">My Wallet</span></span></a></li>
+                                            </svg></span><span class="menu-bar__name">My Blog</span></span></a></li>
                             <li><a href="{{ url('/my-collection') }}"><span class="menu-bar__text"><span
                                             class="nftmax-menu-icon nftmax-svg-icon__v5"><svg class="nftmax-svg-icon"
                                                 viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
@@ -142,10 +142,10 @@
                                                 <path
                                                     d="M3.79296 0C4.44956 0.010169 5.09184 0.192671 5.65493 0.529075C6.21803 0.86548 6.682 1.34387 7 1.91595C7.318 1.34387 7.78197 0.86548 8.34507 0.529075C8.90816 0.192671 9.55044 0.010169 10.207 0C11.2537 0.0452807 12.2399 0.501197 12.9501 1.26814C13.6602 2.03509 14.0367 3.05073 13.9972 4.09316C13.9972 8.02666 7.60875 12.5698 7.33703 12.7625L7 13L6.66297 12.7625C6.39125 12.5709 0.00282288 8.02666 0.00282288 4.09316C-0.0366831 3.05073 0.339771 2.03509 1.04994 1.26814C1.76011 0.501197 2.74626 0.0452807 3.79296 0Z">
                                                 </path>
-                                            </svg></span><span class="menu-bar__name">Saved</span><span
+                                            </svg></span><span class="menu-bar__name">My Orders</span><span
                                             class="menu-bar__count ntfmax__bgc--7">{{ $SidebarInf['saved'] }}</span></span></a>
                             </li>
-                            <li><a href="{{ url('/message') }}"><span class="menu-bar__text"><span
+                            {{-- <li><a href="{{ url('/message') }}"><span class="menu-bar__text"><span
                                             class="nftmax-menu-icon nftmax-svg-icon__v8"><svg class="nftmax-svg-icon"
                                                 viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -166,7 +166,7 @@
                                                 <path
                                                     d="M9.37854 0.209365C9.20024 0.209365 9.02925 0.280193 8.90317 0.406267C8.7771 0.532342 8.70627 0.703335 8.70627 0.881631C8.70627 1.05993 8.7771 1.23092 8.90317 1.35699C9.02925 1.48307 9.20024 1.5539 9.37854 1.5539C11.2605 1.54612 13.0865 2.19384 14.5428 3.38583C15.9992 4.57782 16.9951 6.23969 17.3595 8.08605C17.7239 9.93241 17.4341 11.848 16.5398 13.504C15.6455 15.1599 14.2026 16.4528 12.4588 17.1606C10.715 17.8685 8.77918 17.9471 6.98374 17.3829C5.1883 16.8188 3.64531 15.6471 2.61973 14.0691C1.59415 12.4911 1.15 10.6053 1.36354 8.73548C1.57707 6.86565 2.43498 5.12852 3.78993 3.82239L3.74435 4.17009C3.72117 4.3469 3.76918 4.52568 3.87782 4.6671C3.98646 4.80852 4.14682 4.90099 4.32364 4.92417C4.50045 4.94734 4.67924 4.89933 4.82065 4.7907C4.96207 4.68206 5.05454 4.52169 5.07772 4.34487L5.33936 2.34515C5.35537 2.16962 5.30457 1.99451 5.19711 1.8548C5.08964 1.71508 4.93343 1.62105 4.75967 1.59148L2.75995 1.33003C2.6712 1.31592 2.58053 1.31974 2.49328 1.34127C2.40604 1.3628 2.324 1.40161 2.25201 1.45539C2.18002 1.50917 2.11954 1.57684 2.07415 1.6544C2.02876 1.73195 1.99938 1.81782 1.98775 1.90693C1.97612 1.99603 1.98247 2.08657 2.00643 2.17318C2.03038 2.25979 2.07146 2.34071 2.12723 2.41118C2.183 2.48164 2.25233 2.5402 2.33112 2.58341C2.40991 2.62662 2.49657 2.65359 2.58597 2.66273L3.00459 2.71759C1.3997 4.20681 0.365311 6.20977 0.0800858 8.38051C-0.20514 10.5512 0.27671 12.7534 1.44241 14.6067C2.6081 16.46 4.38444 17.8479 6.4646 18.5308C8.54476 19.2138 10.7981 19.1487 12.8354 18.347C14.8728 17.5453 16.5661 16.0573 17.623 14.1399C18.6799 12.2225 19.034 9.99617 18.6241 7.84549C18.2142 5.69482 17.0661 3.75482 15.378 2.3606C13.6899 0.966386 11.5679 0.205498 9.37854 0.209365Z">
                                                 </path>
-                                            </svg></span><span class="menu-bar__name">History</span></span></a></li>
+                                            </svg></span><span class="menu-bar__name">History</span></span></a></li> --}}
 
                         </ul>
                     </div>
@@ -387,7 +387,8 @@
                                                                     <div
                                                                         class="nftmax-balance__img nftmax-alarm__default">
                                                                         <img src="{{ asset($RecentNotification['0']) }}"
-                                                                            alt="#"></div>
+                                                                            alt="#">
+                                                                    </div>
                                                                     <div class="nftmax-alarm__content">
                                                                         <h4 class="nftmax-balance-name">
                                                                             {{ $RecentNotification['1'] }} <strong
@@ -430,7 +431,8 @@
                                                                 <div
                                                                     class="nftmax-balance__img nftmax-profile__img-one">
                                                                     <img src="assets/img/profile-1.png"
-                                                                        alt="#"></div>
+                                                                        alt="#">
+                                                                </div>
                                                                 <h4 class="nftmax-balance-name"><a
                                                                         href="{{ url('/my-profile') }}">My Profile</a>
                                                                 </h4>
@@ -441,7 +443,8 @@
                                                                 <div
                                                                     class="nftmax-balance__img nftmax-profile__img-two">
                                                                     <img src="assets/img/profile-2.png"
-                                                                        alt="#"></div>
+                                                                        alt="#">
+                                                                </div>
                                                                 <h4 class="nftmax-balance-name"><a
                                                                         href="{{ url('/message') }}">Message</a><span
                                                                         class="nftmax-profile__count">19</span></h4>
@@ -452,7 +455,8 @@
                                                                 <div
                                                                     class="nftmax-balance__img nftmax-profile__img-three">
                                                                     <img src="assets/img/profile-3.png"
-                                                                        alt="#"></div>
+                                                                        alt="#">
+                                                                </div>
                                                                 <h4 class="nftmax-balance-name"><a
                                                                         href="{{ url('/history') }}">History</a></h4>
                                                             </div>
@@ -462,7 +466,8 @@
                                                                 <div
                                                                     class="nftmax-balance__img nftmax-profile__img-four">
                                                                     <img src="assets/img/profile-4.png"
-                                                                        alt="#"></div>
+                                                                        alt="#">
+                                                                </div>
                                                                 <h4 class="nftmax-balance-name"><a
                                                                         href="{{ url('/setting') }}">Setting</a></h4>
                                                             </div>
@@ -472,7 +477,8 @@
                                                                 <div
                                                                     class="nftmax-balance__img nftmax-profile__img-five">
                                                                     <img src="assets/img/profile-5.png"
-                                                                        alt="#"></div>
+                                                                        alt="#">
+                                                                </div>
                                                                 <h4 class="nftmax-balance-name"><a
                                                                         href="{{ url('/load-login') }}">Log Out</a>
                                                                 </h4>
