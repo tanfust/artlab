@@ -9,7 +9,7 @@ class AdminLoginController extends Controller
 {
     public function index()
     {
-        return view('AdminLogin');
+        return view('back-office/AdminLogin');
     }
     public function login(Request $request)
     {
@@ -17,7 +17,7 @@ class AdminLoginController extends Controller
             'email' => 'required|email|string',
             'password' => 'required|min:6'
         ]);
-        
+
         if($validate->fails())
         {
             return redirect('/load-login')->with('message', $validate->errors());

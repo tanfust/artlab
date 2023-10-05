@@ -32,16 +32,16 @@ use App\Http\Controllers\ProductUploadController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front-office/welcome');
 });
 Route::get('/events', function () {
-    return view('events');
+    return view('front-office/events');
 });
 Route::get('/tickets', function () {
-    return view('buy-ticket');
+    return view('front-office/buy-ticket');
 });
 Route::get('/mission', function () {
-    return view('our-mission');
+    return view('front-office/our-mission');
 });
 
 Route::get('/dashboard',[DashboardController::class,'index']);

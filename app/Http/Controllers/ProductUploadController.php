@@ -8,6 +8,6 @@ class ProductUploadController extends Controller
 {
     public function index()
     {
-        return view('ProductUpload');
+        return view('back-office/ProductUpload');
     }
 }
