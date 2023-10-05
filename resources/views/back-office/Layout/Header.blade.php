@@ -64,7 +64,7 @@
                                                     d="M8.60156 15.2001H13.4016C13.879 15.2001 14.3368 15.0105 14.6744 14.6729C15.0119 14.3353 15.2016 13.8775 15.2016 13.4001V8.6001H8.60156V15.2001Z">
                                                 </path>
                                             </svg></span><span class="menu-bar__name">Dashboard</span></span></a></li>
-                            <li><a href="{{ url('/active-bids') }}"><span class="menu-bar__text"><span
+                            <li><a href="{{ url('/auctions') }}"><span class="menu-bar__text"><span
                                             class="nftmax-menu-icon nftmax-svg-icon__v2"><svg class="nftmax-svg-icon"
                                                 viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                                                 <path

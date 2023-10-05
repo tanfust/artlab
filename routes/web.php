@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuctionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
@@ -56,47 +57,49 @@ Route::get('/new-account', function () {
     return view('front-office/new-creator');
 });
 
-Route::get('/dashboard',[DashboardController::class,'index']);
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/load-login',[AdminLoginController::class,'index']);
-Route::post('/admin-login',[AdminLoginController::class,'login']);
+Route::get('/load-login', [AdminLoginController::class, 'index']);
+Route::post('/admin-login', [AdminLoginController::class, 'login']);
 
-Route::get('/load-register',[AdminRegisterController::class,'index']);
-Route::post('/register',[AdminRegisterController::class,'register']);
+Route::get('/load-register', [AdminRegisterController::class, 'index']);
+Route::post('/register', [AdminRegisterController::class, 'register']);
 
-Route::get('/history',[HistoryController::class,'index']);
-
-
-Route::get('/my-wallet',[MyWalletController::class,'index']);
-
-Route::get('/sell',[SellController::class,'index']);
+Route::get('/history', [HistoryController::class, 'index']);
 
 
-Route::get('/market-place',[MarketPlaceController::class,'index']);
+Route::get('/my-wallet', [MyWalletController::class, 'index']);
 
-Route::get('/active-bids',[ActiveBidsController::class,'index']);
-
-Route::get('/all-saved',[AllSavedController::class,'index']);
+Route::get('/sell', [SellController::class, 'index']);
 
 
-Route::get('/my-profile',[profileController::class,'index']);
+Route::get('/market-place', [MarketPlaceController::class, 'index']);
 
-Route::get('/setting',[SettingController::class,'index']);
+Route::get('/auctions', [ActiveBidsController::class, 'index']);
 
-Route::get('/notification',[NotificationController::class,'index']);
+Route::get('/auctions/create', [AuctionController::class, 'create']);
 
-Route::get('/message',[MessageController::class,'index']);
+Route::get('/all-saved', [AllSavedController::class, 'index']);
 
-Route::get('/forgot-password',[FlorgotPasswordController::class,'index']);
-Route::post('/find-password',[FlorgotPasswordController::class,'findPassword']);
 
-Route::get('/verify',[VerifyController::class,'index']);
-Route::post('/verification',[VerifyController::class,'verification']);
+Route::get('/my-profile', [profileController::class, 'index']);
 
-Route::get('/my-collection',[MyCollectionController::class,'index']);
+Route::get('/setting', [SettingController::class, 'index']);
 
-Route::get('/market-place-details',[MarketPlaceDetailsController::class,'index']);
+Route::get('/notification', [NotificationController::class, 'index']);
 
-Route::get('/upload-product',[ProductUploadController::class,'index']);
+Route::get('/message', [MessageController::class, 'index']);
 
-Route::post('/change-password',[SettingController::class,'changePassword']);
+Route::get('/forgot-password', [FlorgotPasswordController::class, 'index']);
+Route::post('/find-password', [FlorgotPasswordController::class, 'findPassword']);
+
+Route::get('/verify', [VerifyController::class, 'index']);
+Route::post('/verification', [VerifyController::class, 'verification']);
+
+Route::get('/my-collection', [MyCollectionController::class, 'index']);
+
+Route::get('/market-place-details', [MarketPlaceDetailsController::class, 'index']);
+
+Route::get('/upload-product', [ProductUploadController::class, 'index']);
+
+Route::post('/change-password', [SettingController::class, 'changePassword']);
