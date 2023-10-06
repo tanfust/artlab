@@ -107,7 +107,7 @@
                     </div>
                     <div class="trending-action mg-top-40">
                         <h2 class="trending-action__heading mg-btm-20">All Bids</h2>
-                        <div class="row nftmax-gap-sq30 trending-action__actives">
+                        {{-- <div class="row nftmax-gap-sq30 trending-action__actives">
                             @foreach ($auctions as $auction)
                                 <div class="col-xxl-3 col-lg-3 col-md-6 col-12">
                                     <!-- Treadning Single -->
@@ -127,7 +127,7 @@
                                             <div class="trending-action__author-meta">
                                                 <div class="trending-action__author-img"><img
                                                         src="{{ asset($auction['1']) }}" alt="#"></div>
-                                                <p class="trending-action__author-name">Owned by <a
+                                                <p class="trending-action__author-name">Owned by {{ $auction['1'] }} <a
                                                         href="profile.html">{{ $auction['2'] }}</a></p>
                                             </div>
                                             <h2 class="trending-action__title"><a
@@ -160,7 +160,107 @@
                                     <!-- End Treadning Single -->
                                 </div>
                             @endforeach
+                        </div> --}}
+                        <div class="row nftmax-gap-sq30 trending-action__actives">
+                            @foreach ($auctions as $auction)
+                                <div class="col-xxl-3 col-lg-3 col-md-6 col-12">
+                                    <!-- Trending Single -->
+                                    <div class="trending-action__single">
+                                        <!-- Trending Head -->
+                                        <div class="trending-action__head">
+                                            <div class="trending-action__button">
+                                                <a class="trending-action__btn heart-icon"><i
+                                                        class="fa-solid fa-heart"></i></a>
+                                                <a class="trending-action__btn"><i
+                                                        class="fa-solid fa-ellipsis-vertical"></i></a>
+                                            </div>
+                                            <img src="{{ asset($auction->image_url) }}" alt="{{ $auction->title }}">
+                                        </div>
+                                        <!-- Trending Body -->
+                                        <div class="trending-action__body">
+                                            {{-- <div class="trending-action__author-meta">
+                                                <div class="trending-action__author-img"><img
+                                                        src="{{ asset($auction->owner_avatar) }}"
+                                                        alt="{{ $auction->owner_name }}"></div>
+                                                <p class="trending-action__author-name">Owned by
+                                                    {{ $auction->owner_name }} <a
+                                                        href="{{ url('/profile') }}">{{ $auction->owner_username }}</a>
+                                                </p>
+                                            </div> --}}
+                                            <div class="trending-action__author-meta">
+                                                <div class="trending-action__author-img"><img src="event-1.jpeg"
+                                                        alt="Creator Avatar">
+                                                </div>
+                                                {{-- "{{ asset($auction->owner_avatar) }}"
+                                                {{ $auction->creator->name }}</a>
+                                                </p> --}}
+                                                <p class="trending-action__author-name">Owned by <a
+                                                        href="{{ url('/profile/' . $auction->creator_id) }}">Test
+                                                        user</a>
+                                                </p>
+                                            </div>
+                                            <p>{{ $auction->description }}</p>
+                                            <h2 class="trending-action__title"><a
+                                                    href="{{ url('/active-bids') }}">{{ $auction->title }}</a></h2>
+                                            <div class="dashboard-banner__bid dashboard-banner__bid-v2">
+                                                <!-- Single Bid -->
+                                                <div class="dashboard-banner__group dashboard-banner__group-v2">
+                                                    <p class="dashboard-banner__group-small">Starting Price</p>
+                                                    <h3 class="dashboard-banner__group-title">
+                                                        {{ $auction->startingPrice }} $</h3>
+                                                </div>
+                                                <!-- End Single Bid -->
+                                                <div class="dashboard-banner__middle-border"></div>
+                                                <!-- Single Bid -->
+                                                <div class="dashboard-banner__group dashboard-banner__group-v2">
+                                                    <p class="dashboard-banner__group-small">Remaining Time</p>
+                                                    <h3 class="dashboard-banner__group-title"
+                                                        id="CountDown_{{ $auction->id }}">
+                                                        {{ $auction->endDate }}
+                                                    </h3>
+                                                </div>
+                                                <script>
+                                                    // JavaScript code to calculate and update remaining time for this auction
+                                                    var endDate_{{ $auction->id }} = new Date("{{ $auction->endDate }}").getTime();
+                                                    var countdownElement_{{ $auction->id }} = document.getElementById("CountDown_{{ $auction->id }}");
+
+                                                    // Update the countdown for this auction every second
+                                                    var countdownInterval_{{ $auction->id }} = setInterval(function() {
+                                                        var now = new Date().getTime();
+                                                        var timeRemaining = endDate_{{ $auction->id }} - now;
+
+                                                        if (timeRemaining <= 0) {
+                                                            // Auction has ended
+                                                            countdownElement_{{ $auction->id }}.innerHTML = "Auction Ended";
+                                                            clearInterval(countdownInterval_{{ $auction->id }});
+                                                        } else {
+                                                            // Calculate days, hours, minutes, and seconds
+                                                            var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                                                            var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                                                            var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                                                            var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+                                                            // Update the countdown element for this auction
+                                                            countdownElement_{{ $auction->id }}.innerHTML = days + "d " + hours + "h " + minutes + "m " +
+                                                                seconds + "s";
+                                                        }
+                                                    }, 1000); // Update every second
+                                                </script>
+                                                <!-- End Single Bid -->
+                                            </div>
+                                        </div>
+                                        <div class="dashboard-banner__button trending-action__bottom">
+                                            <a href="{{ url('/active-bids') }}"
+                                                class="nftmax-btn nftmax-btn__secondary radius">Place a Bid</a>
+                                            <a href="{{ url('/market-place') }}" class="nftmax-btn trs-white">View
+                                                Artwork</a>
+                                        </div>
+                                    </div>
+                                    <!-- End Trending Single -->
+                                </div>
+                            @endforeach
                         </div>
+
                         <div class="row">
                             <div class="col-12">
                                 <div class="nftmax-view__all"><a href="#"
