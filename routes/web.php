@@ -19,6 +19,8 @@ use App\Http\Controllers\VerifyController;
 use App\Http\Controllers\MyCollectionController;
 use App\Http\Controllers\MarketPlaceDetailsController;
 use App\Http\Controllers\ProductUploadController;
+use App\Http\Controllers\ArticleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +57,8 @@ Route::get('/creator', function () {
 Route::get('/new-account', function () {
     return view('front-office/new-creator');
 });
+
+Route::resource('articles', ArticleController::class);
 
 Route::get('/dashboard',[DashboardController::class,'index']);
 
