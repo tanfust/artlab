@@ -9,8 +9,10 @@ class AuctionController extends Controller
 {
     public function index()
     {
+
         $auctions = Auction::all();
-        return view('auctions.index', compact('auctions'));
+        return view('back-office/auction', compact('auctions'));
+
     }
     public function create()
     {
@@ -19,14 +21,13 @@ class AuctionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'artwork_id' => 'required|exists:artworks,id',
+            // 'artwork_id' => 'required|exists:artworks,id',
             'startingPrice' => 'required|numeric|min:0',
             'startDate' => 'required|date',
             'endDate' => 'required|date|after:startDate',
-            // Add validation rules for other fields here
+            'description' => 'required',
         ]);
-        Auction::create($request->all());
-        // Redirect to the index page or show a success message
+        Auction::create($request->post());
         return redirect()->route('auctions.index')->with('success', 'Auction created successfully');
     }
     public function show($id)

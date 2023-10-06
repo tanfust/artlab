@@ -6,55 +6,34 @@
                 <div class="nftmax-body">
                     <!-- All Notification Heading -->
                     <div class="nftmax-inner__heading">
-                        <h2 class="nftmax-inner__page-title">Create new item</h2>
+                        <h2 class="nftmax-inner__page-title">Create new Auction</h2>
                     </div>
                     <!-- End All Notification Heading -->
                     <div class="nftmax__item">
-                        <div class="nftmax__item-heading">
-                            <h2 class="nftmax__item-title nftmax__item-title--psingle">Image,Video,Audio or 3D Model
-                            </h2>
-                            <p class="nftmax__item-text nftmax__item-text--single">File types suppported: JPG, PNG,
-                                GIP, SVG, MP4, MP3, WEBM, OGG, GLB, GLTF. Max Size : 100 MB</p>
-                        </div>
-                        <form class="form" action="#">
+                        <form class="form" method="POST" action="{{ route('auctions.store') }}">
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-12">
                                     <div class="nftmax__item-box">
                                         <div class="row nftmax-pcolumn">
-                                            <div class="col-xxl-5 col-lg-5 col-12 nftmax-pcolumn__one">
-                                                <div class="nftmax__file-top">
-                                                    <div class="nftmax__file-upload">
-                                                        <div class="upload-files">
-                                                            <div class="body" id="drop">
-                                                                <img class="nftmax__file-upload--img"
-                                                                    src="assets/img/upload.png" alt="">
-                                                                <p class="pointer-none nftmax__file-text"><b>Drop
-                                                                        files to upload <br> or <a href=""
-                                                                            id="triggerFile">Browse</a></b></p>
-                                                                <input type="file" multiple="multiple" />
-                                                            </div>
-                                                            <div class="nftmax__file-updated">
-                                                                <div class="divider">
-                                                                    <span>
-                                                                        <AR>FILES</AR>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="list-files"></div>
-                                                                <button class="importar">UPDATE FILES</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xxl-7 col-lg-7 col-12 nftmax-pcolumn__two">
+                                            <div class="col-xxl-12 col-lg-12 col-12 nftmax-pcolumn__two">
                                                 <div class="nftmax__item-form--main">
-
-                                                    <div class="nftmax__item-form--group ntfmax__item-form--radio">
+                                                    <div class="nftmax__item-form--group">
+                                                        <label for="artwork_id"
+                                                            class="nftmax__item-label">Artwork:</label>
+                                                        <select name="artwork_id" id="artwork" class="form-select"
+                                                            aria-label="Default select example">
+                                                            <option value="0" selected>ETH</option>
+                                                            <option value="1">USD</option>
+                                                            <option value="2">INR</option>
+                                                        </select>
+                                                    </div>
+                                                    {{-- <div class="nftmax__item-form--group ntfmax__item-form--radio">
                                                         <div class="ntfmax__item-radio--inner">
                                                             <label class="nftmax__item-label">Put on marketplace
                                                                 <span class="nftmax__item-sublabel">Enter price to
                                                                     allow users instantly purchase your
-                                                                    NFT</span></label>
+                                                                    Art</span></label>
 
                                                             <div class="ntfmax__item-radio--disable">
                                                                 <input type="radio" name="select" id="option-1"
@@ -375,50 +354,65 @@
                                                                 </label>
                                                             </div>
                                                         </div>
-                                                    </div>
-
+                                                    </div> --}}
                                                     <div class="nftmax__item-form--group">
-                                                        <label class="nftmax__item-label">Item Name </label>
-                                                        <input class="nftmax__item-input" type="text"
-                                                            placeholder="RaidParty Fighters" required="required">
+                                                        <label for="startingPrice" class="nftmax__item-label">Instant
+                                                            sale
+                                                            price</label>
+                                                        <input name="startingPrice"
+                                                            class="nftmax__item-input nftmax__item-input__arrow"
+                                                            type="number"
+                                                            placeholder="enter the price for which the item will be instantly sold"
+                                                            required="required">
                                                     </div>
-
+                                                    <div class="form-group">
+                                                        <label for="startDate">Start Date:</label>
+                                                        <input type="datetime-local" name="startDate"
+                                                            class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="endDate">End Date:</label>
+                                                        <input type="datetime-local" name="endDate" class="form-control"
+                                                            required>
+                                                    </div>
                                                     <div class="nftmax__item-form--group">
+                                                        <label class="nftmax__item-label">Description </label>
+                                                        <textarea name="description" class="nftmax__item-input nftmax__item-textarea" type="url"
+                                                            placeholder="provide a detailed description of your item." required="required"></textarea>
+                                                    </div>
+                                                    {{-- <div class="nftmax__item-form--group nftmax__item-form--unlock">
+                                                        <div class="nftmax__item-unlock--first">
+                                                            <div class="nftmax__item-unlock--icon">
+                                                                <img src="{{ asset('assets/img/lock-icon.png') }}"
+                                                                    alt="#">
+                                                            </div>
+                                                            <div class="nftmax__item-unlock--title">
+                                                                <h4 class="nftmax__item-label--head">Active once
+                                                                    created</h4>
+                                                                <p class="nftmax__item-fee-text">Unactivated
+                                                                    content, only revealed by the owner of the item.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="nftmax__item-unlock--title">
+                                                            <label class="nftmax__item-switch">
+                                                                <input type="checkbox" checked>
+                                                                <span
+                                                                    class="nftmax__item-switch--slide nftmax__item-switch--round"></span>
+                                                            </label>
+                                                        </div>
+                                                    </div> --}}
+                                                    {{-- <div class="nftmax__item-form--group">
                                                         <label class="nftmax__item-label">Exter link </label>
                                                         <input class="nftmax__item-input" type="url"
                                                             placeholder="https:yoursite.lo/imte/item_name123"
                                                             required="required">
                                                     </div>
-
                                                     <div class="nftmax__item-form--group">
                                                         <label class="nftmax__item-label">Description </label>
                                                         <textarea class="nftmax__item-input nftmax__item-textarea" type="url"
                                                             placeholder="provide a detailed description of your item." required="required"></textarea>
                                                     </div>
-
-                                                    <div class="nftmax__item-form--group">
-                                                        <label class="nftmax__item-label">Instant sale
-                                                            price</label>
-                                                        <input class="nftmax__item-input nftmax__item-input__arrow"
-                                                            type="text"
-                                                            placeholder="enter the price for which the item will be instantly sold"
-                                                            required="required">
-                                                        <select class="form-select nftmax__item-form--select"
-                                                            aria-label="Default select example">
-                                                            <option selected>ETH</option>
-                                                            <option value="1">USD</option>
-                                                            <option value="2">INR</option>
-                                                        </select>
-                                                        <div class="nftmax__item-fee">
-                                                            <p class="nftmax__item-fee-text">Service fee :
-                                                                <b>1.5%</b>
-                                                            </p>
-                                                            <p class="nftmax__item-fee-text">You will Receive :
-                                                                <b>.29 ETH $120.56</b>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-
                                                     <div class="nftmax__item-form--group">
                                                         <label class="nftmax__item-label">Royalties</label>
                                                         <input class="nftmax__item-input" type="text"
@@ -427,20 +421,8 @@
                                                             <p class="nftmax__item-fee-text">Suggested: 10%, 20%,
                                                                 30%</p>
                                                         </div>
-                                                    </div>
-
-                                                    <div class="nftmax__item-form--group">
-                                                        <label class="nftmax__item-label">Properties<span
-                                                                class="nftmax__item-label--inline">(Optional)</span></label>
-                                                        <div class="nftmax__item-form--group--line">
-                                                            <input class="nftmax__item-input" type="text"
-                                                                placeholder="Enter key" required="required">
-                                                            <input class="nftmax__item-input" type="text"
-                                                                placeholder="Enter Value" required="required">
-                                                        </div>
-                                                    </div>
-
-                                                    <div
+                                                    </div> --}}
+                                                    {{-- <div
                                                         class="nftmax__item-form--group ntfmax__item-form--radio nftmax-choose">
                                                         <div class="ntfmax__item-radio--inner">
                                                             <label class="nftmax__item-label">Choose
@@ -459,12 +441,11 @@
                                                                     <div class="ntfmax__item-radio--group--icon"><i
                                                                             class="fa-solid fa-circle-plus"></i>
                                                                     </div>
-                                                                    <span
-                                                                        class="ntfmax__item-radio-title">Create</span>
+                                                                    <span class="ntfmax__item-radio-title">Create</span>
                                                                 </label>
                                                                 <label for="option-1" class="option option-1">
                                                                     <div class="ntfmax__item-radio--group--icon">
-                                                                        <img src="assets/img/collection-1.png"
+                                                                        <img src="{{ asset('assets/img/collection-1.png') }}"
                                                                             alt="#">
                                                                     </div>
                                                                     <span class="ntfmax__item-radio-title">Name
@@ -472,7 +453,7 @@
                                                                 </label>
                                                                 <label for="option-2" class="option option-2">
                                                                     <div class="ntfmax__item-radio--group--icon">
-                                                                        <img src="assets/img/collection-2.png"
+                                                                        <img src="{{ asset('assets/img/collection-2.png') }}"
                                                                             alt="#">
                                                                     </div>
                                                                     <span class="ntfmax__item-radio-title">Name
@@ -480,7 +461,7 @@
                                                                 </label>
                                                                 <label for="option-3" class="option option-3">
                                                                     <div class="ntfmax__item-radio--group--icon">
-                                                                        <img src="assets/img/collection-3.png"
+                                                                        <img src="{{ asset('assets/img/collection-3.png') }}"
                                                                             alt="#">
                                                                     </div>
                                                                     <span class="ntfmax__item-radio-title">Name
@@ -488,31 +469,7 @@
                                                                 </label>
                                                             </div>
                                                         </div>
-                                                    </div>
-
-
-                                                    <div class="nftmax__item-form--group nftmax__item-form--unlock">
-                                                        <div class="nftmax__item-unlock--first">
-                                                            <div class="nftmax__item-unlock--icon">
-                                                                <img src="assets/img/lock-icon.png" alt="#">
-                                                            </div>
-                                                            <div class="nftmax__item-unlock--title">
-                                                                <h4 class="nftmax__item-label--head">Unlock once
-                                                                    purchased</h4>
-                                                                <p class="nftmax__item-fee-text">Unlockable
-                                                                    content, only revealed by the owner of the item.
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <div class="nftmax__item-unlock--title">
-                                                            <label class="nftmax__item-switch">
-                                                                <input type="checkbox" checked>
-                                                                <span
-                                                                    class="nftmax__item-switch--slide nftmax__item-switch--round"></span>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                         </div>
@@ -528,8 +485,8 @@
                                             class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius nftmax-item__btn"
                                             type="submit">Create Now</button>
                                         <!-- Preview Product -->
-                                        <div class="nftmax-preview__modal modal fade" id="preview_modal"
-                                            tabindex="-1" aria-labelledby="previewModalLabel" aria-hidden="true">
+                                        <div class="nftmax-preview__modal modal fade" id="preview_modal" tabindex="-1"
+                                            aria-labelledby="previewModalLabel" aria-hidden="true">
                                             <div class="modal-dialog  nftmax-preview__modal-preview">
                                                 <div class="modal-content nftmax-preview__modal-content"
                                                     style="background-image:url(img/body-bg.jpg)">
@@ -552,13 +509,13 @@
                                                                     <a class="trending-action__btn"><i
                                                                             class="fa-solid fa-ellipsis-vertical"></i></a>
                                                                 </div>
-                                                                <img src="assets/img/trending-img-1.png"
+                                                                <img src="{{ asset('assets/img/trending-img-1.png') }}"
                                                                     alt="#">
                                                             </div>
                                                             <!-- Treadning Body -->
                                                             <div class="trending-action__body">
                                                                 <div class="trending-action__author-meta">
-                                                                    <img src="assets/img/author-pic.png"
+                                                                    <img src="{{ asset('assets/img/author-pic.png') }}"
                                                                         alt="#">
                                                                     <p class="trending-action__author-name">Owned
                                                                         by <a href="profile.html">Bilout</a></p>
@@ -625,7 +582,8 @@
                                                         <div class="nftmax-preview__close">
                                                             <!-- Treadning Head -->
                                                             <div class="nftmax-preview__close-img"><img
-                                                                    src="assets/img/close.png" alt="#">
+                                                                    src="{{ asset('assets/img/close.png') }}"
+                                                                    alt="#">
                                                             </div>
                                                             <h2 class="nftmax-preview__close-title">Are you sure
                                                                 you want to Navigate away from this page?</h2>

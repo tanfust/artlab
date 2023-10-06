@@ -13,6 +13,7 @@ class Auction extends Model
         'startingPrice',
         'startDate',
         'endDate',
+        'description',
         // Add other fillable fields here
     ];
 

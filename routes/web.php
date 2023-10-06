@@ -75,9 +75,15 @@ Route::get('/sell', [SellController::class, 'index']);
 
 Route::get('/market-place', [MarketPlaceController::class, 'index']);
 
-Route::get('/auctions', [ActiveBidsController::class, 'index']);
 
-Route::get('/auctions/create', [AuctionController::class, 'create']);
+// Route::get('/auctions', 'AuctionController@index')->name('auctions.index');
+// Route::get('/auctions/create', 'AuctionController@create')->name('auctions.create');
+// Route::post('/auctions', 'AuctionController@store')->name('auctions.store');
+
+Route::get('/auctions', [AuctionController::class, 'index'])->name('auctions.index');
+Route::get('/auctions/create', [AuctionController::class, 'create'])->name('auctions.create');
+Route::post('/auctions', [AuctionController::class, 'store'])->name('auctions.store');
+
 
 Route::get('/all-saved', [AllSavedController::class, 'index']);
 
