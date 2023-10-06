@@ -57,6 +57,7 @@ Route::get('/new-account', function () {
     return view('front-office/new-creator');
 });
 
+
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/load-login', [AdminLoginController::class, 'index']);
@@ -83,6 +84,9 @@ Route::get('/market-place', [MarketPlaceController::class, 'index']);
 Route::get('/auctions', [AuctionController::class, 'index'])->name('auctions.index');
 Route::get('/auctions/create', [AuctionController::class, 'create'])->name('auctions.create');
 Route::post('/auctions', [AuctionController::class, 'store'])->name('auctions.store');
+Route::delete('/auctions/{id}', [AuctionController::class, 'destroy'])->name('auctions.destroy');
+Route::get('/auctions/{id}/edit', [AuctionController::class, 'edit'])->name('auctions.edit');
+Route::put('/auctions/{id}', [AuctionController::class, 'update'])->name('auctions.update');
 
 
 Route::get('/all-saved', [AllSavedController::class, 'index']);
