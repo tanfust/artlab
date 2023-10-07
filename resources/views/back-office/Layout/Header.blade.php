@@ -24,6 +24,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
 
+    <!-- CSS/Tailwind -->
+    @vite('resources/css/app.css')
+
 </head>
 
 <body>
@@ -137,7 +140,7 @@
                                             </svg></span><span class="menu-bar__name">Sell</span><span
                                             class="menu-bar__count ntfmax__bgc--6">{{ $SidebarInf['sell'] }}k</span></span></a>
                             </li>
-                            <li><a href="{{ url('/all-saved') }}"><span class="menu-bar__text"><span
+                            <li><a href="{{ url('/orders') }}"><span class="menu-bar__text"><span
                                             class="nftmax-menu-icon nftmax-svg-icon__v7"><svg class="nftmax-svg-icon"
                                                 viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
                                                 <path

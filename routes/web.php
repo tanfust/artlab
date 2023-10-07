@@ -20,6 +20,8 @@ use App\Http\Controllers\VerifyController;
 use App\Http\Controllers\MyCollectionController;
 use App\Http\Controllers\MarketPlaceDetailsController;
 use App\Http\Controllers\ProductUploadController;
+use App\Http\Controllers\OrderController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -85,7 +87,12 @@ Route::get('/auctions/create', [AuctionController::class, 'create'])->name('auct
 Route::post('/auctions', [AuctionController::class, 'store'])->name('auctions.store');
 
 
-Route::get('/all-saved', [AllSavedController::class, 'index']);
+// Route::get('/my-orders', [OrderController::class, 'index'])->name('orders.index');
+// Route::get('/my-orders/create', [OrderController::class, 'create'])->name('orders.create');
+// Route::post('/my-orders/create', [OrderController::class, 'store'])->name('orders.store');
+
+Route::resource('orders', OrderController::class);
+
 
 
 Route::get('/my-profile', [profileController::class, 'index']);
