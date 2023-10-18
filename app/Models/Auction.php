@@ -8,4 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class Auction extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'artwork_id',
+        'startingPrice',
+        'startDate',
+        'endDate',
+        'description',
+        // Add other fillable fields here
+    ];
+
+    // Define relationships
+    public function artwork()
+    {
+        return $this->belongsTo('Artwork');
+    }
 }

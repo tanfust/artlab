@@ -14,14 +14,14 @@ return new class extends Migration {
     {
         Schema::create('auctions', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('artwork_id'); // Foreign key to link the auction to an artwork
-            $table->float('startingPrice'); // Starting price for the auction
-            $table->dateTime('startDate'); // Auction start date and time
-            $table->dateTime('endDate'); // Auction end date and time
-            // Add other auction-related fields here
+            $table->unsignedBigInteger('artwork_id');
+            $table->float('startingPrice');
+            $table->dateTime('startDate');
+            $table->dateTime('endDate');
+            $table->string("description");
             $table->timestamps();
 
-            $table->foreign('artwork_id')->references('id')->on('artworks');
+            $table->foreign('artwork_id')->references('id')->on('artworks')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
