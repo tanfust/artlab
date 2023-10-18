@@ -49,7 +49,7 @@ Route::get('/mission', function () {
 Route::get('/blog', function () {
     return view('front-office/blog');
 });
-Route::get('/auctions', function () {
+Route::get('/live-auctions', function () {
     return view('front-office/auctions');
 });
 Route::get('/creator', function () {

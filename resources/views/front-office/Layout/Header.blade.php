@@ -41,7 +41,7 @@
             </a>
         </div>
         <div class="border-r-2 border-border nav-link w-full  flex flex-col justify-between hover:bg-text1 hover:text-background hover:underline transition-all cursor-pointer">
-            <a href="{{url('/auctions')}}">
+            <a href="{{url('/live-auctions')}}">
                 <h1 class="text-xl p-5 font-bold">Live Auctions</h1>
                 <h1 class="text-xl p-5 font-bold">5</h1>
             </a>
