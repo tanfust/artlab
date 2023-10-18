@@ -1,4 +1,4 @@
-<div class="col-xxl-3 col-12 nftmax-main__sidebar">
+{{-- <div class="col-xxl-3 col-12 nftmax-main__sidebar">
     <div class="nftmax-sidebar mg-top-40">
         <div class="row">
             <div class="col-xxl-12 col-xl-6 col-12 nftmax-sidebar__widget">
@@ -364,4 +364,4 @@
 
 </div>
 
-<script></script>
+<script></script> --}}
