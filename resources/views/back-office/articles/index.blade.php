@@ -3,127 +3,61 @@
 <section class="nftmax-adashboard nftmax-show">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="nftmax-table mg-top-40">
-                    <div class="nftmax-table__heading">
-                        <h3 class="nftmax-table__title mb-0">All articles</h3>
-                    </div>
-                    <div class="pull-right mb-2">
-                    <a class="btn btn-success" href="{{ route('articles.create') }}"> Create article</a>
-                </div>
-                    <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="table_1" role="tabpanel" aria-labelledby="table_1">
-                            <!-- NFTMax Table -->
-                            <table id="nftmax-table__main" class="nftmax-table__main nftmax-table__product-history ">
-                                <!-- NFTMax Table Head -->
-                                <thead class="nftmax-table__head">
-                                    <tr>
-                                        <th class="nftmax-table__column-1 nftmax-table__h1">article ID
-                                        </th>
-                                        <th class="nftmax-table__column-2 nftmax-table__h2">article title
-                                        </th>
-                                        <th class="nftmax-table__column-3 nftmax-table__h3">
-                                            article content</th>
-                                        <th class="nftmax-table__column-2 nftmax-table__h7">
-                                            actions</th>
-                                    </tr>
-                                </thead>
-                                <!-- NFTMax Table Body -->
-                                <tbody class="nftmax-table__body">
-                                    <?php $i = 0; ?>
-                                    @foreach ($articles as $article)
-                                    <tr>
-                                        <td class="nftmax-table__column-1 nftmax-table__data-1">
-                                            <span class="nftmax-table__text"><b>{{ $article->id }}</b></span>
-                                        </td>
-                                        <td class="nftmax-table__column-2 nftmax-table__data-2">
-                                            <p class="nftmax-table__text nftmax-table__time">
-                                                {{ $article->articleTitle }}</p>
-                                        </td>
+            <div class="w-full nftmax-main__column">
+                <div class="nftmax-body min-h-screen w-full">
+                    <div class="nftmax-dsinner w-full">
 
+                        <!-- Welcome CTA -->
+                        <div class="welcome-cta mg-top-40">
+                            <div class="welcome-cta__heading">
+                                <h2 class="welcome-cta__title text-6xl">Your published articles
+                                </h2>
+                                <p class="welcome-cta__text">Write to express not to impress</p>
+                                {{-- <h1 class="text-4xl font-black">Client Orders</h1> --}}
+                            </div>
+                            <div class="welcome-cta__button">
+                                <a href="{{ url('/articles/create') }}"
+                                    class="nftmax-btn nftmax-btn__bordered bg radius">Write article </a>
+                                <a href="{{ url('/dashboard') }}" class="nftmax-btn trs-white bl-color">My ArtWork</a>
+                            </div>
+                        </div>
+                        <!-- End Welcome CTA -->
 
-                                        <td class="nftmax-table__column-5 nftmax-table__data-5">
-                                            <p class="nftmax-table__text nftmax-table__bid-text">
-                                                {{ $article->articleContent }}</p>
-                                        </td>
+                        <!-- Marketplace Bar -->
+                        <div class="nftmax-marketplace__bar mg-top-50 mg-btm-40">
 
-                                        <td class="nftmax-table__column-2 nftmax-table__data-4">
-                                            
-                                                <form action="{{ route('articles.destroy',$article->id) }}" method="Post">
-                                                    <a class="btn btn-primary" href="{{ route('articles.edit',$article->id) }}">Edit</a>
+                            <div class="w-full grid grid-cols-2 gap-5 py-10  overflow-auto">
+                                @foreach ($articles as $article)
+                                    <div class="max-w-sm w-full lg:max-w-full lg:flex">
+                                        <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center "
+                                            style="background-image: url('./event-5.jpeg')" title="Woman holding a mug">
+                                        </div>
+                                        <div
+                                            class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                                            <div class="mb-8">
+                                                <div class="text-gray-900 font-bold text-xl mb-2">
+                                                    {{ $article->articleTitle }}</div>
+                                                <p class="text-gray-700 text-base">{{ $article->articleContent }}</p>
+                                            </div>
+                                            <form action="{{ route('articles.destroy', $article->id) }}" method="Post">
+                                                <div class="float-right p-2">
+                                                    <a class="btn btn-primary text-xs"
+                                                        href="{{ route('articles.edit', $article->id) }}">Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
-                                                </form>
-                                           
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                                <!-- End NFTMax Table Body -->
-                            </table>
-                            <!-- End NFTMax Table -->
+                                                    <button class="bg-red-500 btn btn-danger text-xs "
+                                                        type="submit">Delete</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
                         </div>
-                        <div class="tab-pane fade" id="table_2" role="tabpanel" aria-labelledby="table_1">
-                            <!-- NFTMax Table -->
-
-                        </div>
-
-
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-
-
-
-
-<!-- <div class="container mt-2">
-        <div class="row">
-            <div class="col-lg-12 margin-tb">
-                <div class="pull-left">
-                    <h2>Article</h2>
-                </div>
-                <div class="pull-right mb-2">
-                    <a class="btn btn-success" href="{{ route('articles.create') }}"> Create article</a>
-                </div>
-            </div>
-        </div>
-        @if ($message = Session::get('success'))
-            <div class="alert alert-success">
-                <p>{{ $message }}</p>
-            </div>
-        @endif
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>S.No</th>
-                    <th> title</th>
-                    <th> content</th>
-                    <th width="280px">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($articles as $article)
-                    <tr>
-                        <td>{{ $article->id }}</td>
-                        <td>{{ $article->articleTitle }}</td>
-                        <td>{{ $article->articleContent }}</td>
-
-                        <td>
-                            <form action="{{ route('articles.destroy',$article->id) }}" method="Post">
-                                <a class="btn btn-primary" href="{{ route('articles.edit',$article->id) }}">Edit</a>
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-            </tbody>
-        </table>
-
-    </div> -->
+        @include('back-office/Layout.RightSidebar')
+        @include('back-office/Layout.Footer')

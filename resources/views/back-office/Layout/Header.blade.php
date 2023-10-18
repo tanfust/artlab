@@ -98,7 +98,7 @@
                                             </svg></span><span class="menu-bar__name">Events</span><span
                                             class="menu-bar__count ntfmax__bgc--2">{{ $SidebarInf['market_place'] }}</span></span></a>
                             </li>
-                            <li><a href="{{ url('/my-wallet') }}"><span class="menu-bar__text"><span
+                            <li><a href="{{ url('/articles') }}"><span class="menu-bar__text"><span
                                             class="nftmax-menu-icon nftmax-svg-icon__v4"><svg class="nftmax-svg-icon"
                                                 viewBox="0 0 16 13" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -111,7 +111,7 @@
                                                     d="M13.0971 9.03944C12.5933 9.03944 12.0895 9.03747 11.5857 9.04043C11.2142 9.0424 11.0234 8.87475 11.0274 8.50394C11.0314 8.11045 11.0304 7.71696 11.0284 7.32347C11.0264 6.9566 11.2061 6.78895 11.5867 6.79191C12.5944 6.7998 13.602 6.80177 14.6106 6.79289C14.9922 6.78994 15.1699 6.95364 15.1669 7.32248C15.1628 7.71597 15.1618 8.10946 15.1659 8.50295C15.1699 8.87179 14.9872 9.0424 14.6106 9.03747C14.1068 9.03155 13.603 9.0355 13.0992 9.0355C13.0971 9.03648 13.0971 9.03846 13.0971 9.03944ZM13.8645 7.42406C13.6848 7.64299 13.4788 7.79191 13.502 7.88856C13.5373 8.03451 13.7322 8.14398 13.8594 8.26824C13.9755 8.14891 14.1674 8.03944 14.1845 7.90828C14.1997 7.79092 14.023 7.6499 13.8645 7.42406Z">
                                                 </path>
                                             </svg></span><span class="menu-bar__name">My Blog</span></span></a></li>
-                            <li><a href="{{ url('/my-collection') }}"><span class="menu-bar__text"><span
+                            {{-- <li><a href="{{ url('/my-collection') }}"><span class="menu-bar__text"><span
                                             class="nftmax-menu-icon nftmax-svg-icon__v5"><svg class="nftmax-svg-icon"
                                                 viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg">
                                                 <path
@@ -139,7 +139,7 @@
                                                 </path>
                                             </svg></span><span class="menu-bar__name">Sell</span><span
                                             class="menu-bar__count ntfmax__bgc--6">{{ $SidebarInf['sell'] }}k</span></span></a>
-                            </li>
+                            </li> --}}
                             <li><a href="{{ url('/orders') }}"><span class="menu-bar__text"><span
                                             class="nftmax-menu-icon nftmax-svg-icon__v7"><svg class="nftmax-svg-icon"
                                                 viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
