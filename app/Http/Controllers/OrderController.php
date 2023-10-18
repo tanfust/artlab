@@ -53,18 +53,22 @@ class OrderController extends Controller
     public function edit($id)
     {
         $order = Order::findOrFail($id);
-        return view('orders.edit', compact('order'));
+        return view('back-office/orders/edit', compact('order'));
     }
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'artwork_id' => 'required|exists:artworks,id',
-            'startingPrice' => 'required|numeric|min:0',
-            'startDate' => 'required|date',
-            'endDate' => 'required|date|after:startDate',
-        ]);
+        $input = $request->all();
+        if ($request->hasFile('image')){
+            $file_name = $request->file('image')->getClientOriginalName();
+            $request->image->move(public_path('assets/img/orders'), $file_name);
+            $input['image'] = "assets/img/orders/$file_name";
+        }
+        else{
+            $input['image'] = 'assets/img/col-1.png';
+        }
+
         $order = Order::findOrFail($id);
-        $order->update($request->all());
+        $order->update($input);
 
         // Redirect to the index page or show a success message
         return redirect()->route('orders.index')->with('success', 'order updated successfully');

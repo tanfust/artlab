@@ -26,7 +26,7 @@
                                                         class="nftmax__item-label">Artwork</label>
                                                     <select name="artwork_id" id="artwork" class="form-select"
                                                         aria-label="Default select example">
-                                                        <option selected>Select Artwork</option>
+                                                        <option disabled selected>Select Artwork</option>
                                                         <option value="1">Piece #001</option>
                                                         <option value="1">Piece #002</option>
                                                         <option value="1">Piece #003</option>
@@ -63,8 +63,7 @@
                                                     <label for="image" class="nftmax__item-label">Order Image</label>
                                                     <input name="image"
                                                         class="text-[#666] bg-[#FAFAFA] border border-[#E3E4FE] px-4 py-3 w-full hover:border-[#5356FB] rounded-3xl"
-                                                        type="file"
-                                                        required>
+                                                        type="file">
                                                 </div>
                                                 <div class="nftmax__item-form--group">
                                                     <label class="nftmax__item-label">Description </label>
@@ -76,8 +75,7 @@
                                     </div>
                                 </div>
                                 <div class="nftmax__item-button--group">
-                                    <button class="nftmax__item-button--single nftmax__item-button--cancel"
-                                    type="reset"
+                                    <a href="{{ url('/orders') }}"><button class="nftmax__item-button--single nftmax__item-button--cancel"
                                         data-bs-toggle="modal" data-bs-target="#cancel_modal">Cancel</button>
                                     <button
                                         class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius nftmax-item__btn"

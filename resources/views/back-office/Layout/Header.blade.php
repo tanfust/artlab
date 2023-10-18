@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Site Title -->
-    <title>NFT MAX - NFT Dashboard Template</title>
+    <title>Artlab</title>
 
     <!-- Fav Icon -->
     <link rel="icon" href="{{ asset('assets/img/favicon.png') }}">
@@ -177,7 +177,7 @@
                     <!-- End Nav Menu -->
                 </div>
 
-                <div class="admin-menu__two mg-top-50">
+                {{-- <div class="admin-menu__two mg-top-50">
                     <h4 class="admin-menu__title nftmax-scolor">Settings</h4>
                     <!-- Nav Menu -->
                     <div class="menu-bar">
@@ -203,7 +203,7 @@
                         </ul>
                     </div>
                     <!-- End Nav Menu -->
-                </div>
+                </div> --}}
 
                 <!-- Logout Button -->
                 <div class="logout-button">
@@ -240,10 +240,9 @@
                             <div class="nftmax-preview__close-img"><img src="{{ asset('assets/img/close.png') }}"
                                     alt="#">
                             </div>
-                            <h2 class="nftmax-preview__close-title">Are you sure you want to Logout <span>NETMAX admin
-                                    Penal?</span></h2>
+                            <h2 class="nftmax-preview__close-title">Are you sure you want to Logout from <span>Artlab dashboard?</span></h2>
                             <div class="nftmax__item-button--group">
-                                <a href="{{ url('/load-login') }}"
+                                <a href="{{ url('/') }}"
                                     class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius "
                                     type="submit">Yes Logout
                                 </a>
@@ -307,12 +306,12 @@
         <!-- End Connect to Wallet -->
 
         <!-- Start Header -->
-        <header class="nftmax-header">
+        <header class="nftmax-header pr-0 pl-[260px]">
             <div class="container">
                 <div class="row g-50">
-                    <div class="col-12">
+                    <div class="col-12 pr-0 ">
                         <!-- Dashboard Header -->
-                        <div class="nftmax-header__inner p-2">
+                        <div class="nftmax-header__inner px-10">
                             <div class="nftmax__sicon close-icon d-xl-none"><img
                                     src="{{ asset('assets/img/menu-toggle.svg') }}" alt="#"></div>
                             <div class="nftmax-header__left">
@@ -330,7 +329,7 @@
                             <div class="nftmax-header__right">
                                 <div class="nftmax-header__group">
                                     <!-- Search Form -->
-                                    <div class="nftmax-header__amount">
+                                    {{-- <div class="nftmax-header__amount">
                                         <div class="nftmax-amount__icon"><img
                                                 src="{{ asset('assets/img/bag-icon.svg') }}" alt="#"></div>
                                         <div class="nftmax-amount__digit"><span>$</span> 234,435.34</div>
@@ -367,11 +366,11 @@
 
                                         </div>
                                         <!-- End NFTMax Balance Hover -->
-                                    </div>
+                                    </div> --}}
                                     <!-- End Search Form -->
                                     <div class="nftmax-header__group-two">
                                         <div class="nftmax-header__right">
-                                            <div class="nftmax-header__alarm"><svg xmlns="http://www.w3.org/2000/svg"
+                                            {{-- <div class="nftmax-header__alarm"><svg xmlns="http://www.w3.org/2000/svg"
                                                     width="22" height="24" viewBox="0 0 22 24"
                                                     fill="none">
                                                     <path
@@ -414,7 +413,7 @@
                                                     </div>
                                                 </div>
                                                 <!-- End NFTMax Balance Hover -->
-                                            </div>
+                                            </div> --}}
                                             <div class="nftmax-header__author">
                                                 <div class="nftmax-header__author-img"><img
                                                         src="{{ asset($User_info_for_header['image']) }}"
@@ -431,9 +430,9 @@
                                                 <div class="nftmax-balance nftmax-profile__hover">
                                                     <h3 class="nftmax-balance__title">My Profile</h3>
                                                     <!-- NFTMax Balance List -->
-                                                    <ul class="nftmax-balance_list">
+                                                    <ul class="nftmax-balance_list px-0">
                                                         <li>
-                                                            <div class="nftmax-balance-info">
+                                                            <div class="nftmax-balance-info pt-3 px-3">
                                                                 <div
                                                                     class="nftmax-balance__img nftmax-profile__img-one">
                                                                     <img src="{{ asset('assets/img/profile-1.png') }}"
@@ -445,30 +444,7 @@
                                                             </div>
                                                         </li>
                                                         <li>
-                                                            <div class="nftmax-balance-info">
-                                                                <div
-                                                                    class="nftmax-balance__img nftmax-profile__img-two">
-                                                                    <img src="{{ asset('assets/img/profile-2.png') }}"
-                                                                        alt="#">
-                                                                </div>
-                                                                <h4 class="nftmax-balance-name"><a
-                                                                        href="{{ url('/message') }}">Message</a><span
-                                                                        class="nftmax-profile__count">19</span></h4>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="nftmax-balance-info">
-                                                                <div
-                                                                    class="nftmax-balance__img nftmax-profile__img-three">
-                                                                    <img src="{{ asset('assets/img/profile-3.png') }}"
-                                                                        alt="#">
-                                                                </div>
-                                                                <h4 class="nftmax-balance-name"><a
-                                                                        href="{{ url('/history') }}">History</a></h4>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="nftmax-balance-info">
+                                                            <div class="nftmax-balance-info pt-3 px-3">
                                                                 <div
                                                                     class="nftmax-balance__img nftmax-profile__img-four">
                                                                     <img src="{{ asset('assets/img/profile-4.png') }}"
@@ -479,14 +455,14 @@
                                                             </div>
                                                         </li>
                                                         <li>
-                                                            <div class="nftmax-balance-info">
+                                                            <div class="nftmax-balance-info pt-3 px-3">
                                                                 <div
                                                                     class="nftmax-balance__img nftmax-profile__img-five">
                                                                     <img src="{{ asset('assets/img/profile-5.png') }}"
                                                                         alt="#">
                                                                 </div>
                                                                 <h4 class="nftmax-balance-name"><a
-                                                                        href="{{ url('/load-login') }}">Log Out</a>
+                                                                        href="{{ url('/') }}">Log Out</a>
                                                                 </h4>
                                                             </div>
                                                         </li>
