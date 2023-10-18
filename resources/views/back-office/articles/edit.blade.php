@@ -26,7 +26,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>article title:</strong>
-                            <input type="text" name="articleTitle" value="{{ $article->name }}" class="form-control" placeholder="article title">
+                            <input type="text" name="articleTitle" value="{{ $article->articleTitle }}" class="form-control" placeholder="article title">
                             @error('articleTitle')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                             @enderror
@@ -35,7 +35,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
                             <strong>article content:</strong>
-                            <input type="text" name="articleContent" class="form-control" placeholder="article content" value="{{ $article->email }}">
+                            <input type="text" name="articleContent" class="form-control" placeholder="article content" value="{{ $article->articleContent }}">
                             @error('articleTitle')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                             @enderror
