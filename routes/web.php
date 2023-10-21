@@ -50,6 +50,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/auctions', [AuctionController::class, 'index'])->name('auctions.index');
     Route::get('/auctions/create', [AuctionController::class, 'create'])->name('auctions.create');
     Route::post('/auctions', [AuctionController::class, 'store'])->name('auctions.store');
+    Route::delete('/auctions/{id}', [AuctionController::class, 'destroy'])->name('auctions.destroy');
+    Route::get('/auctions/{id}/edit', [AuctionController::class, 'edit'])->name('auctions.edit');
+    Route::put('/auctions/{id}', [AuctionController::class, 'update'])->name('auctions.update');
     // Orders route
     Route::resource('orders', OrderController::class);
     // Profile route

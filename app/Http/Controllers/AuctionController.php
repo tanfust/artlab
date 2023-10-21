@@ -9,10 +9,8 @@ class AuctionController extends Controller
 {
     public function index()
     {
-
         $auctions = Auction::all();
         return view('back-office/auction', compact('auctions'));
-
     }
     public function create()
     {
@@ -20,6 +18,7 @@ class AuctionController extends Controller
     }
     public function store(Request $request)
     {
+        //need to retrive artwork id from artwork table by user ID from the session
         $request->validate([
             // 'artwork_id' => 'required|exists:artworks,id',
             'startingPrice' => 'required|numeric|min:0',
@@ -38,7 +37,7 @@ class AuctionController extends Controller
     public function edit($id)
     {
         $auction = Auction::findOrFail($id);
-        return view('auctions.edit', compact('auction'));
+        return view('back-office/AuctionUpdate', compact('auction'));
     }
     public function update(Request $request, $id)
     {
@@ -47,11 +46,10 @@ class AuctionController extends Controller
             'startingPrice' => 'required|numeric|min:0',
             'startDate' => 'required|date',
             'endDate' => 'required|date|after:startDate',
+            'description' => 'required',
         ]);
         $auction = Auction::findOrFail($id);
         $auction->update($request->all());
-
-        // Redirect to the index page or show a success message
         return redirect()->route('auctions.index')->with('success', 'Auction updated successfully');
     }
 
@@ -59,8 +57,6 @@ class AuctionController extends Controller
     {
         $auction = Auction::findOrFail($id);
         $auction->delete();
-
-        // Redirect to the index page or show a success message
         return redirect()->route('auctions.index')->with('success', 'Auction deleted successfully');
     }
 }
