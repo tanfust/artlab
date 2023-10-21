@@ -79,6 +79,26 @@
     </div>
     <main id="main">
 
+        {{-- <form action="{{ route('blog') }}" method="GET" class="mb-4">
+            <input type="text" name="query" placeholder="Search by title..."
+                value="{{ request()->input('query') }}">
+            <button type="submit">Search</button>
+        </form> --}}
+
+        <form action="{{ route('blog') }}" method="GET" class="mb-4">
+            <div class="flex items-center justify-center m-8 gap-16">
+                <div class="flex flex-col gap-2 ">
+                    <input type="text" id="name" name="query" value="{{ request()->input('query') }}"
+                        class="w-full py-3 placeholder:text-text3 px-6 text-lg border-2 border-border bg-backgroundInput hover:bg-backgroundHover"
+                        placeholder="Search article by title..." />
+                </div>
+                <button
+                    class=" font-medium text-lg w-fit self-center text-background3 bg-border py-4 px-20 hover:bg-text3"
+                    type="submit">Search article</button>
+            </div>
+        </form>
+
+
 
         @foreach ($articles as $article)
             <div

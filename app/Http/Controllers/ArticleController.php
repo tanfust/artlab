@@ -39,27 +39,26 @@ class ArticleController extends Controller
     * @return \Illuminate\Http\Response
     */
 
-    public function store(Request $request)
-{
-    $input = $request->all();
+    public function store( Request $request )
+ {
+        $input = $request->all();
 
-    if ($request->hasFile('image')) {
-        $file = $request->file('image');
-        if ($file->isValid()) {
-            $file_name = $file->getClientOriginalName();
-            $file->move(public_path('assets/img/articles'), $file_name);
-            $input['image'] = "assets/img/articles/$file_name";
+        if ( $request->hasFile( 'image' ) ) {
+            $file = $request->file( 'image' );
+            if ( $file->isValid() ) {
+                $file_name = $file->getClientOriginalName();
+                $file->move( public_path( 'assets/img/articles' ), $file_name );
+                $input[ 'image' ] = "assets/img/articles/$file_name";
+            }
+        } else {
+            $input[ 'image' ] = 'assets/img/notFoundImg.png';
         }
-    } else {
-        $input['image'] = 'assets/img/notFoundImg.png';
+
+        Article::create( $input );
+        error_log( 'Some message here 22.' );
+
+        return redirect()->route( 'articles.index' )->with( 'success', 'Article has been created successfully.' );
     }
-
-    Article::create($input);
-    error_log('Some message here 22.');
-
-    return redirect()->route('articles.index')->with('success', 'Article has been created successfully.');
-}
-
 
     /**
     * Display the specified resource.
@@ -96,7 +95,7 @@ class ArticleController extends Controller
     * @return \Illuminate\Http\Response
     */
 
-    public function update( Request $request, $id)
+    public function update( Request $request, $id )
  {
         //
         //     $request->validate( [
@@ -118,7 +117,7 @@ class ArticleController extends Controller
         } else {
             $input[ 'image' ] = $article->image;
         }
-        $input['isPublished'] = $request->has('isPublished');
+        $input[ 'isPublished' ] = $request->has( 'isPublished' );
         $article->update( $input );
 
         // Redirect to the index page or show a success message
@@ -141,9 +140,16 @@ class ArticleController extends Controller
         return redirect()->route( 'articles.index' )->with( 'success', 'article has been deleted successfully' );
     }
 
-    public function showBlog()
-{
-    $articles = Article::where('isPublished', true)->paginate(2);
-    return view('front-office.blog', compact('articles'));
-}
+    public function showBlog( Request $request)
+ {
+        $query = $request->input( 'query' );
+
+        if ( $query ) {
+            $articles = Article::where( 'title', 'like', "%$query%" )->paginate( 1 );
+        } else {
+            $articles = Article::where( 'isPublished', true )->paginate( 2 );
+        }
+
+        return view( 'front-office.blog', compact( 'articles' ) );
+    }
 }

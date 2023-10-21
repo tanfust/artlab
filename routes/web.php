@@ -121,4 +121,5 @@ Route::post('/change-password', [SettingController::class, 'changePassword']);
 
 
 Route::get('/blog', 'App\Http\Controllers\ArticleController@showBlog')->name('blog');
+Route::get('/articles/search', 'ArticleController@search')->name('articles.search');
 
