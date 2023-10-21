@@ -12,14 +12,16 @@ return new class extends Migration {
      */
     public function up()
     {
+        
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->string('articleTitle');
-            //$table->unsignedBigInteger('creator_id'); // Foreign key to link the blog to an artist (creator)
-            $table->text('articleContent');
-            //$table->string('image');
+            $table->unsignedBigInteger('creator_id')->default(1); // Foreign key to link the blog to an artist (creator)
+            $table->string('title');
+            $table->text('content');
+            $table->string('image');
+            $table->boolean('isPublished')->default(false);
             $table->timestamps();
-            //$table->foreign('creator_id')->references('id')->on('creators'); // Assuming a "creators" table
+            $table->foreign('creator_id')->references('id')->on('creators'); 
         });
     }
 

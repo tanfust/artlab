@@ -118,3 +118,7 @@ Route::get('/market-place-details', [MarketPlaceDetailsController::class, 'index
 Route::get('/upload-product', [ProductUploadController::class, 'index']);
 
 Route::post('/change-password', [SettingController::class, 'changePassword']);
+
+
+Route::get('/blog', 'App\Http\Controllers\ArticleController@showBlog')->name('blog');
+

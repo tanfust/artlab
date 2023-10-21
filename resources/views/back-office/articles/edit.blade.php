@@ -5,10 +5,16 @@
         <div class="row">
             <div class="col-lg-9 col-12 nftmax-main__column">
                 <div class="nftmax-body min-h-screen pt-10">
-                    <h2 class="text-4xl font-extrabold mb-4">Update "{{ $article->articleTitle }}" </h2>
-                    <form class="form" method="POST" action="{{ route('articles.update') }}"
+                    <div class="flex items-center justify-between mx-8">
+                        <h2 class="text-4xl font-extrabold mb-4">Update "{{ $article->title }}" </h2>
+                        <a href="{{ url('/articles') }}"><button
+                                class="nftmax__item-button--single nftmax__item-button--cancel mr-4"
+                                data-bs-toggle="modal" data-bs-target="#cancel_modal">Cancel</button></a>
+                    </div>
+                    <form class="form" method="POST" action="{{ route('articles.update', $article->id) }}"
                         enctype="multipart/form-data">
                         {{ csrf_field() }}
+                        @method('PUT')
                         <div class="row">
                             <div class="col-12">
                                 <div class="nftmax__item-box w-full">
@@ -19,27 +25,50 @@
                                                 <div class="nftmax__item-form--group">
                                                     <label for="title" class="nftmax__item-label">Article
                                                         Title</label>
-                                                    <input name="articleTitle" value="{{ $article->articleTitle }}"
+                                                    <input name="title" value="{{ $article->title }}"
                                                         class="nftmax__item-input nftmax__item-input__arrow"
                                                         type="text" placeholder="Article Title" required="required">
                                                 </div>
-
+                                                <div class="nftmax__item-form--group">
+                                                    <label for="image" class="nftmax__item-label">Article
+                                                        Image</label>
+                                                    <input name="image"
+                                                        class="text-[#666] bg-[#FAFAFA] border border-[#E3E4FE] px-4 py-3 w-full hover:border-[#5356FB] rounded-3xl"
+                                                        type="file" value="{{ $article->image }}">
+                                                </div>
                                                 <div class="nftmax__item-form--group">
                                                     <label class="nftmax__item-label">Article Content </label>
-                                                    <textarea name="articleContent" class="nftmax__item-input nftmax__item-textarea" type="text"
-                                                        placeholder="Provide a detailed description of your item." required="required">{{ $article->articleContent }}</textarea>
+                                                    <textarea name="content" class="nftmax__item-input nftmax__item-textarea" type="text" maxlength="500"
+                                                        placeholder="Provide a detailed description of your item." required="required">{{ $article->content }}</textarea>
                                                 </div>
+                                                <div class="flex items-center space-x-10">
+                                                    <div class="nftmax-paymentm__content">
+                                                        <h4
+                                                            class="nftmax-paymentm__title nftmax-paymentm__title--notify">
+                                                            Publish article </h4>
+                                                        <p class="nftmax-paymentm__text nftmax-paymentm__text--notify">
+                                                            you can publish or unpublish your article</p>
+                                                    </div>
+                                                    <div
+                                                        class="nftmax-ptabs__notify-switch  nftmax-ptabs__notify-switch--two justify-center">
+                                                        <label class="nftmax__item-switch">
+                                                            <input type="checkbox" name="isPublished" value="1"
+                                                                {{ $article->isPublished ? 'checked' : 'unchecked' }}>
+                                                            <span
+                                                                class="nftmax__item-switch--slide nftmax__item-switch--round"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="nftmax__item-button--group">
-                                    <a href="{{ url('/articles') }}"><button
-                                            class="nftmax__item-button--single nftmax__item-button--cancel mr-4"
-                                            data-bs-toggle="modal" data-bs-target="#cancel_modal">Cancel</button>
-                                        <button
-                                            class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius nftmax-item__btn"
-                                            type="submit">Update Now</button>
+
+                                    <button
+                                        class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius nftmax-item__btn"
+                                        type="submit">Update Now</button>
                                 </div>
                             </div>
                         </div>

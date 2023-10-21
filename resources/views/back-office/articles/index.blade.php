@@ -28,17 +28,27 @@
 
                             <div class="w-full grid grid-cols-2 gap-5 py-10  overflow-auto">
                                 @foreach ($articles as $article)
-                                    <div class="max-w-sm w-full lg:max-w-full lg:flex">
-                                        <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center "
-                                            style="background-image: url('./event-5.jpeg')" title="Woman holding a mug">
-                                        </div>
+                                    <div
+                                        class="relative flex flex-col text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
                                         <div
-                                            class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                                            <div class="mb-8">
-                                                <div class="text-gray-900 font-bold text-xl mb-2">
-                                                    {{ $article->articleTitle }}</div>
-                                                <p class="text-gray-700 text-base">{{ $article->articleContent }}</p>
-                                            </div>
+                                            class="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
+                                            <img src="{{ $article->image }}" alt="img-blur-shadow" layout="fill" />
+                                        </div>
+                                        <div class="p-6">
+                                            <h5
+                                                class="block  font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                                                {{ $article->title }}
+                                            </h5>
+                                            <span class="inline-block {{ $article->isPublished ? 'bg-teal-200' : 'bg-red-400' }}  text-black text-xs px-2 rounded-full uppercase font-semibold tracking-wide">{{ $article->isPublished ? 'Published' : 'Unpublished' }}</span>
+                                            <p
+                                                class="block font-sans text-xl antialiased font-light leading-relaxed text-inherit truncate">
+                                                {{ $article->content }}
+                                            </p>
+                                        </div>
+                                        <div class="p-6 pt-0">
+                                            <p class="text-sm text-gray-600 flex items-center">
+                                                Created at : {{ $article->created_at }}
+                                            </p>
                                             <form action="{{ route('articles.destroy', $article->id) }}" method="Post">
                                                 <div class="float-right p-2">
                                                     <a class="btn btn-primary text-xs"
