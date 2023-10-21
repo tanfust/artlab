@@ -18,6 +18,7 @@ class AuctionController extends Controller
     }
     public function store(Request $request)
     {
+        //need to retrive artwork id from artwork table by user ID from the session
         $request->validate([
             // 'artwork_id' => 'required|exists:artworks,id',
             'startingPrice' => 'required|numeric|min:0',

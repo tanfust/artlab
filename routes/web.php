@@ -20,6 +20,7 @@ use App\Http\Controllers\VerifyController;
 use App\Http\Controllers\MyCollectionController;
 use App\Http\Controllers\MarketPlaceDetailsController;
 use App\Http\Controllers\ProductUploadController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,89 +28,70 @@ use App\Http\Controllers\ProductUploadController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
-Route::get('/', function () {
-    return view('front-office/welcome');
+Route::get('/dashboard', function () {
+    return view('back-office/dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    // Sell route
+    Route::get('/sell', [SellController::class, 'index']);
+    // Marketplace route
+    Route::get('/market-place', [MarketPlaceController::class, 'index']);
+    // Auctions route
+    Route::get('/auctions', [AuctionController::class, 'index'])->name('auctions.index');
+    Route::get('/auctions/create', [AuctionController::class, 'create'])->name('auctions.create');
+    Route::post('/auctions', [AuctionController::class, 'store'])->name('auctions.store');
+    Route::delete('/auctions/{id}', [AuctionController::class, 'destroy'])->name('auctions.destroy');
+    Route::get('/auctions/{id}/edit', [AuctionController::class, 'edit'])->name('auctions.edit');
+    Route::put('/auctions/{id}', [AuctionController::class, 'update'])->name('auctions.update');
+    // Orders route
+    Route::resource('orders', OrderController::class);
+    // Profile route
+    Route::get('/my-profile', [profileController::class, 'index']);
+    // Settings route
+    Route::get('/setting', [SettingController::class, 'index']);
+    // MyCollection route
+    Route::get('/my-collection', [MyCollectionController::class, 'index']);
+    // MarketplaceDetails route
+    Route::get('/market-place-details', [MarketPlaceDetailsController::class, 'index']);
 });
-Route::get('/events', function () {
-    return view('front-office/events');
+
+
+
+Route::middleware('guest')->group(function () {
+    Route::get('/', function () {
+        return view('front-office/welcome');
+    });
+    Route::get('/events', function () {
+        return view('front-office/events');
+    });
+    Route::get('/tickets', function () {
+        return view('front-office/buy-ticket');
+    });
+    Route::get('/mission', function () {
+        return view('front-office/our-mission');
+    });
+    Route::get('/blog', function () {
+        return view('front-office/blog');
+    });
+    Route::get('/live-auctions', function () {
+        return view('front-office/auctions');
+    });
+    Route::get('/creator', function () {
+        return view('front-office/creator');
+    });
+    Route::get('/new-account', function () {
+        return view('front-office/new-creator');
+    });
 });
-Route::get('/tickets', function () {
-    return view('front-office/buy-ticket');
-});
-Route::get('/mission', function () {
-    return view('front-office/our-mission');
-});
-Route::get('/blog', function () {
-    return view('front-office/blog');
-});
-Route::get('/auctions', function () {
-    return view('front-office/auctions');
-});
-Route::get('/creator', function () {
-    return view('front-office/creator');
-});
-Route::get('/new-account', function () {
-    return view('front-office/new-creator');
-});
 
-
-Route::get('/dashboard', [DashboardController::class, 'index']);
-
-Route::get('/load-login', [AdminLoginController::class, 'index']);
-Route::post('/admin-login', [AdminLoginController::class, 'login']);
-
-Route::get('/load-register', [AdminRegisterController::class, 'index']);
-Route::post('/register', [AdminRegisterController::class, 'register']);
-
-Route::get('/history', [HistoryController::class, 'index']);
-
-
-Route::get('/my-wallet', [MyWalletController::class, 'index']);
-
-Route::get('/sell', [SellController::class, 'index']);
-
-
-Route::get('/market-place', [MarketPlaceController::class, 'index']);
-
-
-// Route::get('/auctions', 'AuctionController@index')->name('auctions.index');
-// Route::get('/auctions/create', 'AuctionController@create')->name('auctions.create');
-// Route::post('/auctions', 'AuctionController@store')->name('auctions.store');
-
-Route::get('/auctions', [AuctionController::class, 'index'])->name('auctions.index');
-Route::get('/auctions/create', [AuctionController::class, 'create'])->name('auctions.create');
-Route::post('/auctions', [AuctionController::class, 'store'])->name('auctions.store');
-Route::delete('/auctions/{id}', [AuctionController::class, 'destroy'])->name('auctions.destroy');
-Route::get('/auctions/{id}/edit', [AuctionController::class, 'edit'])->name('auctions.edit');
-Route::put('/auctions/{id}', [AuctionController::class, 'update'])->name('auctions.update');
-
-
-Route::get('/all-saved', [AllSavedController::class, 'index']);
-
-
-Route::get('/my-profile', [profileController::class, 'index']);
-
-Route::get('/setting', [SettingController::class, 'index']);
-
-Route::get('/notification', [NotificationController::class, 'index']);
-
-Route::get('/message', [MessageController::class, 'index']);
-
-Route::get('/forgot-password', [FlorgotPasswordController::class, 'index']);
-Route::post('/find-password', [FlorgotPasswordController::class, 'findPassword']);
-
-Route::get('/verify', [VerifyController::class, 'index']);
-Route::post('/verification', [VerifyController::class, 'verification']);
-
-Route::get('/my-collection', [MyCollectionController::class, 'index']);
-
-Route::get('/market-place-details', [MarketPlaceDetailsController::class, 'index']);
-
-Route::get('/upload-product', [ProductUploadController::class, 'index']);
-
-Route::post('/change-password', [SettingController::class, 'changePassword']);
+require __DIR__.'/auth.php';
