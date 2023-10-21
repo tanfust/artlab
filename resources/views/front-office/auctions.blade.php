@@ -1,4 +1,4 @@
-@include('front-office/Layout.Header')
+<x-guest-layout>
 
     <div class="w-full border-b-[2px] border-border pt-28 pb-10 px-[12vw] relative">
         <h1 class="md:text-9xl lg:text-[204px] font-bold pb-10 tracking-tighter flex items-start gap-5">AUCTIONS <img src="star.svg" /></h1>
@@ -19,4 +19,4 @@
         </a>
     </div>
 
-@include('front-office/Layout.Footer')
+</x-guest-layout>
