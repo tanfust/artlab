@@ -143,7 +143,7 @@ class ArticleController extends Controller
 
     public function showBlog()
 {
-    $articles = Article::paginate(2);
+    $articles = Article::where('isPublished', true)->paginate(2);
     return view('front-office.blog', compact('articles'));
 }
 }
