@@ -21,6 +21,7 @@ use App\Http\Controllers\MyCollectionController;
 use App\Http\Controllers\MarketPlaceDetailsController;
 use App\Http\Controllers\ProductUploadController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,9 +58,11 @@ Route::middleware('auth')->group(function () {
     // Settings route
     Route::get('/setting', [SettingController::class, 'index']);
     // MyCollection route
-    Route::get('/my-collection', [MyCollectionController::class, 'index']);
+    Route::get('/my-collection', [GalleryController::class, 'index']);
     // MarketplaceDetails route
     Route::get('/market-place-details', [MarketPlaceDetailsController::class, 'index']);
+
+    Route::resource('Gallery', GalleryController::class);
 });
 
 
