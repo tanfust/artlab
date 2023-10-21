@@ -19,7 +19,7 @@ use App\Http\Controllers\VerifyController;
 use App\Http\Controllers\MyCollectionController;
 use App\Http\Controllers\MarketPlaceDetailsController;
 use App\Http\Controllers\ProductUploadController;
-
+use App\Http\Controllers\EventController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -88,3 +88,28 @@ Route::get('/market-place-details',[MarketPlaceDetailsController::class,'index']
 Route::get('/upload-product',[ProductUploadController::class,'index']);
 
 Route::post('/change-password',[SettingController::class,'changePassword']);
+
+
+
+
+
+// List all events
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
+
+// Show the form to create a new event
+Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+
+// Store a new event
+Route::post('/events', [EventController::class, 'store'])->name('events.store');
+
+// Show a single event
+Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+
+// Show the form to edit an event
+Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
+
+// Update an event
+Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update');
+
+// Delete an event
+Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
