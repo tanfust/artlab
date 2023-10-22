@@ -12,6 +12,11 @@ class AuctionController extends Controller
         $auctions = Auction::all();
         return view('back-office/auction', compact('auctions'));
     }
+    public function frontPage()
+    {
+        $auctions = Auction::all();
+        return view('front-office/auctions', compact('auctions'));
+    }
     public function create()
     {
         return view('back-office/AuctionCreate');
@@ -23,7 +28,7 @@ class AuctionController extends Controller
             // 'artwork_id' => 'required|exists:artworks,id',
             'startingPrice' => 'required|numeric|min:0',
             'startDate' => 'required|date',
-            'endDate' => 'required|date|after:startDate',
+            'endDate' => 'required|date|end_date_after_start:startDate',
             'description' => 'required',
         ]);
         Auction::create($request->post());
