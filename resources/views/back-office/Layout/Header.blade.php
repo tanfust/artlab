@@ -149,61 +149,10 @@
                                             </svg></span><span class="menu-bar__name">My Orders</span><span
                                             class="menu-bar__count ntfmax__bgc--7">{{ $SidebarInf['saved'] }}</span></span></a>
                             </li>
-                            {{-- <li><a href="{{ url('/message') }}"><span class="menu-bar__text"><span
-                                            class="nftmax-menu-icon nftmax-svg-icon__v8"><svg class="nftmax-svg-icon"
-                                                viewBox="0 0 14 13" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M13.9729 3L9.06236 7.82172C7.92242 8.93841 6.07703 8.93841 4.93709 7.82172L0.0267964 3C0.0185934 3.09048 0 3.17238 0 3.26232V10.1359C0.00191403 11.7168 1.30673 12.9981 2.9167 13H11.0833C12.6933 12.9981 13.9981 11.7168 14 10.1359V3.26232C13.9997 3.17238 13.9811 3.09048 13.9729 3Z">
-                                                </path>
-                                                <path
-                                                    d="M8.31954 6.50593L14 1.35845C13.4403 0.517707 12.4369 0.00264136 11.353 0H2.64666C1.5631 0.00264136 0.559417 0.517707 0 1.35845L5.68046 6.50593C6.40983 7.16469 7.58988 7.16469 8.31954 6.50593Z">
-                                                </path>
-                                            </svg></span><span class="menu-bar__name">Message</span><span
-                                            class="menu-bar__count  ntfmax__bgc--3">{{ $SidebarInf['message'] }}</span></span></a>
-                            </li>
-                            <li><a href="{{ url('/history') }}"><span class="menu-bar__text"><span
-                                            class="nftmax-menu-icon nftmax-svg-icon__v9"><svg class="nftmax-svg-icon"
-                                                viewBox="0 0 19 19" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M9.37855 15.6715C10.5752 15.6715 11.745 15.3166 12.74 14.6518C13.7349 13.987 14.5104 13.042 14.9684 11.9365C15.4263 10.8309 15.5461 9.61436 15.3127 8.4407C15.0792 7.26704 14.503 6.18896 13.6568 5.3428C12.8107 4.49664 11.7326 3.92039 10.5589 3.68694C9.38526 3.45348 8.16873 3.5733 7.06316 4.03124C5.9576 4.48918 5.01266 5.26467 4.34783 6.25966C3.683 7.25464 3.32816 8.42442 3.32816 9.62107C3.33057 11.225 3.9688 12.7625 5.10295 13.8967C6.23709 15.0308 7.77463 15.669 9.37855 15.6715ZM8.70628 7.60428C8.70628 7.42598 8.77711 7.25499 8.90318 7.12891C9.02926 7.00284 9.20025 6.93201 9.37855 6.93201C9.55684 6.93201 9.72784 7.00284 9.85391 7.12891C9.97999 7.25499 10.0508 7.42598 10.0508 7.60428V9.33872L11.2811 10.569C11.4068 10.6957 11.4772 10.8672 11.4768 11.0457C11.4765 11.2243 11.4054 11.3954 11.2791 11.5216C11.1529 11.6479 10.9817 11.719 10.8032 11.7193C10.6246 11.7197 10.4532 11.6493 10.3264 11.5236L8.90124 10.0984C8.7779 9.96987 8.70818 9.79918 8.70628 9.62107V7.60428Z">
-                                                </path>
-                                                <path
-                                                    d="M9.37854 0.209365C9.20024 0.209365 9.02925 0.280193 8.90317 0.406267C8.7771 0.532342 8.70627 0.703335 8.70627 0.881631C8.70627 1.05993 8.7771 1.23092 8.90317 1.35699C9.02925 1.48307 9.20024 1.5539 9.37854 1.5539C11.2605 1.54612 13.0865 2.19384 14.5428 3.38583C15.9992 4.57782 16.9951 6.23969 17.3595 8.08605C17.7239 9.93241 17.4341 11.848 16.5398 13.504C15.6455 15.1599 14.2026 16.4528 12.4588 17.1606C10.715 17.8685 8.77918 17.9471 6.98374 17.3829C5.1883 16.8188 3.64531 15.6471 2.61973 14.0691C1.59415 12.4911 1.15 10.6053 1.36354 8.73548C1.57707 6.86565 2.43498 5.12852 3.78993 3.82239L3.74435 4.17009C3.72117 4.3469 3.76918 4.52568 3.87782 4.6671C3.98646 4.80852 4.14682 4.90099 4.32364 4.92417C4.50045 4.94734 4.67924 4.89933 4.82065 4.7907C4.96207 4.68206 5.05454 4.52169 5.07772 4.34487L5.33936 2.34515C5.35537 2.16962 5.30457 1.99451 5.19711 1.8548C5.08964 1.71508 4.93343 1.62105 4.75967 1.59148L2.75995 1.33003C2.6712 1.31592 2.58053 1.31974 2.49328 1.34127C2.40604 1.3628 2.324 1.40161 2.25201 1.45539C2.18002 1.50917 2.11954 1.57684 2.07415 1.6544C2.02876 1.73195 1.99938 1.81782 1.98775 1.90693C1.97612 1.99603 1.98247 2.08657 2.00643 2.17318C2.03038 2.25979 2.07146 2.34071 2.12723 2.41118C2.183 2.48164 2.25233 2.5402 2.33112 2.58341C2.40991 2.62662 2.49657 2.65359 2.58597 2.66273L3.00459 2.71759C1.3997 4.20681 0.365311 6.20977 0.0800858 8.38051C-0.20514 10.5512 0.27671 12.7534 1.44241 14.6067C2.6081 16.46 4.38444 17.8479 6.4646 18.5308C8.54476 19.2138 10.7981 19.1487 12.8354 18.347C14.8728 17.5453 16.5661 16.0573 17.623 14.1399C18.6799 12.2225 19.034 9.99617 18.6241 7.84549C18.2142 5.69482 17.0661 3.75482 15.378 2.3606C13.6899 0.966386 11.5679 0.205498 9.37854 0.209365Z">
-                                                </path>
-                                            </svg></span><span class="menu-bar__name">History</span></span></a></li> --}}
-
                         </ul>
                     </div>
                     <!-- End Nav Menu -->
                 </div>
-
-                {{-- <div class="admin-menu__two mg-top-50">
-                    <h4 class="admin-menu__title nftmax-scolor">Settings</h4>
-                    <!-- Nav Menu -->
-                    <div class="menu-bar">
-                        <ul class="menu-bar__one">
-                            <li><a href="{{ url('/my-profile') }}"><span class="menu-bar__text"><span
-                                            class="nftmax-menu-icon nftmax-svg-icon__v10"><svg class="nftmax-svg-icon"
-                                                viewBox="0 0 15 20" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M10.8692 11.6667H4.13085C3.03569 11.668 1.98576 12.1036 1.21136 12.878C0.436961 13.6524 0.00132319 14.7023 0 15.7975V20H15.0001V15.7975C14.9987 14.7023 14.5631 13.6524 13.7887 12.878C13.0143 12.1036 11.9644 11.668 10.8692 11.6667Z">
-                                                </path>
-                                                <path
-                                                    d="M7.49953 10C10.261 10 12.4995 7.76145 12.4995 5.00002C12.4995 2.23858 10.261 0 7.49953 0C4.7381 0 2.49951 2.23858 2.49951 5.00002C2.49951 7.76145 4.7381 10 7.49953 10Z">
-                                                </path>
-                                            </svg></span><span class="menu-bar__name">My Profile</span> </span></a>
-                            </li>
-                            <li><a href="{{ url('/setting') }}"><span class="menu-bar__text"><span
-                                            class="nftmax-menu-icon nftmax-svg-icon__v11"><svg class="nftmax-svg-icon"
-                                                viewBox="0 0 14 16" xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M0.259306 11.548C0.789972 12.469 1.96681 12.7854 2.88783 12.2548C2.88846 12.2544 2.88906 12.254 2.88969 12.2537L3.17517 12.0888C3.71408 12.5499 4.33352 12.9074 5.00231 13.1435V13.4727C5.00231 14.5356 5.86402 15.3973 6.92698 15.3973C7.98993 15.3973 8.85164 14.5356 8.85164 13.4727V13.1435C9.52052 12.9071 10.14 12.5491 10.6788 12.0875L10.9656 12.253C11.8868 12.7845 13.0645 12.4686 13.5959 11.5473C14.1274 10.6261 13.8115 9.44842 12.8902 8.91694L12.6054 8.75271C12.7336 8.05499 12.7336 7.33974 12.6054 6.64199L12.8902 6.47776C13.8114 5.94628 14.1274 4.76863 13.5959 3.84738C13.0645 2.92615 11.8868 2.61018 10.9656 3.14165L10.6801 3.30654C10.1406 2.84604 9.52076 2.48913 8.85164 2.25378V1.92467C8.85164 0.861709 7.98993 0 6.92698 0C5.86402 0 5.00231 0.861709 5.00231 1.92467V2.25378C4.33343 2.49025 3.71396 2.84823 3.17517 3.30979L2.8884 3.14364C1.96715 2.61213 0.789491 2.92811 0.258013 3.84933C-0.273465 4.77055 0.0424806 5.94824 0.963734 6.47972L1.24858 6.64394C1.12035 7.34166 1.12035 8.05692 1.24858 8.75467L0.963734 8.9189C0.0450368 9.45179 -0.269887 10.6272 0.259306 11.548ZM6.92698 5.13245C8.34425 5.13245 9.49319 6.28139 9.49319 7.69866C9.49319 9.11594 8.34425 10.2649 6.92698 10.2649C5.5097 10.2649 4.36077 9.11594 4.36077 7.69866C4.36077 6.28139 5.5097 5.13245 6.92698 5.13245Z">
-                                                </path>
-                                            </svg></span><span class="menu-bar__name">Settings</span></span></a></li>
-                        </ul>
-                    </div>
-                    <!-- End Nav Menu -->
-                </div> --}}
 
                 <!-- Logout Button -->
                 <div class="logout-button">
@@ -242,10 +191,12 @@
                             </div>
                             <h2 class="nftmax-preview__close-title">Are you sure you want to Logout from <span>Artlab dashboard?</span></h2>
                             <div class="nftmax__item-button--group">
-                                <a href="{{ url('/') }}"
-                                    class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius "
-                                    type="submit">Yes Logout
-                                </a>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius ">
+                                        Yes Logout
+                                    </a>
+                                </form>
                                 <button
                                     class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered--plus radius"
                                     data-bs-dismiss="modal"><span class="ntfmax__btn-textgr">Not Now</span> </button>
@@ -328,101 +279,19 @@
                             </div>
                             <div class="nftmax-header__right">
                                 <div class="nftmax-header__group">
-                                    <!-- Search Form -->
-                                    {{-- <div class="nftmax-header__amount">
-                                        <div class="nftmax-amount__icon"><img
-                                                src="{{ asset('assets/img/bag-icon.svg') }}" alt="#"></div>
-                                        <div class="nftmax-amount__digit"><span>$</span> 234,435.34</div>
-                                        <div class="nftmax-header__plus"><a href="#"><img
-                                                    src="{{ asset('assets/img/plus-icon.svg') }}" alt="#"></a>
-                                        </div>
-                                        <!-- NFTMax Balance Hover -->
-                                        <div class="nftmax-balance">
-                                            <h3 class="nftmax-balance__title">Your Balance</h3>
-                                            <!-- NFTMax Balance List -->
-                                            <ul class="nftmax-balance_list">
-                                                @foreach ($Balance as $Balance)
-                                                    <li>
-                                                        <div class="nftmax-balance-info">
-                                                            <div class="nftmax-balance__img"><img
-                                                                    src="{{ asset($Balance['0']) }}" alt="#">
-                                                            </div>
-                                                            <h4 class="nftmax-balance-name">{{ $Balance['1'] }}</h4>
-                                                        </div>
-                                                        <div class="nftmax-balance-amount">
-                                                            <h4 class="nftmax-balance-amount nftmax-scolor">
-                                                                {{ $Balance['2'] }} ETH <span
-                                                                    class="nftmax-balance-usd">({{ $Balance['3'] }}
-                                                                    USD)</span></h4>
-                                                        </div>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                            <!-- NFTMax Balance Button -->
-                                            <div class="nftmax-balance__button" data-bs-toggle="modal"
-                                                data-bs-target="#add_wallet"><a href="#"
-                                                    class="nftmax-btn nftmax-btn__bordered bg radius">Add Money</a>
-                                            </div>
-
-                                        </div>
-                                        <!-- End NFTMax Balance Hover -->
-                                    </div> --}}
-                                    <!-- End Search Form -->
                                     <div class="nftmax-header__group-two">
                                         <div class="nftmax-header__right">
-                                            {{-- <div class="nftmax-header__alarm"><svg xmlns="http://www.w3.org/2000/svg"
-                                                    width="22" height="24" viewBox="0 0 22 24"
-                                                    fill="none">
-                                                    <path
-                                                        d="M3.27336 17.6123H18.3622C18.8266 17.6123 19.2841 17.5005 19.6961 17.2863C20.1081 17.072 20.4625 16.7617 20.7292 16.3815C20.9959 16.0014 21.1671 15.5626 21.2283 15.1023C21.2896 14.6419 21.239 14.1736 21.081 13.737L18.3323 6.13763C17.8629 4.44882 16.8532 2.96026 15.4577 1.89961C14.0621 0.838957 12.3576 0.264609 10.6048 0.264404V0.264404C8.78009 0.264376 7.00995 0.886604 5.58662 2.02836C4.16328 3.17011 3.17186 4.76311 2.77605 6.54435L0.511187 13.869C0.377839 14.3015 0.347861 14.7592 0.423665 15.2053C0.49947 15.6515 0.678939 16.0736 0.947633 16.4377C1.21633 16.8018 1.56674 17.0978 1.97069 17.3018C2.37463 17.5058 2.82082 17.6122 3.27336 17.6123Z"
-                                                        fill="#374557"></path>
-                                                    <path
-                                                        d="M6.19531 19.5398C6.41651 20.6291 7.00751 21.6085 7.86817 22.312C8.72883 23.0154 9.80622 23.3997 10.9178 23.3997C12.0294 23.3997 13.1068 23.0154 13.9674 22.312C14.8281 21.6085 15.4191 20.6291 15.6403 19.5398H6.19531Z"
-                                                        fill="#374557"></path>
-                                                </svg><span
-                                                    class="nftmax-header__count">{{ count($RecentNotification) }}</span>
-                                                <!-- NFTMax Alarm Hover -->
-                                                <div class="nftmax-balance nftmax-alarm__hover">
-                                                    <h3 class="nftmax-balance__title">Recent Notification</h3>
-                                                    <!-- NFTMax Balance List -->
-                                                    <ul class="nftmax-balance_list">
-                                                        @foreach ($RecentNotification as $RecentNotification)
-                                                            <li>
-                                                                <div class="nftmax-balance-info">
-                                                                    <div
-                                                                        class="nftmax-balance__img nftmax-alarm__default">
-                                                                        <img src="{{ asset($RecentNotification['0']) }}"
-                                                                            alt="#">
-                                                                    </div>
-                                                                    <div class="nftmax-alarm__content">
-                                                                        <h4 class="nftmax-balance-name">
-                                                                            {{ $RecentNotification['1'] }} <strong
-                                                                                class="nftmax-balance__second">{{ $RecentNotification['2'] }}</strong>
-                                                                        </h4>
-                                                                        <p class="nftmax-alarm__text">
-                                                                            {{ $RecentNotification['3'] }}</p>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                    <!-- NFTMax Balance Button -->
-                                                    <div class="nftmax-balance__button"><a
-                                                            href="{{ url('/notification') }}"
-                                                            class="nftmax-balance__sell-all">See all Notification</a>
-                                                    </div>
-                                                </div>
-                                                <!-- End NFTMax Balance Hover -->
-                                            </div> --}}
+
                                             <div class="nftmax-header__author">
                                                 <div class="nftmax-header__author-img"><img
                                                         src="{{ asset($User_info_for_header['image']) }}"
                                                         alt="#"></div>
                                                 <div class="nftmax-header__author-content">
                                                     <h4 class="nftmax-header__author-title">
-                                                        {{ $User_info_for_header['name'] }}</h4>
+
+                                                        {{ Auth::user()->name }}</h4>
                                                     <p class="nftmax-header__author-text v1"><a
-                                                            href="#">{{ $User_info_for_header['user_name'] }}</a>
+                                                            href="#">{{ Auth::user()->email }}</a>
                                                     </p>
                                                 </div>
 
@@ -461,8 +330,13 @@
                                                                     <img src="{{ asset('assets/img/profile-5.png') }}"
                                                                         alt="#">
                                                                 </div>
-                                                                <h4 class="nftmax-balance-name"><a
-                                                                        href="{{ url('/') }}">Log Out</a>
+                                                                <h4 class="nftmax-balance-name">
+                                                                    <form method="POST" action="{{ route('logout') }}">
+                                                                        @csrf
+                                                                        <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                                                                            Log Out
+                                                                        </a>
+                                                                    </form>
                                                                 </h4>
                                                             </div>
                                                         </li>

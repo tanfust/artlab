@@ -16,15 +16,13 @@ return new class extends Migration {
             $table->id();
             $table->string('eventName');
             $table->dateTime('eventDate');
-            $table->unsignedBigInteger('creator_id'); // Foreign key to link the event to a creator (artist or user)
+            $table->unsignedBigInteger('user_id');
             $table->string('eventLocation');
             $table->string('eventDescription');
             $table->string('eventImage');
-
-            // Add other event-related fields here
             $table->timestamps();
 
-            $table->foreign('creator_id')->references('id')->on('creators');
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

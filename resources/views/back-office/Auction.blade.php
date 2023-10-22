@@ -169,24 +169,30 @@
                                         <!-- Trending Head -->
                                         <div class="trending-action__head">
                                             <div class="trending-action__button">
-                                                <a class="trending-action__btn heart-icon"><i
-                                                        class="fa-solid fa-heart"></i></a>
-                                                <a class="trending-action__btn"><i
-                                                        class="fa-solid fa-ellipsis-vertical"></i></a>
+                                                <!-- Delete Button -->
+                                                <form action="{{ route('auctions.destroy', $auction->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                                <!-- End Delete Button -->
+                                                <!-- Edit Button -->
+                                                <a href="{{ route('auctions.edit', $auction->id) }}"
+                                                    class="btn btn-primary">
+                                                    <i class="fa-solid fa-pencil"></i>
+                                                </a>
+                                                <!-- End Edit Button -->
+
                                             </div>
-                                            <img src="{{ asset($auction->image_url) }}" alt="{{ $auction->title }}">
+                                            <img src="event-1.jpeg" alt="{{ $auction->title }}">
                                         </div>
+
                                         <!-- Trending Body -->
                                         <div class="trending-action__body">
-                                            {{-- <div class="trending-action__author-meta">
-                                                <div class="trending-action__author-img"><img
-                                                        src="{{ asset($auction->owner_avatar) }}"
-                                                        alt="{{ $auction->owner_name }}"></div>
-                                                <p class="trending-action__author-name">Owned by
-                                                    {{ $auction->owner_name }} <a
-                                                        href="{{ url('/profile') }}">{{ $auction->owner_username }}</a>
-                                                </p>
-                                            </div> --}}
+
                                             <div class="trending-action__author-meta">
                                                 <div class="trending-action__author-img"><img src="event-1.jpeg"
                                                         alt="Creator Avatar">
