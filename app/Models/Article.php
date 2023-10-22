@@ -13,6 +13,12 @@ class Article extends Model
     public function Creator()
  {
         return $this->belongsTo( 'Creator' );
+        
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class);
     }
     // to be deleted after merging
     public static function boot()

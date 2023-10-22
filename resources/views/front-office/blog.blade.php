@@ -105,7 +105,20 @@
                 class="gradient-hover w-full border-t-2 border-text3 flex flex-col py-20 px-6 hover:underline cursor-pointer sm:flex-col">
                 <div class="w-full flex items-center">
                     <h1 class="w-[50%] text-text3 font-semibold">
-                        {{ $article->creator_id }}
+
+                        <div class="flex flex-col text-text3">
+                            <h1 class="text-xl font-medium max-w-4xl tracking-tighter">Author :
+                                {{ $article->creator_id }}
+                            </h1>
+                            <h1 class="text-base font-light max-w-4xl tracking-tighter">
+                                @foreach ($article->categories as $category)
+                                    {{ $category->name }}
+                                    @if (!$loop->last)
+                                        ,
+                                    @endif
+                                @endforeach
+                            </h1>
+                        </div>
                     </h1>
                     <div class="w-[50%] flex justify-between">
                         <h1 class="text-7xl font-bold text-text3 pb-4">{{ $article->title }}</h1>
@@ -125,8 +138,8 @@
                             ABOUT
                             GOING ON IN THE ARTISTIC AND MUSEUM WORLD. BROWSE THROUGH THE ART EVENTS AND STAY UP TO DATE
                             WITH WHAT HAPPENING.</h1>
-                        <div class="w-full border-2 border-border p-5 flex items-center justify-center"><img
-                                src="arrow.svg" class="w-16" /></div>
+                        <div class="w-full border-2 border-border p-5 flex items-center justify-center"><a href="/"><img
+                            src="arrow.svg" class="w-16" /></a></div>
                     </div>
                     <div class=""><img src="{{ $article->image }}" alt="" srcset=""
                             class=" w-[100%] h-[500px]"></div>

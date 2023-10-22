@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Category;
 
 class ArticleController extends Controller
  {
@@ -16,7 +17,7 @@ class ArticleController extends Controller
     public function index()
  {
 
-        $articles = Article::all();
+        $articles = Article::with( 'categories' )->get();
         return view( 'back-office/articles.index', compact( 'articles' ) );
     }
 
@@ -29,7 +30,8 @@ class ArticleController extends Controller
     public function create()
  {
         //
-        return view( 'back-office/articles.create' );
+        $categories = Category::all();
+        return view( 'back-office/articles.create', compact( 'categories' ) );
     }
 
     /**
@@ -54,7 +56,9 @@ class ArticleController extends Controller
             $input[ 'image' ] = 'assets/img/notFoundImg.png';
         }
 
-        Article::create( $input );
+        $article = Article::create( $input );
+
+        $article->categories()->sync( $request->input( 'category' ) );
         error_log( 'Some message here 22.' );
 
         return redirect()->route( 'articles.index' )->with( 'success', 'Article has been created successfully.' );
@@ -83,8 +87,9 @@ class ArticleController extends Controller
 
     public function edit( $id )
  {
+        $categories = Category::all();
         $article = Article::findOrFail( $id );
-        return view( 'back-office/articles.edit', compact( 'article' ) );
+        return view( 'back-office/articles.edit', compact( 'article','categories' ) );
     }
 
     /**
@@ -120,6 +125,7 @@ class ArticleController extends Controller
         $input[ 'isPublished' ] = $request->has( 'isPublished' );
         $article->update( $input );
 
+        $article->categories()->sync( $request->input( 'category' ) );
         // Redirect to the index page or show a success message
         return redirect()->route( 'articles.index' )->with( 'success', 'article has been created successfully.' );
 
@@ -140,7 +146,7 @@ class ArticleController extends Controller
         return redirect()->route( 'articles.index' )->with( 'success', 'article has been deleted successfully' );
     }
 
-    public function showBlog( Request $request)
+    public function showBlog( Request $request )
  {
         $query = $request->input( 'query' );
 

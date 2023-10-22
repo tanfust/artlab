@@ -22,6 +22,8 @@ use App\Http\Controllers\MarketPlaceDetailsController;
 use App\Http\Controllers\ProductUploadController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -123,3 +125,5 @@ Route::post('/change-password', [SettingController::class, 'changePassword']);
 Route::get('/blog', 'App\Http\Controllers\ArticleController@showBlog')->name('blog');
 Route::get('/articles/search', 'ArticleController@search')->name('articles.search');
 
+
+Route::resource('categories', CategoryController::class);

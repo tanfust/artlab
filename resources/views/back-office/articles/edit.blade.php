@@ -30,6 +30,19 @@
                                                         type="text" placeholder="Article Title" required="required">
                                                 </div>
                                                 <div class="nftmax__item-form--group">
+                                                    <label for="title" class="nftmax__item-label">Category</label>
+
+                                                    <select name="category[]" id="category" class="form-control"
+                                                        multiple >
+                                                        @foreach ($categories as $category)
+                                                            <option value="{{ $category->id }}">{{ $category->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                    <a href="{{ url('/categories/create') }}"
+                                                        class="nftmax-btn trs-white bl-color">not found ? create one</a>
+                                                </div>
+                                                <div class="nftmax__item-form--group">
                                                     <label for="image" class="nftmax__item-label">Article
                                                         Image</label>
                                                     <input name="image"
