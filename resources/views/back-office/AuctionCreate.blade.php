@@ -385,7 +385,6 @@
                                                         <label for="endDate">End Date:</label>
                                                         <input type="datetime-local" name="endDate" class="form-control"
                                                             required>
-
                                                     </div>
                                                     <div class="nftmax__item-form--group">
                                                         <label class="nftmax__item-label">Description </label>

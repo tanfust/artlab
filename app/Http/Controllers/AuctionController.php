@@ -15,6 +15,8 @@ class AuctionController extends Controller
     }
     public function frontPage()
     {
+        //adding the auction list here
+        //tell brahim to add a name field to artwork
         $auctions = Auction::all();
         return view('front-office/auctions', compact('auctions'));
     }
