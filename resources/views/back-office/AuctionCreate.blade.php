@@ -10,6 +10,15 @@
                     </div>
                     <!-- End All Notification Heading -->
                     <div class="nftmax__item">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <form class="form" method="POST" action="{{ route('auctions.store') }}">
                             {{ csrf_field() }}
                             <div class="row">
@@ -23,10 +32,12 @@
                                                             class="nftmax__item-label">Artwork:</label>
                                                         <select name="artwork_id" id="artwork" class="form-select"
                                                             aria-label="Default select example">
-                                                            <option value="0" selected>ETH</option>
-                                                            <option value="1">USD</option>
-                                                            <option value="2">INR</option>
+                                                            @foreach ($artworks as $artwork)
+                                                                <option value="{{ $artwork->id }}">
+                                                                    {{ $artwork->name }}</option>
+                                                            @endforeach
                                                         </select>
+
                                                     </div>
                                                     {{-- <div class="nftmax__item-form--group ntfmax__item-form--radio">
                                                         <div class="ntfmax__item-radio--inner">
@@ -374,6 +385,7 @@
                                                         <label for="endDate">End Date:</label>
                                                         <input type="datetime-local" name="endDate" class="form-control"
                                                             required>
+
                                                     </div>
                                                     <div class="nftmax__item-form--group">
                                                         <label class="nftmax__item-label">Description </label>

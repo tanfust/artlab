@@ -166,6 +166,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'endDate' => [
+            'end_date_after_start' => 'The end date must be after the start date.',
+        ],
     ],
 
     /*

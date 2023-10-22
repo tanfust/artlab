@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artwork;
 use App\Models\Auction;
 use Illuminate\Http\Request;
 
@@ -19,13 +20,13 @@ class AuctionController extends Controller
     }
     public function create()
     {
-        return view('back-office/AuctionCreate');
+        $artworks = Artwork::all();
+        return view('back-office/AuctionCreate', compact('artworks'));
     }
     public function store(Request $request)
     {
-        //need to retrive artwork id from artwork table by user ID from the session
         $request->validate([
-            // 'artwork_id' => 'required|exists:artworks,id',
+            'artwork_id' => 'required|exists:artworks,id',
             'startingPrice' => 'required|numeric|min:0',
             'startDate' => 'required|date',
             'endDate' => 'required|date|end_date_after_start:startDate',

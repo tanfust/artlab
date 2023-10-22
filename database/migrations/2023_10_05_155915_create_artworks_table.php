@@ -14,9 +14,9 @@ return new class extends Migration {
     {
         Schema::create('artworks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('gallery_id'); // Foreign key to link the artwork to a gallery
-            $table->string('imageName'); // Name or path of the artwork image
-            // Add other artwork-related fields here
+            $table->string('name');
+            $table->unsignedBigInteger('gallery_id');
+            $table->string('imageName');
             $table->timestamps();
             $table->foreign('gallery_id')->references('id')->on('galleries');
         });
