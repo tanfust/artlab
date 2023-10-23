@@ -16,268 +16,177 @@
                                 class="nftmax-btn nftmax-btn__bordered bg radius">Create Auction</a>
                         </div>
                     </div>
-                    <!-- End Welcome CTA -->
-
-                    <div class="dashboard-banner nftmax-bg-cover mg-top-40"
-                        style="background-image:url('assets/img/banner-bg.png')">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="dashboard-banner__main">
-                                    <div class="dashboard-banner__column dashboard-banner__column--one">
-                                        <!-- Dashboard Content -->
-                                        <div class="dashboard-banner__content">
-                                            <h2 class="dashboard-banner__title nftmax-font-regular nftmax-lspacing">
-                                                bid name</h2>
-                                            <p class="dashboard-banner__text nftmax-lspacing">ID :
-                                                bid id</p>
-                                        </div>
-
-                                        <div class="nftmax-header__author nftmax-header__author-two ">
-                                            <div class="nftmax-header__author-img"><img src="event-1.jpeg"
-                                                    alt="#"></div>
-                                            <div class="nftmax-header__author-content ">
-                                                <h4
-                                                    class="nftmax-header__author-title nftmax-header__author-title--two nftmax-lspacing">
-                                                    bid user id</h4>
-                                                <p class="nftmax-header__author-text nftmax-header__author-text--two">
-                                                    <a href="#" class="nftmax-font-regular nftmax-lspacing">bid
-                                                        user
-                                                        name</a>
-                                                </p>
+                    <h2 class="trending-action__heading mg-btm-20 mt-10">All Bids</h2>
+                    @foreach ($auctions as $auction)
+                        <div class="dashboard-banner nftmax-bg-cover mg-top-40"
+                            style="background-image:url('assets/img/banner-bg.png')">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="dashboard-banner__main">
+                                        <div class="dashboard-banner__column dashboard-banner__column--one">
+                                            <div class="dashboard-banner__content">
+                                                <h2 class="dashboard-banner__title nftmax-font-regular nftmax-lspacing">
+                                                    {{ $auction->description }}</h2>
+                                                <p class="dashboard-banner__text nftmax-lspacing">Auction Id :
+                                                    {{ $auction->id }}</p>
                                             </div>
-                                        </div>
-
-                                        <div class="dashboard-banner__bids">
-                                            <div class="dashboard-banner__bid">
-                                                <!-- Single Bid -->
-                                                <div class="dashboard-banner__group">
-                                                    <p class="dashboard-banner__group-small">Current Bid</p>
-                                                    <h3 class="dashboard-banner__group-title">
-                                                        $bids ETH</h3>
-                                                    <p class="dashboard-banner__group-small">
-                                                        $bids <span>USD</span></p>
-                                                </div>
-                                                <!-- End Single Bid -->
-                                                <div class="dashboard-banner__middle-border"></div>
-                                                <!-- Single Bid -->
-                                                <div class="dashboard-banner__group">
-                                                    <p class="dashboard-banner__group-small">Remaing Time</p>
-                                                    <h3 class="dashboard-banner__group-title"
-                                                        data-countdown="20/08/2021"></h3>
-                                                    <p class="dashboard-banner__group-small nftmax-timing">
-                                                        <span>Hrs</span> <span>Min</span> <span>Sec</span>
+                                            <div class="nftmax-header__author nftmax-header__author-two ">
+                                                <div class="nftmax-header__author-img"><img src="event-1.jpeg"
+                                                        alt="#"></div>
+                                                <div class="nftmax-header__author-content ">
+                                                    <h4
+                                                        class="nftmax-header__author-title nftmax-header__author-title--two nftmax-lspacing">
+                                                        {{ $Auth->name }}</h4>
+                                                    <p
+                                                        class="nftmax-header__author-text nftmax-header__author-text--two">
+                                                        <a href="#"
+                                                            class="nftmax-font-regular nftmax-lspacing">Id:
+                                                            {{ $Auth->id }}</a>
                                                     </p>
                                                 </div>
-                                                <!-- End Single Bid -->
+                                            </div>
+                                            <div class="dashboard-banner__bids">
+                                                <div class="dashboard-banner__bid">
+                                                    <div class="dashboard-banner__group">
+                                                        <p class="dashboard-banner__group-small">Current Bid</p>
+                                                        <h3 class="dashboard-banner__group-title">
+                                                            {{ $auction->startingPrice }}</h3>
+                                                        <p class="dashboard-banner__group-small">
+                                                            $bids <span>USD</span></p>
+                                                    </div>
+                                                    <div class="dashboard-banner__middle-border"></div>
+                                                    <div class="dashboard-banner__group">
+                                                        <p class="dashboard-banner__group-small">Remaing Time</p>
+                                                        <h3 class="dashboard-banner__group-title"
+                                                            data-countdown="{{ $auction->endDate }}">
+                                                            {{ $auction->endDate }}
+                                                        </h3>
+                                                        <p class="dashboard-banner__group-small nftmax-timing">
+                                                            <span>Days</span> <span>Hrs</span> <span>Min</span>
+                                                            <span>Sec</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dashboard-banner__button">
+                                                <div class="dashboard-banner__single-btn">
+                                                    <form action="{{ route('auctions.destroy', $auction->id) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                                <div class="dashboard-banner__single-btn dashboard-banner__main-btn">
+                                                    <a href="{{ route('auctions.edit', $auction->id) }}"
+                                                        class="btn btn-primary">
+                                                        <i class="fa-solid fa-pencil"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="dashboard-banner__single-btn">
+                                                    <a href="{{ url('/market-place') }}"
+                                                        class="nftmax-btn trs-white">View
+                                                        Art
+                                                        Work</a>
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <!-- Dashboard Banner Button -->
-                                        <div class="dashboard-banner__button">
-                                            <div class="dashboard-banner__single-btn">
-                                                <a class="dashboard-banner__heart"><i class="fa-solid fa-heart"></i></a>
-                                            </div>
-                                            <div class="dashboard-banner__single-btn dashboard-banner__main-btn">
-                                                <a href="{{ url('/active-bids') }}"
-                                                    class="nftmax-btn nftmax-btn__secondary radius">Place a Bid</a>
-                                            </div>
-                                            <div class="dashboard-banner__single-btn">
-                                                <a href="{{ url('/market-place') }}" class="nftmax-btn trs-white">View
-                                                    Art
-                                                    Work</a>
-                                            </div>
-                                        </div>
-                                        <!-- End Dashboard Banner Button -->
-                                    </div>
-                                    <div class="dashboard-banner__column dashboard-banner__column--two">
-                                        <div class="dashboard-banner__slider">
-                                            {{-- @foreach ($sliderBanner as $sliderBanner)
-                                            <div class="dashboard-banner__single-slider">
-                                                <img src="{{ asset($sliderBanner) }}" alt="#">
-                                            </div>
-                                        @endforeach --}}
-                                            <div class="dashboard-banner__single-slider">
-                                                <img src="event-2.jpeg" alt="#">
+                                        <div class="dashboard-banner__column dashboard-banner__column--one">
+                                            <div class="dashboard-banner__slider">
+                                                <div class="dashboard-banner__single-slider">
+                                                    <img src="{{ asset($auction->Artwork->imageName) }}"
+                                                        class="w-full h-full" alt="#">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="trending-action mg-top-40">
-                        <h2 class="trending-action__heading mg-btm-20">All Bids</h2>
-                        {{-- <div class="row nftmax-gap-sq30 trending-action__actives">
-                            @foreach ($auctions as $auction)
-                                <div class="col-xxl-3 col-lg-3 col-md-6 col-12">
-                                    <!-- Treadning Single -->
-                                    <div class="trending-action__single">
-                                        <!-- Trending Head -->
-                                        <div class="trending-action__head">
-                                            <div class="trending-action__button">
-                                                <a class="trending-action__btn heart-icon"><i
-                                                        class="fa-solid fa-heart"></i></a>
-                                                <a class="trending-action__btn"><i
-                                                        class="fa-solid fa-ellipsis-vertical"></i></a>
-                                            </div>
-                                            <img src="{{ asset($auction['0']) }}" alt="#">
-                                        </div>
-                                        <!-- Trending Body -->
-                                        <div class="trending-action__body">
-                                            <div class="trending-action__author-meta">
-                                                <div class="trending-action__author-img"><img
-                                                        src="{{ asset($auction['1']) }}" alt="#"></div>
-                                                <p class="trending-action__author-name">Owned by {{ $auction['1'] }} <a
-                                                        href="profile.html">{{ $auction['2'] }}</a></p>
-                                            </div>
-                                            <h2 class="trending-action__title"><a
-                                                    href="{{ url('/active-bids') }}">{{ $auction['3'] }}</a></h2>
-                                            <div class="dashboard-banner__bid dashboard-banner__bid-v2">
-                                                <!-- Single Bid -->
-                                                <div class="dashboard-banner__group dashboard-banner__group-v2">
-                                                    <p class="dashboard-banner__group-small">Current Bid</p>
-                                                    <h3 class="dashboard-banner__group-title">{{ $auction['4'] }}
-                                                        ETH</h3>
-                                                </div>
-                                                <!-- End Single Bid -->
-                                                <div class="dashboard-banner__middle-border"></div>
-                                                <!-- Single Bid -->
-                                                <div class="dashboard-banner__group dashboard-banner__group-v2">
-                                                    <p class="dashboard-banner__group-small">Remaing Time</p>
-                                                    <h3 class="dashboard-banner__group-title" id="CountDown"
-                                                        data-countdown="{{ $auction['7'] }}"></h3>
-                                                </div>
-                                                <!-- End Single Bid -->
-                                            </div>
-                                        </div>
-                                        <div class="dashboard-banner__button trending-action__bottom">
-                                            <a href="{{ url('/active-bids') }}"
-                                                class="nftmax-btn nftmax-btn__secondary radius">Place a Bid</a>
-                                            <a href="{{ url('/market-place') }}" class="nftmax-btn trs-white">View
-                                                Atwork</a>
-                                        </div>
-                                    </div>
-                                    <!-- End Treadning Single -->
-                                </div>
-                            @endforeach
-                        </div> --}}
-                        <div class="row nftmax-gap-sq30 trending-action__actives">
-                            @foreach ($auctions as $auction)
-                                <div class="col-xxl-3 col-lg-3 col-md-6 col-12">
-                                    <!-- Trending Single -->
-                                    <div class="trending-action__single">
-                                        <!-- Trending Head -->
-                                        <div class="trending-action__head">
-                                            <div class="trending-action__button">
-                                                <!-- Delete Button -->
-                                                <form action="{{ route('auctions.destroy', $auction->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger">
-                                                        <i class="fa-solid fa-trash"></i>
-                                                    </button>
-                                                </form>
-                                                <!-- End Delete Button -->
-                                                <!-- Edit Button -->
-                                                <a href="{{ route('auctions.edit', $auction->id) }}"
-                                                    class="btn btn-primary">
-                                                    <i class="fa-solid fa-pencil"></i>
-                                                </a>
-                                                <!-- End Edit Button -->
+                    @endforeach
+                    <div class="row nftmax-gap-sq30 trending-action__actives">
+                        <h2 class="trending-action__heading mg-btm-20 mt-10">All Reservation</h2>
 
-                                            </div>
-                                            <img src="event-1.jpeg" alt="{{ $auction->title }}">
-                                        </div>
-
-                                        <!-- Trending Body -->
-                                        <div class="trending-action__body">
-
-                                            <div class="trending-action__author-meta">
-                                                <div class="trending-action__author-img"><img src="event-1.jpeg"
-                                                        alt="Creator Avatar">
-                                                </div>
-                                                {{-- "{{ asset($auction->owner_avatar) }}"
-                                                {{ $auction->creator->name }}</a>
-                                                </p> --}}
-                                                <p class="trending-action__author-name">Owned by <a
-                                                        href="{{ url('/profile/' . $auction->creator_id) }}">Test
-                                                        user</a>
-                                                </p>
-                                            </div>
-                                            <p>{{ $auction->description }}</p>
-                                            <h2 class="trending-action__title"><a
-                                                    href="{{ url('/active-bids') }}">{{ $auction->title }}</a></h2>
-                                            <div class="dashboard-banner__bid dashboard-banner__bid-v2">
-                                                <!-- Single Bid -->
-                                                <div class="dashboard-banner__group dashboard-banner__group-v2">
-                                                    <p class="dashboard-banner__group-small">Starting Price</p>
-                                                    <h3 class="dashboard-banner__group-title">
-                                                        {{ $auction->startingPrice }} $</h3>
-                                                </div>
-                                                <!-- End Single Bid -->
-                                                <div class="dashboard-banner__middle-border"></div>
-                                                <!-- Single Bid -->
-                                                <div class="dashboard-banner__group dashboard-banner__group-v2">
-                                                    <p class="dashboard-banner__group-small">Remaining Time</p>
-                                                    <h3 class="dashboard-banner__group-title"
-                                                        id="CountDown_{{ $auction->id }}">
-                                                        {{ $auction->endDate }}
-                                                    </h3>
-                                                </div>
-                                                <script>
-                                                    // JavaScript code to calculate and update remaining time for this auction
-                                                    var endDate_{{ $auction->id }} = new Date("{{ $auction->endDate }}").getTime();
-                                                    var countdownElement_{{ $auction->id }} = document.getElementById("CountDown_{{ $auction->id }}");
-
-                                                    // Update the countdown for this auction every second
-                                                    var countdownInterval_{{ $auction->id }} = setInterval(function() {
-                                                        var now = new Date().getTime();
-                                                        var timeRemaining = endDate_{{ $auction->id }} - now;
-
-                                                        if (timeRemaining <= 0) {
-                                                            // Auction has ended
-                                                            countdownElement_{{ $auction->id }}.innerHTML = "Auction Ended";
-                                                            clearInterval(countdownInterval_{{ $auction->id }});
-                                                        } else {
-                                                            // Calculate days, hours, minutes, and seconds
-                                                            var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-                                                            var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                                                            var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                                                            var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-                                                            // Update the countdown element for this auction
-                                                            countdownElement_{{ $auction->id }}.innerHTML = days + "d " + hours + "h " + minutes + "m " +
-                                                                seconds + "s";
-                                                        }
-                                                    }, 1000); // Update every second
-                                                </script>
-                                                <!-- End Single Bid -->
-                                            </div>
-                                        </div>
-                                        <div class="dashboard-banner__button trending-action__bottom">
-                                            <a href="{{ url('/active-bids') }}"
-                                                class="nftmax-btn nftmax-btn__secondary radius">Place a Bid</a>
-                                            <a href="{{ url('/market-place') }}" class="nftmax-btn trs-white">View
-                                                Artwork</a>
-                                        </div>
-                                    </div>
-                                    <!-- End Trending Single -->
-                                </div>
-                            @endforeach
-                        </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="nftmax-view__all"><a href="#"
-                                        class="nftmax-btn trs-white bl-color">View Atwork</a></div>
+                        <form action="#">
+                            <div class="nftmax-personals__history">
+                                <table id="nftmax-table__main" class="nftmax-table__main nftmax-table__main--profile">
+                                    <thead class="nftmax-table__head">
+                                        <tr>
+                                            <th class="nftmax-table__column-1 nftmax-table__h1">
+                                                ID</th>
+                                            <th class="nftmax-table__column-2 nftmax-table__h2">
+                                                Auction Name</th>
+                                            <th class="nftmax-table__column-3 nftmax-table__h3">
+                                                Name </th>
+                                            <th class="nftmax-table__column-4 nftmax-table__h4">
+                                                Email</th>
+                                            <th class="nftmax-table__column-5 nftmax-table__h5">
+                                                Reservation Date</th>
+                                            <th class="nftmax-table__column-6 nftmax-table__h6">
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="nftmax-table__body">
+                                        @foreach ($Reservations as $Reservations)
+                                            <tr>
+                                                <td class="nftmax-table__column-1 nftmax-table__data-1">
+                                                    <div class="nftmax-table__product-content">
+                                                        <p class="nftmax-table__product-desc">
+                                                            {{ $Reservations->id }}</p>
+                                                    </div>
+                                                </td>
+                                                <td class="nftmax-table__column-2 nftmax-table__data-2">
+                                                    <div class="nftmax-table__product-content">
+                                                        <p class="nftmax-table__product-desc">
+                                                            {{ $Reservations->Auction->description }}</p>
+                                                    </div>
+                                                </td>
+                                                <td class="nftmax-table__column-3 nftmax-table__data-3">
+                                                    <div class="nftmax-table__product-content">
+                                                        <p class="nftmax-table__product-desc">
+                                                            {{ $Reservations->name }}</p>
+                                                    </div>
+                                                </td>
+                                                <td class="nftmax-table__column-4 nftmax-table__data-4">
+                                                    <div class="nftmax-table__product-content">
+                                                        <p class="nftmax-table__product-desc">
+                                                            {{ $Reservations->email }}</p>
+                                                    </div>
+                                                </td>
+                                                <td class="nftmax-table__column-4 nftmax-table__data-4">
+                                                    <div class="nftmax-table__product-content">
+                                                        <p class="nftmax-table__product-desc">
+                                                            {{ $Reservations->reservation_date }}</p>
+                                                    </div>
+                                                </td>
+                                                <td class="nftmax-table__column-6 nftmax-table__data-6">
+                                                    <div class="nftmax-table__product-content">
+                                                        <div class="nftmax-table__status__group">
+                                                            <div class="nftmax-table__trash">
+                                                                <form
+                                                                    action="{{ route('reservations.destroy', $Reservations->id) }}"
+                                                                    method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="submit">
+                                                                        <i class="fa-solid fa-trash"></i>
+                                                                    </button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
-                        </div>
+                        </form>
                     </div>
-                    <!-- End Welcome CTA -->
                 </div>
             </div>
-            <!-- End Dashboard Inner -->
         </div>
     </div>
     @include('back-office/Layout.RightSidebar')
