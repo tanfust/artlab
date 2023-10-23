@@ -87,8 +87,7 @@
                                     </div>
                                 </div>
                                 <div class="nftmax__item-button--group">
-                                    <a href="{{ url('/orders') }}"><button class="nftmax__item-button--single nftmax__item-button--cancel"
-                                        data-bs-toggle="modal" data-bs-target="#cancel_modal">Cancel</button>
+                                    <a href="{{ url('/orders') }}">Cancel</a>
                                     <button
                                         class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius nftmax-item__btn"
                                         type="submit">Create Now</button>
