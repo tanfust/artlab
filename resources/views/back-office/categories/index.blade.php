@@ -57,7 +57,8 @@
                                                     <td class="">
                                                         <div class=" flex justify-evenly items-center  ">
                                                             <div class=" ">
-                                                                <a class="border-none" href="{{ route('categories.edit', $category->id) }}"><i
+                                                                <a class="border-none"
+                                                                    href="{{ route('categories.edit', $category->id) }}"><i
                                                                         class="fa-solid fa-edit"></i></a>
                                                             </div>
                                                             <form
@@ -81,15 +82,20 @@
 
                                         </tbody>
 
-                                        
+
                                         <!-- End NFTMax Table Body -->
                                     </table>
                                     <!-- End NFTMax Table -->
                                 </div>
-                                <a href="{{ url('/articles') }}"><button
-                                    class="nftmax__item-button--single nftmax__item-button--cancel mr-4"
-                                    data-bs-toggle="modal" data-bs-target="#cancel_modal">Back to articles</button></a>
-
+                                <div class="flex items-center justify-between">
+                                    <a href="{{ url('/articles') }}"><button
+                                            class="nftmax__item-button--single nftmax__item-button--cancel mr-4"
+                                            data-bs-toggle="modal" data-bs-target="#cancel_modal">Back to
+                                            articles</button></a>
+                                    <a href="{{ url('/articles/create') }}"><button
+                                            class="nftmax__item-button--single nftmax__item-button--cancel mr-4 text-pink-600"
+                                            data-bs-toggle="modal" data-bs-target="#cancel_modal">Create article</button></a>
+                                </div>
                             </div>
                         </div>
                     </div>

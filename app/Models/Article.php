@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Article extends Model
  {
     use HasFactory;
-    protected $fillable = [ 'creator_id', 'title', 'content', 'image', 'isPublished' ];
+    protected $fillable = [ 'user_id', 'title', 'content', 'image', 'isPublished' ];
 
     public function Creator()
  {
@@ -20,12 +21,18 @@ class Article extends Model
     {
         return $this->belongsToMany(Category::class);
     }
+
+    public function user()
+{
+    return $this->belongsTo(User::class, 'user_id');
+}
+
     // to be deleted after merging
     public static function boot()
     {
         parent::boot();
         static::creating(function ($article) {
-            $article->creator_id = 1; // Set the default value for isPublished
+            $article->user_id = Auth::id(); // Set the default value for isPublished
         });
     }
 }

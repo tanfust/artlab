@@ -15,13 +15,13 @@ return new class extends Migration {
         
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('creator_id')->default(1); // Foreign key to link the blog to an artist (creator)
+            $table->unsignedBigInteger('user_id')->default(1); // Foreign key to link the blog to an artist (creator)
             $table->string('title');
             $table->text('content');
             $table->string('image');
             $table->boolean('isPublished')->default(false);
             $table->timestamps();
-            $table->foreign('creator_id')->references('id')->on('creators'); 
+            $table->foreign('user_id')->references('id')->on('users'); 
         });
     }
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class ArticleController extends Controller
  {
@@ -17,7 +18,10 @@ class ArticleController extends Controller
     public function index()
  {
 
-        $articles = Article::with( 'categories' )->get();
+        $Auth = Auth::user();
+        
+        //$articles = Article::with( 'categories' )->get();
+        $articles = $Auth->articles()->with('categories')->get();
         return view( 'back-office/articles.index', compact( 'articles' ) );
     }
 
@@ -89,7 +93,7 @@ class ArticleController extends Controller
  {
         $categories = Category::all();
         $article = Article::findOrFail( $id );
-        return view( 'back-office/articles.edit', compact( 'article','categories' ) );
+        return view( 'back-office/articles.edit', compact( 'article', 'categories' ) );
     }
 
     /**
