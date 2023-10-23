@@ -20,6 +20,6 @@ class Auction extends Model
     // Define relationships
     public function artwork()
     {
-        return $this->belongsTo('Artwork');
+        return $this->belongsTo(Artwork::class);
     }
 }

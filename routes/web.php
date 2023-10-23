@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuctionController;
+use App\Http\Controllers\ReservationController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HistoryController;
@@ -56,6 +57,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/auctions/{id}', [AuctionController::class, 'destroy'])->name('auctions.destroy');
     Route::get('/auctions/{id}/edit', [AuctionController::class, 'edit'])->name('auctions.edit');
     Route::put('/auctions/{id}', [AuctionController::class, 'update'])->name('auctions.update');
+    //Reservation routes
+    Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
+    Route::get('/reservations/{id}/cancel', [ReservationController::class, 'cancel'])->name('reservations.cancel');
+    Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+
     // Orders route
     Route::resource('orders', OrderController::class);
     // Profile route
@@ -88,9 +94,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/blog', function () {
         return view('front-office/blog');
     });
-    Route::get('/live-auctions', function () {
-        return view('front-office/auctions');
-    });
+    Route::get('/live-auctions', [AuctionController::class, 'frontPage'])->name('front-page');
     Route::get('/creator', function () {
         return view('front-office/creator');
     });
@@ -99,7 +103,9 @@ Route::middleware('guest')->group(function () {
     });
     Route::get('/blog', 'App\Http\Controllers\ArticleController@showBlog')->name('blog');
     Route::get('/articles/search', 'ArticleController@search')->name('articles.search');
+    Route::get('/reservations/create', [ReservationController::class, 'create'])->name('reservations.create');
+    Route::post('/reservations', [ReservationController::class, 'store'])->name('reservations.store');
 });
 
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

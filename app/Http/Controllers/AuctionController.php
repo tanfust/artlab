@@ -2,28 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Artwork;
 use App\Models\Auction;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuctionController extends Controller
 {
     public function index()
     {
         $auctions = Auction::all();
-        return view('back-office/auction', compact('auctions'));
+        $Auth = Auth::user();
+        $Reservations = Reservation::all();
+        return view('back-office/auction', compact('auctions', 'Auth', 'Reservations'));
+    }
+    public function frontPage()
+    {
+        //adding the auction list here
+        //tell brahim to add a name field to artwork
+        $auctions = Auction::all();
+        return view('front-office/auctions', compact('auctions'));
     }
     public function create()
     {
-        return view('back-office/AuctionCreate');
+        $artworks = Artwork::all();
+        return view('back-office/AuctionCreate', compact('artworks'));
     }
     public function store(Request $request)
     {
-        //need to retrive artwork id from artwork table by user ID from the session
         $request->validate([
-            // 'artwork_id' => 'required|exists:artworks,id',
+            'artwork_id' => 'required|exists:artworks,id',
             'startingPrice' => 'required|numeric|min:0',
             'startDate' => 'required|date',
-            'endDate' => 'required|date|after:startDate',
+            'endDate' => 'required|date|end_date_after_start:startDate',
             'description' => 'required',
         ]);
         Auction::create($request->post());
