@@ -16,7 +16,9 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('gallery_id'); // Foreign key to link the artwork to a gallery
             $table->string('imageName'); // Name or path of the artwork image
-            // Add other artwork-related fields here
+            $table->string('Description');
+            $table->string('Name');
+            $table->float('Price'); // Price of the artwork
             $table->timestamps();
             $table->foreign('gallery_id')->references('id')->on('galleries');
         });

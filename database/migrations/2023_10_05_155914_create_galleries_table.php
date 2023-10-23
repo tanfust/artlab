@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('galleryName');
             // Add other gallery-related fields here
             $table->timestamps();
-
+            $table->string('photo'); // The gallery's photo
             $table->foreign('creator_id')->references('id')->on('creators'); // Assuming a "creators" table
         });
     }

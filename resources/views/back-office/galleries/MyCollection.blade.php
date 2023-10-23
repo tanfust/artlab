@@ -22,10 +22,32 @@
                     </div>
                         <div class="row nftmax-gap-sq30 ">
                             @foreach ($Gallery as $Gallery)
-                                <div class="col-lg-4 col-md-6 col-12">
+                            <div class="col-lg-4 col-md-6 col-12">
                                     <div class="nftmax-collection__single">
                                         <div class="nftmax-collection__head">
-                                           <h1>{{$Gallery->galleryName}}</h1>
+                                            <a href="#"><img class="nftmax-collection__img"
+                                            src="{{ asset('public/assets/img/' . $Gallery->photo) }}" alt="#"></a>
+                                        </div>
+                                        <div class="nftmax-collection__body">
+                                            
+                                            <div class="nftmax-collection__author">
+                                                <div class="nftmax-collection__author-head">
+                                                    <a href="{{ route('Gallery.show', $Gallery->id) }}">
+                                                        <img src="{{ asset('public/assets/img/' . $Gallery->photo) }}" alt="#">
+                                                        <h4 class="nftmax-collection__title">{{ $Gallery->galleryName }}</h4>
+
+                                                    </a>
+                                                    <div>
+                                                        <a href="{{ route('Gallery.edit', $Gallery->id) }}" class="btn btn-primary">Update</a>
+                                                        <form action="{{ route('Gallery.destroy', $Gallery->id) }}" method="POST" style="display: inline;">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -31,6 +31,11 @@
                                                         class="nftmax__item-input nftmax__item-input__arrow"
                                                         type="number" placeholder="gallerie id" required="required">
                                                 </div>
+                                                <div class="nftmax__item-form--group">
+                                                    <label class="nftmax__item-label" for="photo">Photo:</label>
+                                                    <input type="file" name="photo" id="photo" required="required accept="image/*">
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>

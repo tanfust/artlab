@@ -22,7 +22,7 @@ use App\Http\Controllers\MarketPlaceDetailsController;
 use App\Http\Controllers\ProductUploadController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\GalleryController;
-
+use App\Http\Controllers\ArtworkController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,6 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/market-place-details', [MarketPlaceDetailsController::class, 'index']);
 
     Route::resource('Gallery', GalleryController::class);
+    Route::resource('artwork', ArtworkController::class);
 });
 
 

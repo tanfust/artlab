@@ -30,6 +30,13 @@ return [
 
     'disks' => [
 
+        'public_img' => [
+            'driver' => 'local',
+            'root' => public_path('public/assets/img'), // Set the root path to the 'img/public' directory
+            'url' => env('APP_URL').'/public/assets/img', // Set the URL to access the files
+            'visibility' => 'public',
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
