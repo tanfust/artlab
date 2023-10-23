@@ -1,0 +1,89 @@
+@include('back-office/Layout.Header')
+
+<section class="nftmax-adashboard nftmax-show">
+    <div class="container">
+        <div class="row">
+            <div class="w-full nftmax-main__column">
+                <div class="nftmax-body min-h-screen w-full">
+                    <div class="nftmax-dsinner w-full">
+
+                        <!-- Welcome CTA -->
+                        <div class="welcome-cta mg-top-40">
+                            <div class="welcome-cta__heading">
+                                <h2 class="welcome-cta__title text-6xl">Your published articles
+                                </h2>
+                                <p class="welcome-cta__text">Write to express not to impress</p>
+                                {{-- <h1 class="text-4xl font-black">Client Orders</h1> --}}
+                                <a href="{{ url('/categories') }}" class="nftmax-btn trs-white bl-color">Check available
+                                    categories</a>
+                            </div>
+                            <div class="welcome-cta__button">
+                                <a href="{{ url('/articles/create') }}"
+                                    class="nftmax-btn nftmax-btn__bordered bg radius">Write article </a>
+
+                            </div>
+                        </div>
+                        <!-- End Welcome CTA -->
+
+                        <!-- Marketplace Bar -->
+                        <div class="nftmax-marketplace__bar mg-top-50 mg-btm-40">
+
+                            <div class="w-full grid grid-cols-3 gap-5 py-10  overflow-auto">
+                                @foreach ($articles as $article)
+                                    <div
+                                        class="relative flex flex-col text-gray-700 bg-white shadow-md w-90 rounded-xl bg-clip-border mb-4">
+                                        <div
+                                            class="relative h-56 mx-4 -mt-6 overflow-hidden text-white shadow-lg rounded-xl bg-blue-gray-500 bg-clip-border shadow-blue-gray-500/40">
+                                            <img src="{{ $article->image }}" alt="img-blur-shadow" layout="fill" />
+                                        </div>
+                                        <div class="p-6">
+                                            <div class="flex justify-between items-center">
+                                                <h5
+                                                    class="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+                                                    {{ $article->title }}
+                                                </h5>
+                                                <div class="flex space-x-2">
+                                                    @foreach ($article->categories as $category)
+                                                        <div style="background-color: {{ $category->slug_color }}; "
+                                                            class="rounded-2xl inline-block px-2 text-black">
+                                                            {{ $category->slug }}
+                                                        </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+
+                                            <span
+                                                class="inline-block {{ $article->isPublished ? 'bg-teal-200' : 'bg-red-400' }}  text-black text-xs px-2 rounded-full uppercase font-semibold tracking-wide">{{ $article->isPublished ? 'Published' : 'Unpublished' }}</span>
+                                            <p
+                                                class="block font-sans text-xl antialiased font-light leading-relaxed text-inherit truncate">
+                                                {{ $article->content }}
+                                            </p>
+                                        </div>
+                                        <div class="p-6 pt-0">
+                                            <p class="text-sm text-gray-600 flex items-center">
+                                                Created at : {{ $article->created_at }}
+                                            </p>
+                                            <form action="{{ route('articles.destroy', $article->id) }}"
+                                                method="Post">
+                                                <div class="float-right p-2">
+                                                    <a class="btn btn-primary text-xs"
+                                                        href="{{ route('articles.edit', $article->id) }}">Edit</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="bg-red-500 btn btn-danger text-xs "
+                                                        type="submit">Delete</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

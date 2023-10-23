@@ -21,6 +21,9 @@ use App\Http\Controllers\MyCollectionController;
 use App\Http\Controllers\MarketPlaceDetailsController;
 use App\Http\Controllers\ProductUploadController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -63,6 +66,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-collection', [MyCollectionController::class, 'index']);
     // MarketplaceDetails route
     Route::get('/market-place-details', [MarketPlaceDetailsController::class, 'index']);
+    Route::resource('categories', CategoryController::class);
+    Route::resource('articles', ArticleController::class);
 });
 
 
@@ -92,6 +97,9 @@ Route::middleware('guest')->group(function () {
     Route::get('/new-account', function () {
         return view('front-office/new-creator');
     });
+    Route::get('/blog', 'App\Http\Controllers\ArticleController@showBlog')->name('blog');
+    Route::get('/articles/search', 'ArticleController@search')->name('articles.search');
 });
+
 
 require __DIR__.'/auth.php';
