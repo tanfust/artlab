@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function () {
     //Reservation routes
     Route::get('/reservations', [ReservationController::class, 'index'])->name('reservations.index');
     Route::get('/reservations/{id}/cancel', [ReservationController::class, 'cancel'])->name('reservations.cancel');
+    Route::delete('/reservations/{id}', [ReservationController::class, 'destroy'])->name('reservations.destroy');
+
     // Orders route
     Route::resource('orders', OrderController::class);
     // Profile route

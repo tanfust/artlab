@@ -37,6 +37,13 @@ class ReservationController extends Controller
         return view('reservations.index', compact('reservations'));
     }
 
+    public function destroy($id)
+    {
+        $reservation = Reservation::findOrFail($id);
+        $reservation->delete();
+        return redirect('/auctions')->with('success', 'Reservation deleted successfully');
+    }
+
     public function cancel($id)
     {
         $reservation = Reservation::findOrFail($id);

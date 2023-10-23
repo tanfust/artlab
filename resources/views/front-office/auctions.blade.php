@@ -13,29 +13,31 @@
 
     <main id="main">
 
-        <div class="w-full border-b-[2px] border-border pt-28 pb-10 px-[12vw] relative">
+        <div class="w-full h-fit border-b-[2px] border-border pt-28 pb-10 px-[12vw] relative">
             <div class="auction-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach ($auctions as $auction)
                     @php
-                        // Convert the end date to a timestamp
                         $endDateTimestamp = strtotime($auction->endDate);
-                        // Get the current date and time
                         $currentTimestamp = time();
                     @endphp
 
                     @if ($endDateTimestamp > $currentTimestamp)
-                        <div class="auction-card border rounded-lg shadow-md p-4 relative">
+                        <div class="border border-black rounded-lg shadow-md p-4 h-full relative">
+                            <img src="{{ asset($auction->Artwork->imageName) }}" alt="Image description"
+                                class="w-full h-96 mb-4">
 
-                            <h3 class="text-xl font-semibold">{{ $auction->title }}</h3>
-                            <p class="mt-2 text-gray-600">{{ $auction->description }}</p>
+                            <h1 class="md:text-3xl lg:text-6xl font-medium max-w-3xl tracking-tighter">
+                                {{ $auction->id }}</h1>
+                            <h1
+                                class="mt-2 text-gray-600 md:text-3xl lg:text-6xl font-medium max-w-3xl tracking-tighter ">
+                                {{ $auction->description }}</h1>
+                            <p class="mt-2 text-gray-700 md:text-xl lg:text-3xl font-medium max-w-xl tracking-tighter">
+                                Starting Price: {{ $auction->startingPrice }} ETH</p>
+                            <div
+                                class="mt-2 text-gray-700 md:text-xl border border-black p-2 rounded-lg text-center lg:text-3xl font-medium max-w-xl tracking-tighter">
 
-                            <p class="mt-2 text-gray-700">Starting Price: {{ $auction->startingPrice }} ETH</p>
-
-                            <div class="mt-4 text-gray-700">
-                                End Date:
                                 <span id="countdown-{{ $auction->id }}"></span>
                             </div>
-
                             <script>
                                 const endDate{{ $auction->id }} = new Date("{{ $auction->endDate }}").getTime();
                                 const x{{ $auction->id }} = setInterval(function() {

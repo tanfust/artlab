@@ -4,14 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Models\Artwork;
 use App\Models\Auction;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuctionController extends Controller
 {
     public function index()
     {
         $auctions = Auction::all();
-        return view('back-office/auction', compact('auctions'));
+        $Auth = Auth::user();
+        $Reservations = Reservation::all();
+        return view('back-office/auction', compact('auctions', 'Auth', 'Reservations'));
     }
     public function frontPage()
     {
