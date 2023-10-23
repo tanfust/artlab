@@ -42,6 +42,7 @@
             <div class="event-2 w-[50%] h-[600px]"></div>
         </div>
     </div>
+
 </main>
 
 <div class="px-10">
