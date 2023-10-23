@@ -1,5 +1,29 @@
 @include('back-office/Layout.Header')
 <!-- NFTmax Dashboard -->
+<script>
+    function newClient(){
+        let newClientForm = document.querySelector(".new-client");
+        newClientForm.classList.remove("hidden");
+        let oldClientForm = document.querySelector(".old-select");
+        oldClientForm.classList.add("hidden");
+        let newSelector = document.getElementById("new");
+        newSelector.classList.add("hidden")
+        let oldSelector = document.getElementById("existing");
+        oldSelector.classList.remove("hidden")
+        console.log('gggg')
+    }
+    function existingClient(){
+        let newClientForm = document.querySelector(".new-client");
+        newClientForm.classList.add("hidden");
+        let oldClientForm = document.querySelector(".old-select");
+        oldClientForm.classList.remove("hidden");
+        let newSelector = document.getElementById("new");
+        newSelector.classList.remove("hidden")
+        let oldselector = document.getElementById("existing");
+        oldSelector.classList.add("hidden")
+    }
+
+</script>
 <section class="nftmax-adashboard nftmax-show">
     <div class="container">
         <div class="row">
@@ -22,19 +46,8 @@
                                                         required="required">
                                                 </div>
                                                 <div class="nftmax__item-form--group">
-                                                    <label for="artwork_id"
-                                                        class="nftmax__item-label">Artwork</label>
-                                                    <select name="artwork_id" id="artwork" class="form-select"
-                                                        aria-label="Default select example">
-                                                        <option disabled selected>Select Artwork</option>
-                                                        <option value="1">Piece #001</option>
-                                                        <option value="1">Piece #002</option>
-                                                        <option value="1">Piece #003</option>
-                                                    </select>
-                                                </div>
-                                                <div class="nftmax__item-form--group">
                                                     <label for="status"
-                                                        class="nftmax__item-label">Status</label>
+                                                        class="nftmax__item-label">Order Status</label>
                                                     <select name="status" id="artwork" class="form-select"
                                                         aria-label="Default select example">
                                                         <option value="active" selected>Active</option>
@@ -43,13 +56,36 @@
                                                         <option value="cancelled">Cancelled</option>
                                                     </select>
                                                 </div>
-                                                <div class="nftmax__item-form--group">
-                                                    <label for="client" class="nftmax__item-label">Client Name</label>
-                                                    <input name="client"
-                                                        class="nftmax__item-input nftmax__item-input__arrow"
-                                                        type="text"
-                                                        placeholder="Client name"
-                                                        required="required">
+                                                <div class="p-4 bg-slate-100 rounded-lg mb-4">
+                                                    <div class="nftmax__item-form--group old-select">
+                                                        <label for="client_id"
+                                                            class="nftmax__item-label">Client</label>
+                                                        <select name="client_id" id="client" class="form-select"
+                                                            aria-label="Default select example">
+                                                            <option disabled selected>Select Client</option>
+                                                            @foreach ($clients as $client)
+                                                            <option value="{{$client->id}}">{{$client->name}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <p id="new" class="text-sm font-bold text-blue-700 cursor-pointer" onclick="newClient()">New Client?</p>
+                                                    <div class="hidden new-client">
+                                                        <div class="nftmax__item-form--group">
+                                                            <label for="name" class="nftmax__item-label">Client Name</label>
+                                                            <input name="name"
+                                                                class="nftmax__item-input nftmax__item-input__arrow"
+                                                                type="text"
+                                                                placeholder="Client name">
+                                                        </div>
+                                                        <div class="nftmax__item-form--group">
+                                                            <label for="email" class="nftmax__item-label">Client Email</label>
+                                                            <input name="email"
+                                                                class="nftmax__item-input nftmax__item-input__arrow"
+                                                                type="email"
+                                                                placeholder="Client email">
+                                                        </div>
+                                                        <p id="existing" class="text-sm font-bold text-blue-700 cursor-pointer hidden" onclick="existingClient()">Exisitng Client?</p>
+                                                    </div>
                                                 </div>
                                                 <div class="nftmax__item-form--group">
                                                     <label for="totalAmount" class="nftmax__item-label">Total Amount</label>
