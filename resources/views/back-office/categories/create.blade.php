@@ -8,7 +8,7 @@
                     <h1 class=" flex justify-center text-4xl">Create a new Category</h1>
                     <div class="nftmax-dsinner flex justify-center mt-8">
                         <div class="col-lg-6 col-md-6 col-12">
-                            <!-- Sign in Form -->
+                            <!-- Sign in Form  -->
 
                             <form class="nftmax-wc__form-main " enctype="multipart/form-data"
                                 action="{{ route('categories.store') }}" method="POST">
