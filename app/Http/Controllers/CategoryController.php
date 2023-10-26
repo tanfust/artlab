@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Category;
+use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Http\Request;
 
@@ -35,6 +36,21 @@ class CategoryController extends Controller {
     */
 
     public function store( Request $request ) {
+
+        $validator = Validator::make( $request->all(), [
+            'name' => 'required|max:30',
+            'description' => 'required|max:100',
+            'slug' => 'required|max:5',
+            
+        ] );
+
+        if ( $validator->fails() ) {
+            return redirect()->back()
+            ->withErrors( $validator )
+            ->withInput();
+        }
+
+
         Category::create( $request->all() );
 
         return redirect()->route( 'categories.index' )->with( 'success', 'Category has been created successfully' );
@@ -73,6 +89,19 @@ class CategoryController extends Controller {
     */
 
     public function update( Request $request, $id ) {
+        $validator = Validator::make( $request->all(), [
+            'name' => 'required|max:30',
+            'description' => 'required|max:100',
+            'slug' => 'required|max:5',
+            
+        ] );
+
+        if ( $validator->fails() ) {
+            return redirect()->back()
+            ->withErrors( $validator )
+            ->withInput();
+        }
+
         $category = Category::findOrFail( $id );
         $category->update( $request->all() );
 

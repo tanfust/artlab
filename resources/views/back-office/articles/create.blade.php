@@ -26,7 +26,10 @@
                                                         Title</label>
                                                     <input name="title"
                                                         class="nftmax__item-input nftmax__item-input__arrow"
-                                                        type="text" placeholder="Article Title" required="required">
+                                                        type="text" placeholder="Article Title">
+                                                    @error('title')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
 
                                                 <div class="nftmax__item-form--group">
@@ -34,12 +37,19 @@
                                                     {{-- <input name="title"
                                                         class="nftmax__item-input nftmax__item-input__arrow"
                                                         type="text" placeholder="Article Title" required="required"> --}}
-                                                        <select name="category[]" id="category" class="form-control" multiple>
-                                                            @foreach($categories as $category)
-                                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                        <a href="{{ url('/categories/create') }}" class="nftmax-btn trs-white bl-color">not found ? create one</a>
+                                                    <select name="category[]" id="category" class="form-control"
+                                                        multiple>
+                                                        @foreach ($categories as $category)
+                                                            <option value="{{ $category->id }}">{{ $category->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                    <a href="{{ url('/categories/create') }}"
+                                                        class="nftmax-btn trs-white bl-color">not found ? create one</a>
+                                                    <br>
+                                                    @error('category')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
                                                 <div class="nftmax__item-form--group">
                                                     <label for="image" class="nftmax__item-label">Article
@@ -47,12 +57,19 @@
                                                     <input name="image"
                                                         class="text-[#666] bg-[#FAFAFA] border border-[#E3E4FE] px-4 py-3 w-full hover:border-[#5356FB] rounded-3xl"
                                                         type="file">
+                                                    @error('image')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
                                                 <div class="nftmax__item-form--group">
                                                     <label class="nftmax__item-label">Article Content </label>
-                                                    <textarea name="content" class="nftmax__item-input nftmax__item-textarea" type="text" maxlength="400"
-                                                        placeholder="Provide a detailed description of your item." required="required"></textarea>
+                                                    <textarea name="content" class="nftmax__item-input nftmax__item-textarea" type="text" maxlength=""
+                                                        placeholder="Provide a detailed description of your item."></textarea>
+                                                    @error('content')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
                                                 </div>
+
                                                 <div class="flex items-center space-x-10">
                                                     <div class="nftmax-paymentm__content">
                                                         <h4
