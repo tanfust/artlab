@@ -23,8 +23,8 @@
 
                     @if ($endDateTimestamp > $currentTimestamp)
                         <div class="border border-black rounded-lg shadow-md p-4 h-full relative">
-                            <img src="{{ asset($auction->Artwork->imageName) }}" alt="Image description"
-                                class="w-full h-96 mb-4">
+                            <img src="{{ asset('public/assets/img/' . $auction->Artwork->imageName) }}"
+                                alt="Image description" class="w-full h-96 mb-4">
 
                             <h1 class="md:text-3xl lg:text-6xl font-medium max-w-3xl tracking-tighter">
                                 {{ $auction->id }}</h1>

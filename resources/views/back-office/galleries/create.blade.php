@@ -6,8 +6,7 @@
             <div class="col-lg-9 col-12 nftmax-main__column">
                 <div class="nftmax-body min-h-screen pt-10">
                     <h2 class="text-4xl font-extrabold mb-4">Create a Gallery </h2>
-                    <form class="form" method="POST" action="{{ route('Gallery.store') }}"
-                        enctype="multipart/form-data">
+                    <form class="form" method="POST" action="{{ route('Gallery.store') }}" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         @method('POST')
                         <div class="row">
@@ -27,13 +26,15 @@
 
                                                 <div class="nftmax__item-form--group">
                                                     <label class="nftmax__item-label">Creator id </label>
-                                                    <input name="creator_id"
+                                                    <input name="user_id"
                                                         class="nftmax__item-input nftmax__item-input__arrow"
-                                                        type="number" value="{{$Auth->id}}" required="required" disabled>
+                                                        type="number" value="{{ $Auth->id }}" required="required"
+                                                        disabled>
                                                 </div>
                                                 <div class="nftmax__item-form--group">
                                                     <label class="nftmax__item-label" for="photo">Photo:</label>
-                                                    <input type="file" name="photo" id="photo" required="required accept="image/*">
+                                                    <input type="file" name="photo" id="photo"
+                                                        required="required accept="image/*">
                                                 </div>
 
                                             </div>
@@ -55,7 +56,7 @@
                     </form>
                 </div>
             </div>
-       </div>
+        </div>
     </div>
 </section>
 @include('back-office/Layout.RightSidebar')
