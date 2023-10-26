@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('Name');
             $table->float('Price'); // Price of the artwork
             $table->timestamps();
-            $table->foreign('gallery_id')->references('id')->on('galleries');
+            $table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -23,7 +24,7 @@ return new class extends Migration {
             $table->string('client'); // Client name
             // Add other order-related fields here
             $table->timestamps();
-            $table->foreign('artwork_id')->references('id')->on('artworks');
+            $table->foreign('artwork_id')->references('id')->on('artworks')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
