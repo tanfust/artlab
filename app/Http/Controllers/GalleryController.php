@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Gallery;
 use App\Models\Artwork;
+use Illuminate\Support\Facades\Auth;
 
 class GalleryController extends Controller
 {
@@ -26,8 +27,9 @@ class GalleryController extends Controller
         return view('back-office/galleries/MyCollection', compact('Gallery','collection'));
     }
     public function create()
-    {
-        return view('back-office/Galleries/create');
+    {   
+        $Auth = Auth::user();
+        return view('back-office/Galleries/create', compact('Auth'));
     }
     public function store(Request $request)
     {
@@ -84,8 +86,9 @@ class GalleryController extends Controller
     
         return redirect()->route('Gallery.index')->with('success','Gallery Has Been updated successfully');
         }
-        public function destroy(Gallery $Gallery)
-        {
+        public function destroy($id)
+        {   
+            $Gallery = Gallery::findOrFail($id);
             $Gallery->delete();
             return redirect()->route('Gallery.index')->with('success','Gallery has been deleted successfully');
         }

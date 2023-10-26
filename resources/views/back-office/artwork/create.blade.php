@@ -43,7 +43,13 @@
  <div class="col-xs-12 col-sm-12 col-md-12">
  <div class="form-group">
  <strong>gallery id </strong>
- <input type="number"  name="gallery_id" class="form-control" placeholder="gallery id ">
+ 
+ <select name="gallery_id" id="artwork" class="form-select" aria-label="Default select example">
+  @foreach ($Gallery as $Gallery)
+  <option value="{{ $Gallery->id }}">
+  {{ $Gallery->galleryName }}</option>
+  @endforeach
+  </select>
  </div>
  </div>
  <button type="submit" class="btn btn-primary ml-3">Submit</button>

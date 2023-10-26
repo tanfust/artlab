@@ -24,10 +24,6 @@
                             @foreach ($Gallery as $Gallery)
                             <div class="col-lg-4 col-md-6 col-12">
                                     <div class="nftmax-collection__single">
-                                        <div class="nftmax-collection__head">
-                                            <a href="#"><img class="nftmax-collection__img"
-                                            src="{{ asset('public/assets/img/' . $Gallery->photo) }}" alt="#"></a>
-                                        </div>
                                         <div class="nftmax-collection__body">
                                             
                                             <div class="nftmax-collection__author">

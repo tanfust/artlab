@@ -26,7 +26,7 @@
  <tbody>
  @foreach ($artworks as $artworks)
  <tr>
- <td><img src="{{ asset('public/assets/img/' . $artworks->imageName) }}" alt="#"></td>
+ <td><div class="nftmax-collection__author-head"> <img src="{{ asset('public/assets/img/' . $artworks->imageName) }}" alt="#"></div></td>
  <td>{{ $artworks->id }}</td>
  <td>{{ $artworks->Description }}</td>
  <td>{{ $artworks->Price }}</td>

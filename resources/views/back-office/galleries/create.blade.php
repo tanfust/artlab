@@ -29,7 +29,7 @@
                                                     <label class="nftmax__item-label">Creator id </label>
                                                     <input name="creator_id"
                                                         class="nftmax__item-input nftmax__item-input__arrow"
-                                                        type="number" placeholder="gallerie id" required="required">
+                                                        type="number" value="{{$Auth->id}}" required="required" disabled>
                                                 </div>
                                                 <div class="nftmax__item-form--group">
                                                     <label class="nftmax__item-label" for="photo">Photo:</label>

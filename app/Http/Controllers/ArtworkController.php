@@ -17,8 +17,8 @@ class ArtworkController extends Controller
         return view('back-office/artwork/index', compact('artworks'));
     }
     public function create(){
-        
-        return view('back-office/artwork/create');
+        $Gallery = Gallery::all();
+        return view('back-office/artwork/create', compact('Gallery'));
     }
     public function store(Request $request)
     {
