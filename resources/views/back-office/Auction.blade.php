@@ -101,7 +101,7 @@
                                         <div class="dashboard-banner__column dashboard-banner__column--one">
                                             <div class="dashboard-banner__slider">
                                                 <div class="dashboard-banner__single-slider">
-                                                    <img src="{{ asset($auction->Artwork->imageName) }}"
+                                                    <img src="{{ asset('public/assets/img/' . $auction->Artwork->imageName) }}"
                                                         class="w-full h-full" alt="#">
                                                 </div>
                                             </div>
