@@ -157,8 +157,8 @@
                 <!-- Logout Button -->
                 <div class="logout-button">
                     <a class="nftmax-btn primary" data-bs-toggle="modal" data-bs-target="#logout_modal">
-                        <div class="logo-button__icon"><img src="{{ asset('assets/img/logout.png') }}"
-                                alt="#"></div><span class="menu-bar__name">Signout</span>
+                        <div class="logo-button__icon"><img src="{{ asset('assets/img/logout.png') }}" alt="#">
+                        </div><span class="menu-bar__name">Signout</span>
                     </a>
                 </div>
             </div>
@@ -189,11 +189,14 @@
                             <div class="nftmax-preview__close-img"><img src="{{ asset('assets/img/close.png') }}"
                                     alt="#">
                             </div>
-                            <h2 class="nftmax-preview__close-title">Are you sure you want to Logout from <span>Artlab dashboard?</span></h2>
+                            <h2 class="nftmax-preview__close-title">Are you sure you want to Logout from <span>Artlab
+                                    dashboard?</span></h2>
                             <div class="nftmax__item-button--group">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-                                    <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius ">
+                                    <a :href="route('logout')"
+                                        onclick="event.preventDefault(); this.closest('form').submit();"
+                                        class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius ">
                                         Yes Logout
                                     </a>
                                 </form>
@@ -331,9 +334,11 @@
                                                                         alt="#">
                                                                 </div>
                                                                 <h4 class="nftmax-balance-name">
-                                                                    <form method="POST" action="{{ route('logout') }}">
+                                                                    <form method="POST"
+                                                                        action="{{ route('logout') }}">
                                                                         @csrf
-                                                                        <a :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">
+                                                                        <a :href="route('logout')"
+                                                                            onclick="event.preventDefault(); this.closest('form').submit();">
                                                                             Log Out
                                                                         </a>
                                                                     </form>
