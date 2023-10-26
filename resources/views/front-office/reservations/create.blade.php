@@ -47,10 +47,10 @@
                         <select type="text" id="auction_id" name="auction_id"
                             class="w-full py-[14.5px] placeholder:text-textPlaceholder px-6 text-lg border-2 border-border bg-backgroundInput hover:bg-backgroundHover"
                             placeholder="Please Select">
-                            <option value="">Please Select</option>
-                            <option value="1">Museum</option>
-                            <option value="2">Listed Coming</option>
-                            <option value="3">Magazine</option>
+                            @foreach ($Auction as $auction)
+                                <option value="{{ $auction->id }}">
+                                    {{ $auction->description }}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
