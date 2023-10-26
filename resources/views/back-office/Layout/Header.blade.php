@@ -39,8 +39,9 @@
             <div class="admin-menu">
                 <!-- Logo -->
                 <div class="logo">
-                    <a href="{{ url('/dashboard') }}">
-                        <img class="nftmax-logo__main" src="{{ asset('assets/img/logo-white.png') }}" alt="#">
+                    <a href="{{ url('/dashboard') }}" >
+                        {{-- <img class="nftmax-logo__main" src="{{ asset('assets/img/logo-white.png') }}" alt="#"> --}}
+                        <h1 class="text-[#5356fb] text-4xl font-bold">Artlab</h1>
                     </a>
                     <div class="nftmax__sicon close-icon"><img src="{{ asset('assets/img/menu-toggle.svg') }}"
                             alt="#"></div>
@@ -257,9 +258,9 @@
         <!-- End Connect to Wallet -->
 
         <!-- Start Header -->
-        <header class="nftmax-header pr-0 pl-[260px]">
-            <div class="container">
-                <div class="row g-50">
+        <header class="nftmax-header pr-0 pl-[300px]">
+            <div class="w-full">
+                <div class="">
                     <div class="col-12 pr-0 ">
                         <!-- Dashboard Header -->
                         <div class="nftmax-header__inner px-10">

@@ -247,7 +247,7 @@ input::-ms-input-placeholder {
     z-index: 6000;
     height: 100%;
     transition: all 0.3s ease;
-    width: 335px;
+    width: 300px;
     transform: translateX(0%);
     box-shadow: 0 9px 95px 0 #0000000d;
 }
@@ -346,6 +346,9 @@ input::-ms-input-placeholder {
 }
 .nftmax-smenu.nftmax-close .menu-bar li a {
     padding: 12px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (min-width: 1279px) and (max-width: 1550px) {
@@ -359,7 +362,7 @@ input::-ms-input-placeholder {
 
 @media only screen and (min-width: 0px) and (max-width: 1278px) {
     .nftmax-smenu {
-        width: 280px !important;
+        width: 300px !important;
         transform: translateX(-100%);
     }
     .nftmax-smenu .nftmax-logo__icon {
@@ -2244,7 +2247,7 @@ object {
 
 @media only screen and (min-width: 1279px) and (max-width: 1550px) {
     .nftmax-smenu {
-        width: 280px;
+        width: 300px;
     }
     .nftmax-header,
     .nftmax-adashboard {
