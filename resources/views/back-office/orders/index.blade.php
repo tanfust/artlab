@@ -74,11 +74,11 @@
                             </div>
                             <div class="w-full flex gap-10 overflow-x-scroll">
                                 @foreach ($orders as $Order)
-                                <div class="trending-action__single trending-action__single--v2 w-[360px] max-w-sm">
+                                <div class="trending-action__single trending-action__single--v2 w-[360px] max-w-sm flex flex-col">
                                     <div class="nftmax-trendmeta">
-                                        <div class="nftmax-trendmeta__main">
+                                        <div class="nftmax-trendmeta__main items-start">
                                             <div class="nftmax-trendmeta__author">
-                                                <div class="nftmax-trendmeta__content">
+                                                <div class="nftmax-trendmeta__content max-w-[150px]">
                                                     <span class="nftmax-trendmeta__small">Artwork Title</span>
                                                     <h4 class="nftmax-trendmeta__title font-bold text-xl">{{ $Order->title }}</h4>
                                                 </div>
@@ -144,7 +144,7 @@
                                        <span class="nftmax-trendmeta__small">Description</span>
                                         <h4 class="nftmax-trendmeta__title">{{ $Order->description }}</h4>
                                     </div>
-                                        <div class="nftmax-currency items-end pt-4">
+                                        <div class="nftmax-currency items-end pt-4 mt-auto">
                                             <div class="nftmax-currency__main">
                                                 <div class="flex flex-col">
                                                         <span class="nftmax-trendmeta__small text-md">Amount</span>
@@ -152,8 +152,7 @@
                                                             {{ $Order->totalAmount }} USD </h4>
                                                 </div>
                                             </div>
-                                            <a href="{{ url('/market-place') }}"
-                                                class="nftmax-btn nftmax-btn__secondary radius">View Artwork</a>
+                                                <a href="/invoice?client_id={{$Order->client_id}}&order_id={{$Order->id}}" class="nftmax-btn nftmax-btn__secondary radius">Generate Invoice</a>
                                         </div>
                                     </div>
                                     @endforeach

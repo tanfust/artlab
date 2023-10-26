@@ -7,6 +7,7 @@ use App\Models\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use PDF;
 
 class OrderController extends Controller
 {
@@ -22,7 +23,6 @@ class OrderController extends Controller
     }
     public function store(Request $request)
     {
-        error_log('hgello');
         $input = $request->all();
         if ($request->hasFile('image')){
             $file_name = $request->file('image')->getClientOriginalName();
@@ -85,5 +85,26 @@ class OrderController extends Controller
 
         // Redirect to the index page or show a success message
         return redirect()->route('orders.index')->with('success', 'order deleted successfully');
+    }
+
+    public function invoice(Request $request)
+    {
+        $client_id = $request->client_id;
+        $order_id = $request->order_id;
+        error_log("client : $client_id");
+        error_log("order : $order_id");
+
+        $order = Order::findOrFail($order_id)->title;
+
+        $data = [
+            'client' => Client::findOrFail($client_id),
+            'order' => Order::findOrFail($order_id),
+            'user' => Auth::user()
+        ];
+
+        $invoice = PDF::loadView('back-office/orders/invoice', $data);
+        return $invoice->stream();
+        // return $invoice->download("Invoice_$order.pdf");
+
     }
 }
