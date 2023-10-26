@@ -21,8 +21,8 @@ return new class extends Migration
             $table->text('description');
             $table->date('date');
             $table->timestamps();
-         //  $table->unsignedBigInteger('location_id');
-             $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade');
+            //  $table->unsignedBigInteger('location_id');
+            $table->foreign('location_id')->references('id')->on('locations')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
