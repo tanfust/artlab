@@ -21,7 +21,15 @@
                 <label for="date">Date:</label>
                 <input type="date" class="form-control" id="date" name="date" value="{{ old('date') }}" required>
             </div>
+            
             <br/>
+            <label for="location_id">location:</label>
+            <select name="location_id" class="form_control">
+                @foreach ($locations as $item)
+                <option value=" {{ $item->id }} ">{{$item->name}}</option>
+                @endforeach
+            </select>
+         
             <button type="submit" style="float:right" class="btn btn-primary active">Create Event</button>
         </form>
     </div>

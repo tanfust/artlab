@@ -20,6 +20,8 @@ use App\Http\Controllers\MyCollectionController;
 use App\Http\Controllers\MarketPlaceDetailsController;
 use App\Http\Controllers\ProductUploadController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\LocationController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,6 +38,9 @@ Route::get('/', function () {
 });
 Route::get('/events', function () {
     return view('events');
+});
+Route::get('/locations', function () {
+    return view('locations');
 });
 Route::get('/tickets', function () {
     return view('buy-ticket');
@@ -113,3 +118,30 @@ Route::put('/events/{event}', [EventController::class, 'update'])->name('events.
 
 // Delete an event
 Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
+
+Route::get('locations', [LocationController::class, 'index'])->name('locations.index');
+Route::get('locations/create', [LocationController::class, 'create'])->name('locations.create');
+Route::post('locations', [LocationController::class, 'store'])->name('locations.store');
+Route::get('locations/{location}', [LocationController::class, 'show'])->name('locations.show');
+Route::get('locations/{location}/edit', [LocationController::class, 'edit'])->name('locations.edit');
+Route::put('locations/{location}', [LocationController::class, 'update'])->name('locations.update');
+Route::delete('locations/{location}', [LocationController::class, 'destroy'])->name('locations.destroy');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

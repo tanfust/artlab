@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-
+use App\Models\Location;
 use App\Models\Event; // Import the Event model
 
 class EventController extends Controller
 {
+    
 
 
 public function index()
@@ -19,8 +20,10 @@ public function index()
 
 public function create()
 {
-    return view('events.create'); // Show the form to create a new event
+    $locations =Location::all();
+        return view('events.create')->with('locations', $locations);
 }
+
 
 public function store(Request $request)
 {
@@ -29,6 +32,7 @@ public function store(Request $request)
         'title' => 'required|max:255',
         'description' => 'required',
         'date' => 'required|date',
+        'location_id' => 'required',
     ]);
 
     // Create a new event
