@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -18,6 +19,7 @@ return new class extends Migration {
             $table->string('galleryName');
             // Add other gallery-related fields here
             $table->timestamps();
+            $table->string('photo'); // The gallery's photo
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
