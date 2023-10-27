@@ -35,7 +35,7 @@
                 <a href="{{url('/')}}"><h1 class="text-xl p-5 font-bold">ArtLab</h1></a>
             </div>
             <div class="border-r-2 border-border nav-link w-full  flex flex-col justify-between hover:bg-text1 hover:text-background hover:underline transition-all cursor-pointer">
-                <a href="{{url('/events')}}">
+                <a href="{{url('/new-events')}}">
                     <h1 class="text-xl p-5 font-bold">Upcoming Events</h1>
                     <h1 class="text-xl p-5 font-bold">3</h1>
                 </a>
