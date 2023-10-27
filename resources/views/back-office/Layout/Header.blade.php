@@ -272,8 +272,7 @@
 
                                             <div class="nftmax-header__author">
                                                 <div class="nftmax-header__author-img"><img
-                                                        src="{{ asset($User_info_for_header['image']) }}"
-                                                        alt="#"></div>
+                                                        src="{{ Auth::user()->image }}" alt="#"></div>
                                                 <div class="nftmax-header__author-content">
                                                     <h4 class="nftmax-header__author-title">
 
@@ -296,7 +295,7 @@
                                                                         alt="#">
                                                                 </div>
                                                                 <h4 class="nftmax-balance-name"><a
-                                                                        href="{{ url('/my-profile') }}">My Profile</a>
+                                                                        href="{{ route('profile.index') }}">My Profile</a>
                                                                 </h4>
                                                             </div>
                                                         </li>
@@ -308,7 +307,8 @@
                                                                         alt="#">
                                                                 </div>
                                                                 <h4 class="nftmax-balance-name"><a
-                                                                        href="{{ url('/setting') }}">Setting</a></h4>
+                                                                        href="{{ route('profile.edit', Auth::user()->id) }}">Setting</a>
+                                                                </h4>
                                                             </div>
                                                         </li>
                                                         <li>

@@ -46,9 +46,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/dashboard', [DashboardController::class, 'index']);
     // Sell route
     Route::get('/sell', [SellController::class, 'index']);
@@ -70,9 +67,12 @@ Route::middleware('auth')->group(function () {
     Route::resource('orders', OrderController::class);
     Route::get('/invoice', [OrderController::class, 'invoice'])->name('orders.invoice');
     // Profile route
-    Route::get('/my-profile', [profileController::class, 'index']);
+    //Route::get('/my-profile', [profileController::class, 'index']);
     // Settings route
-    Route::get('/setting', [SettingController::class, 'index']);
+    // Route::get('/setting', [profileController::class, 'index']);
+    // Route::put('/setting', [profileController::class, 'update']);
+    Route::resource('profile', profileController::class);
+
     // MyCollection route
     Route::get('/my-collection', [GalleryController::class, 'index']);
     // MarketplaceDetails route

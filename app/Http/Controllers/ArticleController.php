@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Category;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ArticleController extends Controller
  {
@@ -19,9 +20,9 @@ class ArticleController extends Controller
  {
 
         $Auth = Auth::user();
-        
+
         //$articles = Article::with( 'categories' )->get();
-        $articles = $Auth->articles()->with('categories')->get();
+        $articles = $Auth->articles()->with( 'categories' )->get();
         return view( 'back-office/articles.index', compact( 'articles' ) );
     }
 
@@ -60,8 +61,19 @@ class ArticleController extends Controller
             $input[ 'image' ] = 'assets/img/notFoundImg.png';
         }
 
-        $article = Article::create( $input );
+        $validator = Validator::make( $request->all(), [
+            'title' => 'required|max:30',
+            'content' => 'required|max:400',
 
+            'category' => 'required',
+        ] );
+
+        if ( $validator->fails() ) {
+            return redirect()->back()
+            ->withErrors( $validator )
+            ->withInput();
+        }
+        $article = Article::create( $input );
         $article->categories()->sync( $request->input( 'category' ) );
         error_log( 'Some message here 22.' );
 
@@ -106,16 +118,6 @@ class ArticleController extends Controller
 
     public function update( Request $request, $id )
  {
-        //
-        //     $request->validate( [
-        //         'articleTitle' => 'required',
-        //         'articleContent' => 'required',
-        // ] );
-
-        //     $article->fill( $request->post() )->save();
-
-        //     return redirect()->route( 'articles.index' )->with( 'success', 'article Has Been updated successfully' );
-        //
         $article = Article::findOrFail( $id );
 
         $input = $request->all();
@@ -126,6 +128,18 @@ class ArticleController extends Controller
         } else {
             $input[ 'image' ] = $article->image;
         }
+        $validator = Validator::make( $request->all(), [
+            'title' => 'required|max:30',
+            'content' => 'required|max:400',
+            'category' => 'required',
+        ] );
+
+        if ( $validator->fails() ) {
+            return redirect()->back()
+            ->withErrors( $validator )
+            ->withInput();
+        }
+
         $input[ 'isPublished' ] = $request->has( 'isPublished' );
         $article->update( $input );
 

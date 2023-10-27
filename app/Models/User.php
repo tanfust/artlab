@@ -23,6 +23,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'field',
+        'nationality',
+        'image',
+        'cover',
+        'bio',
     ];
 
     /**
@@ -43,6 +48,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    // protected $attributes = [
+    //     'image' => 'assets/img/userImage.jpg',
+    // ];
     public function articles()
 {
     return $this->hasMany(Article::class, 'user_id');

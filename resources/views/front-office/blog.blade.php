@@ -45,7 +45,7 @@
                             </h1>
                         </div>
                     </h1>
-                    <div class="w-[50%] flex justify-between">
+                    <div class="w-[100%] flex justify-between">
                         <h1 class="text-7xl font-bold text-text3 pb-4">{{ $article->title }}</h1>
                         <div class="flex flex-col text-text3">
                             <h1 class="text-base font-medium max-w-4xl tracking-tighter">Published at :
