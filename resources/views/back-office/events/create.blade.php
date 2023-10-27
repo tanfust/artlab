@@ -1,4 +1,4 @@
-@include('Layout.Header')
+@include('back-office/Layout.Header')
 <div class="row">
 <div class="col-lg-2">
 
@@ -21,7 +21,7 @@
                 <label for="date">Date:</label>
                 <input type="date" class="form-control" id="date" name="date" value="{{ old('date') }}" required>
             </div>
-            
+
             <br/>
             <label for="location_id">location:</label>
             <select name="location_id" class="form_control">
@@ -29,7 +29,7 @@
                 <option value=" {{ $item->id }} ">{{$item->name}}</option>
                 @endforeach
             </select>
-         
+
             <button type="submit" style="float:right" class="btn btn-primary active">Create Event</button>
         </form>
     </div>
@@ -39,5 +39,3 @@
 </div>
 </div>
 
-				
-@include('Layout.Footer')	

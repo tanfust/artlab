@@ -12,11 +12,12 @@ class EventController extends Controller
 
 
 
-    public function index()
-    {
-        $events = Event::all(); // Retrieve all events
-        return view('back-office/events/create', compact('events')); // Pass data to the view
-    }
+public function index()
+{
+    $events = Event::all(); // Retrieve all events
+    error_log('hello');
+    return view('events.index', compact('events')); // Pass data to the view
+}
 
     public function create()
     {

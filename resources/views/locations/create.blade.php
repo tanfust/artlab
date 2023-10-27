@@ -1,4 +1,4 @@
-@include('Layout.Header')
+@include('back-office/Layout.Header')
 
 
 <div class="row">
@@ -19,7 +19,7 @@
                 <label for="address">Address</label>
                 <textarea class="form-control" id="name" name="address" placeholder="Enter adresse" rows="4" required></textarea>
             </div>
-           
+
             <br/>
             <button type="submit" style="float:right" class="btn btn-primary active">Create Location</button>
         </form>
@@ -29,4 +29,3 @@
 
 </div>
 </div>
-@include('Layout.Footer')	

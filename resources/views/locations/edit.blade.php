@@ -1,5 +1,5 @@
 
-@include('Layout.Header')
+@include('back-office/Layout.Header')
 
 <div class="row">
 <div class="col-lg-2">
@@ -10,7 +10,7 @@
         <h2>Edit Location</h2>
 
         @if(session('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success mt-6">
                 {{ session('success') }}
             </div>
         @endif
@@ -31,10 +31,3 @@
         </div>
 
 </div>
-
-<div class="col-lg-2">
-
-</div>
-
-    </div>
-    @include('Layout.Footer')	

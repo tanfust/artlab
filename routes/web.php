@@ -68,6 +68,7 @@ Route::middleware('auth')->group(function () {
 
     // Orders route
     Route::resource('orders', OrderController::class);
+    Route::get('/invoice', [OrderController::class, 'invoice'])->name('orders.invoice');
     // Profile route
     Route::get('/my-profile', [profileController::class, 'index']);
     // Settings route
@@ -110,7 +111,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/', function () {
         return view('front-office/welcome');
     });
-    Route::get('/events', function () {
+    Route::get('/new-events', function () {
         return view('front-office/events');
     });
     Route::get('/tickets', function () {
