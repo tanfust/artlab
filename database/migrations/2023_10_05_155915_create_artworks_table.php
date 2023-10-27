@@ -4,7 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -14,11 +15,13 @@ return new class extends Migration {
     {
         Schema::create('artworks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->unsignedBigInteger('gallery_id');
-            $table->string('imageName');
+            $table->unsignedBigInteger('gallery_id'); // Foreign key to link the artwork to a gallery
+            $table->string('imageName'); // Name or path of the artwork image
+            $table->string('Description');
+            $table->string('Name');
+            $table->float('Price'); // Price of the artwork
             $table->timestamps();
-            $table->foreign('gallery_id')->references('id')->on('galleries');
+            $table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

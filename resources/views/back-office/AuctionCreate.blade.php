@@ -34,7 +34,7 @@
                                                             aria-label="Default select example">
                                                             @foreach ($artworks as $artwork)
                                                                 <option value="{{ $artwork->id }}">
-                                                                    {{ $artwork->name }}</option>
+                                                                    {{ $artwork->Description }}</option>
                                                             @endforeach
                                                         </select>
 

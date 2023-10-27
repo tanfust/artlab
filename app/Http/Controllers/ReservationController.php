@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Auction;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,9 @@ class ReservationController extends Controller
 {
     public function create()
     {
-        return view('front-office/reservations/create');
+        //auction that is comming soon
+        $Auction = Auction::all();
+        return view('front-office/reservations/create', compact('Auction'));
     }
 
     public function store(Request $request)

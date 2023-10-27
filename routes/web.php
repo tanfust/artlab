@@ -22,9 +22,13 @@ use App\Http\Controllers\MyCollectionController;
 use App\Http\Controllers\MarketPlaceDetailsController;
 use App\Http\Controllers\ProductUploadController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\ArtworkController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
 
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\LocationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +65,7 @@ Route::middleware('auth')->group(function () {
 
     // Orders route
     Route::resource('orders', OrderController::class);
+    Route::get('/invoice', [OrderController::class, 'invoice'])->name('orders.invoice');
     // Profile route
     //Route::get('/my-profile', [profileController::class, 'index']);
     // Settings route
@@ -69,9 +74,33 @@ Route::middleware('auth')->group(function () {
     Route::resource('profile', profileController::class);
 
     // MyCollection route
-    Route::get('/my-collection', [MyCollectionController::class, 'index']);
+    Route::get('/my-collection', [GalleryController::class, 'index']);
     // MarketplaceDetails route
     Route::get('/market-place-details', [MarketPlaceDetailsController::class, 'index']);
+
+    //Events
+    Route::get('/events', [EventController::class, 'index'])->name('events.index');
+    // Show the form to create a new event
+    Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+    // Store a new event
+    Route::post('/events', [EventController::class, 'store'])->name('events.store');
+    // Show a single event
+    Route::get('/events/{event}', [EventController::class, 'show'])->name('events.show');
+    // Show the form to edit an event
+    Route::get('/events/{event}/edit', [EventController::class, 'edit'])->name('events.edit');
+    // Update an event
+    Route::put('/events/{event}', [EventController::class, 'update'])->name('events.update');
+    // Delete an event
+    Route::delete('/events/{event}', [EventController::class, 'destroy'])->name('events.destroy');
+    Route::get('locations', [LocationController::class, 'index'])->name('locations.index');
+    Route::get('locations/create', [LocationController::class, 'create'])->name('locations.create');
+    Route::post('locations', [LocationController::class, 'store'])->name('locations.store');
+    Route::get('locations/{location}', [LocationController::class, 'show'])->name('locations.show');
+    Route::get('locations/{location}/edit', [LocationController::class, 'edit'])->name('locations.edit');
+    Route::put('locations/{location}', [LocationController::class, 'update'])->name('locations.update');
+    Route::delete('locations/{location}', [LocationController::class, 'destroy'])->name('locations.destroy');
+    Route::resource('Gallery', GalleryController::class);
+    Route::resource('artwork', ArtworkController::class);
     Route::resource('categories', CategoryController::class);
     Route::resource('articles', ArticleController::class);
 });
@@ -82,12 +111,13 @@ Route::middleware('guest')->group(function () {
     Route::get('/', function () {
         return view('front-office/welcome');
     });
-    Route::get('/events', function () {
+    Route::get('/new-events', function () {
         return view('front-office/events');
     });
     Route::get('/tickets', function () {
         return view('front-office/buy-ticket');
     });
+
     Route::get('/mission', function () {
         return view('front-office/our-mission');
     });

@@ -45,14 +45,16 @@
                                                         <option value="cancelled">Cancelled</option>
                                                     </select>
                                                 </div>
-                                                <div class="nftmax__item-form--group">
-                                                    <label for="client" class="nftmax__item-label">Client Name</label>
-                                                    <input name="client"
-                                                        value="{{ $order->client }}"
-                                                        class="nftmax__item-input nftmax__item-input__arrow"
-                                                        type="text"
-                                                        placeholder="Client name"
-                                                        required="required">
+                                                <div class="nftmax__item-form--group old-select">
+                                                    <label for="client_id"
+                                                        class="nftmax__item-label">Client</label>
+                                                    <select name="client_id" id="client" class="form-select"
+                                                        aria-label="Default select example">
+                                                        <option disabled selected>Select Client</option>
+                                                        @foreach ($clients as $client)
+                                                        <option value="{{$client->id}}">{{$client->name}}</option>
+                                                        @endforeach
+                                                    </select>
                                                 </div>
                                                 <div class="nftmax__item-form--group">
                                                     <label for="totalAmount" class="nftmax__item-label">Total Amount</label>
@@ -85,8 +87,7 @@
                                     </div>
                                 </div>
                                 <div class="nftmax__item-button--group">
-                                    <a href="{{ url('/orders') }}"><button class="nftmax__item-button--single nftmax__item-button--cancel"
-                                        data-bs-toggle="modal" data-bs-target="#cancel_modal">Cancel</button>
+                                    <a href="{{ url('/orders') }}">Cancel</a>
                                     <button
                                         class="nftmax__item-button--single nftmax-btn nftmax-btn__bordered bg radius nftmax-item__btn"
                                         type="submit">Create Now</button>

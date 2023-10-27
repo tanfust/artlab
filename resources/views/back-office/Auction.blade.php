@@ -1,4 +1,5 @@
 @include('back-office/Layout.Header')
+
 <section class="nftmax-adashboard nftmax-show">
     <div class="container">
         <div class="row">
@@ -27,7 +28,8 @@
                                             <div class="dashboard-banner__content">
                                                 <h2 class="dashboard-banner__title nftmax-font-regular nftmax-lspacing">
                                                     {{ $auction->description }}</h2>
-                                                <p class="dashboard-banner__text nftmax-lspacing">Auction Id :
+                                                <p class="dashboard-banner__text nftmax-lspacing">Auction Id
+                                                    :
                                                     {{ $auction->id }}</p>
                                             </div>
                                             <div class="nftmax-header__author nftmax-header__author-two ">
@@ -48,7 +50,8 @@
                                             <div class="dashboard-banner__bids">
                                                 <div class="dashboard-banner__bid">
                                                     <div class="dashboard-banner__group">
-                                                        <p class="dashboard-banner__group-small">Current Bid</p>
+                                                        <p class="dashboard-banner__group-small">Current Bid
+                                                        </p>
                                                         <h3 class="dashboard-banner__group-title">
                                                             {{ $auction->startingPrice }}</h3>
                                                         <p class="dashboard-banner__group-small">
@@ -56,13 +59,15 @@
                                                     </div>
                                                     <div class="dashboard-banner__middle-border"></div>
                                                     <div class="dashboard-banner__group">
-                                                        <p class="dashboard-banner__group-small">Remaing Time</p>
+                                                        <p class="dashboard-banner__group-small">Remaing
+                                                            Time</p>
                                                         <h3 class="dashboard-banner__group-title"
                                                             data-countdown="{{ $auction->endDate }}">
                                                             {{ $auction->endDate }}
                                                         </h3>
                                                         <p class="dashboard-banner__group-small nftmax-timing">
-                                                            <span>Days</span> <span>Hrs</span> <span>Min</span>
+                                                            <span>Days</span> <span>Hrs</span>
+                                                            <span>Min</span>
                                                             <span>Sec</span>
                                                         </p>
                                                     </div>
@@ -96,7 +101,7 @@
                                         <div class="dashboard-banner__column dashboard-banner__column--one">
                                             <div class="dashboard-banner__slider">
                                                 <div class="dashboard-banner__single-slider">
-                                                    <img src="{{ asset($auction->Artwork->imageName) }}"
+                                                    <img src="{{ asset('public/assets/img/' . $auction->Artwork->imageName) }}"
                                                         class="w-full h-full" alt="#">
                                                 </div>
                                             </div>
@@ -108,7 +113,6 @@
                     @endforeach
                     <div class="row nftmax-gap-sq30 trending-action__actives">
                         <h2 class="trending-action__heading mg-btm-20 mt-10">All Reservation</h2>
-
                         <form action="#">
                             <div class="nftmax-personals__history">
                                 <table id="nftmax-table__main" class="nftmax-table__main nftmax-table__main--profile">
@@ -189,5 +193,7 @@
             </div>
         </div>
     </div>
-    @include('back-office/Layout.RightSidebar')
-    @include('back-office/Layout.Footer')
+</section>
+
+@include('back-office/Layout.RightSidebar')
+@include('back-office/Layout.Footer')
